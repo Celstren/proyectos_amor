@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:proyectos_amor/config/app_config.dart';
+import 'package:proyectos_amor/injection.dart';
+import 'package:intl/intl.dart';
 
-void main() {
+Future<void> main() async {
+  configureDependencies();
+  WidgetsFlutterBinding.ensureInitialized();
+  await getIt<AppConfig>().initialize();
+  Intl.defaultLocale = 'en';
   runApp(const MyApp());
 }
 
