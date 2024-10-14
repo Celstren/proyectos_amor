@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:injectable/injectable.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
+import 'package:proyectos_amor/objectbox.g.dart';
 
 @LazySingleton(as: IInternalStorageRepository)
 class InternalStorageRepository implements IInternalStorageRepository {

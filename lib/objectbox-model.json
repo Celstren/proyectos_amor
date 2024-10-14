@@ -1,0 +1,125 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:8776791124196053813",
+      "lastPropertyId": "2:7431514921332666091",
+      "name": "FirstTimeOpenEntity",
+      "properties": [
+        {
+          "id": "1:5105039012285135770",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7431514921332666091",
+          "name": "username",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:426841524274003113",
+      "lastPropertyId": "4:2229983624110069233",
+      "name": "LastLoginEntity",
+      "properties": [
+        {
+          "id": "1:1208031149715070580",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:248520837446826261",
+          "name": "username",
+          "type": 9
+        },
+        {
+          "id": "3:5643987449863510042",
+          "name": "biometricsEnabled",
+          "type": 1
+        },
+        {
+          "id": "4:2229983624110069233",
+          "name": "notificationsEnabled",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:8643999438812417531",
+      "lastPropertyId": "10:1405239119387660935",
+      "name": "SystemUserEntity",
+      "properties": [
+        {
+          "id": "1:8079655583261075604",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1974288838718269186",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:8610701599322730355",
+          "name": "fullName",
+          "type": 9
+        },
+        {
+          "id": "4:8929700066920889547",
+          "name": "email",
+          "type": 9
+        },
+        {
+          "id": "5:4140269801692395296",
+          "name": "gender",
+          "type": 9
+        },
+        {
+          "id": "6:9017510478756353673",
+          "name": "locale",
+          "type": 9
+        },
+        {
+          "id": "7:403088034138966482",
+          "name": "avatarRef",
+          "type": 9
+        },
+        {
+          "id": "8:4933211244298596350",
+          "name": "avatarType",
+          "type": 9
+        },
+        {
+          "id": "9:3799324146152953192",
+          "name": "preferencesString",
+          "type": 9
+        },
+        {
+          "id": "10:1405239119387660935",
+          "name": "emailVerified",
+          "type": 1
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "3:8643999438812417531",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
