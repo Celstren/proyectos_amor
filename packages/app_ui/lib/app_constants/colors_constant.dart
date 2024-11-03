@@ -1,9 +1,11 @@
 import 'dart:ui';
 
+
 class ColorsConstant {
   static const Color background = Color(0xFFFFFFFF);
   static const Color scaffoldBackground = Color(0xFFFFFFFF);
   static const Color primaryColor = Color(0xFF009C39);
+  static const Color secondaryColor = Color(0xFFF9DE59);
   static const Color splashPrimaryFontColor = Color(0xFF171D1C);
   static const Color splashSecondaryFontColor = Color(0xFFFF8C04);
   static const Color splashButtonPrimaryFontColor = Color(0xFF009C39);
