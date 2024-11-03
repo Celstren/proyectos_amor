@@ -1,5 +1,5 @@
 class DashboardStrings {
-  static const String bottomNavigationHomeLabel = 'Home';
-  static const String bottomNavigationAwardLabel = 'Home';
-  static const String bottomNavigationProfileLabel = 'Home';
+  static const String bottomNavigationHomeLabel = 'Inicio';
+  static const String bottomNavigationAwardLabel = 'Logros';
+  static const String bottomNavigationProfileLabel = 'Usuarios';
 }
