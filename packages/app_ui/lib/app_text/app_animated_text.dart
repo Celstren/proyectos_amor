@@ -100,7 +100,7 @@ class AppAnimatedText extends StatelessWidget {
         decoration: decoration,
         overflow: TextOverflow.clip,
         letterSpacing: letterSpacing,
-        fontFamily: FontsConstant.euclid,
+        fontFamily: FontsConstant.montserrat,
         package: 'app_ui',
       ),
       duration: const Duration(milliseconds: 500),

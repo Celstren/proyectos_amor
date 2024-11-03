@@ -175,7 +175,7 @@ class _AppDebouncedTextFieldState extends State<AppDebouncedTextField> {
             color: ColorsConstant.skyBlue950,
             fontStyle: widget.fontStyle,
             letterSpacing: .5,
-            fontFamily: FontsConstant.euclid,
+            fontFamily: FontsConstant.montserrat,
             package: 'app_ui',
           ),
           decoration: InputDecoration(
@@ -186,7 +186,7 @@ class _AppDebouncedTextFieldState extends State<AppDebouncedTextField> {
               color: ColorsConstant.text400,
               fontStyle: widget.fontStyle,
               letterSpacing: .5,
-              fontFamily: FontsConstant.euclid,
+              fontFamily: FontsConstant.montserrat,
               package: 'app_ui',
             ),
             contentPadding: const EdgeInsets.all(12),

@@ -108,7 +108,7 @@ class AppText extends StatelessWidget {
         decorationColor: decorationColor,
         overflow: TextOverflow.clip,
         letterSpacing: letterSpacing,
-        fontFamily: FontsConstant.euclid,
+        fontFamily: FontsConstant.montserrat,
         package: 'app_ui',
       ),
       overflow: overFlow,

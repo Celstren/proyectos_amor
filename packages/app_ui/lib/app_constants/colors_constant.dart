@@ -1,6 +1,28 @@
 import 'dart:ui';
 
 class ColorsConstant {
+  static const Color background = Color(0xFFFFFFFF);
+  static const Color scaffoldBackground = Color(0xFFFFFFFF);
+  static const Color primaryColor = Color(0xFF009C39);
+  static const Color splashPrimaryFontColor = Color(0xFF171D1C);
+  static const Color splashSecondaryFontColor = Color(0xFFFF8C04);
+  static const Color splashButtonPrimaryFontColor = Color(0xFF009C39);
+  static const Color splashButtonSecondaryFontColor = Color(0xFFFFFFFF);
+  static const Color sliderPrimaryColor = Color(0xFF009C39);
+  static const Color sliderSecondaryColor = Color(0xFFE2E2E2);
+
+  static const Color primaryColor050 = Color(0xFFE5FFEF);
+  static const Color primaryColor100 = Color(0xFFB3FFCE);
+  static const Color primaryColor200 = Color(0xFF80FFAE);
+  static const Color primaryColor300 = Color(0xFF4DFF8E);
+  static const Color primaryColor400 = Color(0xFF1AFF6D);
+  static const Color primaryColor500 = Color(0xFF00E654);
+  static const Color primaryColor600 = Color(0xFF00B341);
+  static const Color primaryColor700 = Color(0xFF00B341);
+  static const Color primaryColor800 = Color(0xFF00802F);
+  static const Color primaryColor900 = Color(0xFF004D1C);
+  static const Color primaryColor950 = Color(0xFF001A09);
+
   static const Color skyBlue050 = Color(0xFFEDF8FF);
   static const Color skyBlue100 = Color(0xFFD7EDFF);
   static const Color skyBlue200 = Color(0xFFB9E0FF);

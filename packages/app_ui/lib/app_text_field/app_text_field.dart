@@ -53,6 +53,8 @@ class AppTextField extends StatelessWidget {
   final bool expands;
 
   final double? borderWidth;
+  final bool? filled;
+  final Color? fillColor;
 
   const AppTextField({
     super.key,
@@ -90,6 +92,8 @@ class AppTextField extends StatelessWidget {
     this.expands = false,
     this.enableSuggestions = false,
     this.borderWidth,
+    this.filled,
+    this.fillColor,
   });
 
   @override
@@ -144,18 +148,20 @@ class AppTextField extends StatelessWidget {
             color: ColorsConstant.skyBlue950,
             fontStyle: fontStyle,
             letterSpacing: .5,
-            fontFamily: FontsConstant.euclid,
+            fontFamily: FontsConstant.montserrat,
             package: 'app_ui',
           ),
           decoration: InputDecoration(
             hintText: hint,
+            filled: filled,
+            fillColor: fillColor,
             hintStyle: TextStyle(
               fontSize: fontSize,
               fontWeight: fontWeight ?? FontWeight.w400,
               color: ColorsConstant.text400,
               fontStyle: fontStyle,
               letterSpacing: .5,
-              fontFamily: FontsConstant.euclid,
+              fontFamily: FontsConstant.montserrat,
               package: 'app_ui',
             ),
             contentPadding: const EdgeInsets.all(12),

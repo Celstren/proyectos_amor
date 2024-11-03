@@ -6,7 +6,8 @@ class AppProgressBar extends StatelessWidget {
   final String label;
   final double percentage;
   final Color color;
-  const AppProgressBar({super.key, this.label = '', this.percentage = .0, this.color = ColorsConstant.skyBlue950,});
+  final Widget? child;
+  const AppProgressBar({super.key, this.label = '', this.percentage = .0, this.color = ColorsConstant.skyBlue950, this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class AppProgressBar extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Row(
+        child ?? Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[

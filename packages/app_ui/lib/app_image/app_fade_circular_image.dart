@@ -12,6 +12,7 @@ class AppFadeCircularImage extends StatelessWidget {
   final Color? background;
   final BoxFit? fit;
   final String? errorAsset;
+  final Border? border;
 
   const AppFadeCircularImage({
     super.key,
@@ -23,7 +24,8 @@ class AppFadeCircularImage extends StatelessWidget {
     this.background,
     this.fit,
     this.errorAsset,
-  }) : assert(asset != '', 'Asset name cannot be empty');
+    this.border,
+  });
 
   const AppFadeCircularImage.asset({
     super.key,
@@ -35,7 +37,8 @@ class AppFadeCircularImage extends StatelessWidget {
     this.background,
     this.fit,
     this.errorAsset,
-  }) : assert(asset != '', 'Asset name cannot be empty');
+    this.border,
+  });
 
   const AppFadeCircularImage.network({
     super.key,
@@ -47,7 +50,8 @@ class AppFadeCircularImage extends StatelessWidget {
     this.background,
     this.fit,
     this.errorAsset = 'packages/app_ui/assets/images/image_placeholder.png',
-  }) : assert(asset != '', 'Asset name cannot be empty');
+    this.border,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +60,7 @@ class AppFadeCircularImage extends StatelessWidget {
       height: size ?? height,
       decoration: BoxDecoration(
         color: background,
+        border: border,
         shape: BoxShape.circle,
       ),
       child: ClipOval(

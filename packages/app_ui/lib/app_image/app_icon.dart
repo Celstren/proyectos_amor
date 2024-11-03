@@ -54,6 +54,24 @@ class AppIcon extends StatelessWidget {
     this.color,
   });
 
+  const AppIcon.awardFilledIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.awardFilledIcon,
+    this.color,
+  });
+
+  const AppIcon.awardOutlineIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.awardOutlineIcon,
+    this.color,
+  });
+
   const AppIcon.barChartIcon({
     super.key,
     this.height = 24,
@@ -279,12 +297,30 @@ class AppIcon extends StatelessWidget {
     this.color,
   });
 
+  const AppIcon.hearthFilledIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.hearthFilledIcon,
+    this.color,
+  });
+
   const AppIcon.hearthIcon({
     super.key,
     this.height = 24,
     this.width = 24,
     this.size,
     this.asset = AppIconPath.hearthIcon,
+    this.color,
+  });
+
+  const AppIcon.helpCircleIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.helpCircleIcon,
     this.color,
   });
 
@@ -303,6 +339,24 @@ class AppIcon extends StatelessWidget {
     this.width = 24,
     this.size,
     this.asset = AppIconPath.homeIcon,
+    this.color,
+  });
+
+  const AppIcon.homeFilledIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.homeFilledIcon,
+    this.color,
+  });
+
+  const AppIcon.homeOutlineIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.homeOutlineIcon,
     this.color,
   });
 
@@ -368,6 +422,15 @@ class AppIcon extends StatelessWidget {
     this.color,
   });
 
+  const AppIcon.lockFilledIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.lockFilledIcon,
+    this.color,
+  });
+
   const AppIcon.lockIcon({
     super.key,
     this.height = 24,
@@ -401,6 +464,24 @@ class AppIcon extends StatelessWidget {
     this.width = 24,
     this.size,
     this.asset = AppIconPath.messageCircleIcon,
+    this.color,
+  });
+
+  const AppIcon.passcodeLockIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.passcodeLockIcon,
+    this.color,
+  });
+
+  const AppIcon.playFilledIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.playFilledIcon,
     this.color,
   });
 
@@ -503,6 +584,15 @@ class AppIcon extends StatelessWidget {
     this.color,
   });
 
+  const AppIcon.subtractCircleIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.subtractCircleIcon,
+    this.color,
+  });
+
   const AppIcon.swimmingIcon({
     super.key,
     this.height = 24,
@@ -536,6 +626,33 @@ class AppIcon extends StatelessWidget {
     this.width = 24,
     this.size,
     this.asset = AppIconPath.userIcon,
+    this.color,
+  });
+
+  const AppIcon.userFilledIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.userFilledIcon,
+    this.color,
+  });
+
+  const AppIcon.userOutlineIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.userOutlineIcon,
+    this.color,
+  });
+
+  const AppIcon.userRoundedFilledIcon({
+    super.key,
+    this.height = 24,
+    this.width = 24,
+    this.size,
+    this.asset = AppIconPath.userRoundedFilledIcon,
     this.color,
   });
 

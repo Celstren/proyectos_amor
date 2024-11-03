@@ -7,7 +7,7 @@ class AppTabBar {
         child: Text(
           label,
           style: const TextStyle(
-            fontFamily: FontsConstant.euclid,
+            fontFamily: FontsConstant.montserrat,
             package: 'app_ui',
           ),
           overflow: TextOverflow.ellipsis,

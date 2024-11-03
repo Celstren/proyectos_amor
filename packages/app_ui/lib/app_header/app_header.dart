@@ -43,6 +43,7 @@ class AppHeader extends StatelessWidget {
             behavior: HitTestBehavior.opaque,
             child: Container(
               padding: const EdgeInsets.all(12),
+              margin: const EdgeInsets.only(right: 12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: iconBackgroundColor ?? ColorsConstant.neutralWhite.withOpacity(.1),
