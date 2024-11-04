@@ -13,6 +13,8 @@ class ColorsConstant {
   static const Color sliderPrimaryColor = Color(0xFF009C39);
   static const Color sliderSecondaryColor = Color(0xFFE2E2E2);
 
+  static const Color secondaryFontColor = Color(0xFFFF8C04);
+
   static const Color primaryColor050 = Color(0xFFE5FFEF);
   static const Color primaryColor100 = Color(0xFFB3FFCE);
   static const Color primaryColor200 = Color(0xFF80FFAE);

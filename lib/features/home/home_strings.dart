@@ -20,4 +20,7 @@ class HomeStrings {
 
   static const String homeDonationTitle = '¡Contamos contigo!';
   static const String homeDonationSubTitle = 'Si te gusta lo que ves, ayúdanos donando desde S/ 1.00';
+
+  static const String unauthorizedDonationsContentTitle = 'No tienes donativos';
+  static const String unauthorizedDonationsContentDescription = '¡Inicia sesión para realizar tu primera donación!';
 }

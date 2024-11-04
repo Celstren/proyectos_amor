@@ -35,18 +35,19 @@ class AppPasswordTextField extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        AppText.medium(
-          label,
-          textAlign: TextAlign.left,
-          fontSize: 16,
-          fontColor:
-              enabled ? ColorsConstant.skyBlue950 : ColorsConstant.text200,
-        ),
-        const SizedBox(height: 8),
+        if (label.isNotEmpty)
+        ...[
+          AppText.medium(
+            label,
+            textAlign: TextAlign.left,
+            fontSize: 16,
+            fontColor:
+            enabled ? ColorsConstant.skyBlue950 : ColorsConstant.text200,
+          ),
+          const SizedBox(height: 8),
+        ],
         AppTextField(
           controller: controller,
-          borderColor: ColorsConstant.text100,
-          highlightBorderColor: ColorsConstant.skyBlue600,
           hint: hint,
           obscureText: obscured,
           textInputType: textInputType ?? TextInputType.visiblePassword,

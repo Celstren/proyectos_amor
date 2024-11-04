@@ -4,4 +4,6 @@ class AppRoutePath {
   static const String profileScreenPath = 'profile_screen';
   static const String awardScreenPath = 'award_screen';
   static const String dashboardScreenPath = '/dashboard_screen';
+  static const String loginScreenPath = '/login_screen';
+  static const String createAccountScreenPath = '/create_account_screen';
 }

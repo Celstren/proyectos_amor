@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectos_amor/features/onboarding/logic_holders/cubits/change_onboarding_step_cubit/change_onboarding_step_cubit.dart';
@@ -19,26 +17,13 @@ class OnboardingStepThree extends StatefulWidget {
 }
 
 class _OnboardingStepThreeState extends State<OnboardingStepThree> with TickerProviderStateMixin {
-  final scrollController = ScrollController();
-  late final Timer timer;
-
   @override
   void initState() {
-    timer = Timer.periodic(const Duration(milliseconds: 500), (_) {
-      setState(() {
-        scrollController.animateTo(
-          scrollController.position.pixels + 10,
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.ease,
-        );
-      });
-    });
     super.initState();
   }
 
   @override
   void dispose() {
-    timer.cancel();
     super.dispose();
   }
 
@@ -58,9 +43,9 @@ class _OnboardingStepThreeState extends State<OnboardingStepThree> with TickerPr
             subTitle: OnboardingStrings.splashThreeSubTitle,
           ),
           const SizedBox(height: 50),
-          SingleChildScrollView(
+          const SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: const Row(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,9 +56,9 @@ class _OnboardingStepThreeState extends State<OnboardingStepThree> with TickerPr
             ),
           ),
           const SizedBox(height: 15),
-          SingleChildScrollView(
+          const SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: const Row(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -84,9 +69,9 @@ class _OnboardingStepThreeState extends State<OnboardingStepThree> with TickerPr
             ),
           ),
           const SizedBox(height: 15),
-          SingleChildScrollView(
+          const SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: const Row(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,

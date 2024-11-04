@@ -44,9 +44,6 @@ class AppLabeledTextField extends StatelessWidget {
         const SizedBox(height: 8),
         AppTextField(
           controller: controller,
-          borderColor: error.isNotEmpty ? ColorsConstant.feedbackError400 : ColorsConstant.text100,
-          highlightBorderColor: error.isNotEmpty ? ColorsConstant.feedbackError400 : ColorsConstant.skyBlue600,
-          borderWidth: error.isNotEmpty ? 2 : null,
           hint: hint,
           textInputType: textInputType,
           onSubmitted: onSubmitted,

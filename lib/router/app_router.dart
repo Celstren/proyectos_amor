@@ -32,5 +32,13 @@ class AppRouter extends RootStackRouter {
         ),
       ],
     ),
+    CustomRoute(
+      page: LoginPageRoute.page,
+      path: AppRoutePath.loginScreenPath,
+    ),
+    CustomRoute(
+      page: CreateAccountPageRoute.page,
+      path: AppRoutePath.createAccountScreenPath,
+    ),
   ];
 }

@@ -2,9 +2,11 @@ import 'package:app_ui/app_constants/colors_constant.dart';
 import 'package:app_ui/app_constants/size_constants.dart';
 import 'package:app_ui/app_image/app_icon.dart';
 import 'package:app_ui/app_text/app_text.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectos_amor/features/profile/presentation/content/unauthenticated_profile/unauthorized_profile_tabs/unauthorized_profile_tabs.dart';
 import 'package:proyectos_amor/features/profile/profile_strings.dart';
+import 'package:proyectos_amor/router/app_router.gr.dart';
 
 class UnauthenticatedProfile extends StatefulWidget {
   const UnauthenticatedProfile({super.key});
@@ -27,6 +29,7 @@ class _UnauthenticatedProfileState extends State<UnauthenticatedProfile> with Ti
     return Material(
       color: ColorsConstant.background,
       child: SafeArea(
+        top: false,
         child: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return <Widget>[
@@ -38,48 +41,61 @@ class _UnauthenticatedProfileState extends State<UnauthenticatedProfile> with Ti
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
+                      if (MediaQuery.of(context).viewPadding.top > 0)
+                        SizedBox(height: MediaQuery.of(context).viewPadding.top),
                       const SizedBox(height: 45),
-                      Container(
-                        height: 102,
-                        width: 102,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: ColorsConstant.neutralWhite,
+                      GestureDetector(
+                        onTap: () => AutoRouter.of(context).push(const LoginPageRoute()),
+                        behavior: HitTestBehavior.opaque,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            Container(
+                              height: 102,
+                              width: 102,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: ColorsConstant.neutralWhite,
+                              ),
+                              child: const Center(
+                                child: AppIcon.userRoundedFilledIcon(
+                                  color: ColorsConstant.text600,
+                                  size: 32,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: SizeConstants.xl),
+                            const AppText.semiBold(
+                              ProfileStrings.unauthenticatedProfileTitle,
+                              fontSize: 18,
+                              fontColor: ColorsConstant.text950,
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: SizeConstants.xs),
+                            const Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                AppText.normal(
+                                  ProfileStrings.unauthenticatedProfileSubTitle1,
+                                  fontSize: 14,
+                                  fontColor: ColorsConstant.text950,
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(width: SizeConstants.sm),
+                                AppText.semiBold(
+                                  ProfileStrings.unauthenticatedProfileSubTitle2,
+                                  fontSize: 14,
+                                  fontColor: ColorsConstant.text950,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        child: const Center(
-                          child: AppIcon.userRoundedFilledIcon(
-                            color: ColorsConstant.text600,
-                            size: 32,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: SizeConstants.xl),
-                      const AppText.semiBold(
-                        ProfileStrings.unauthenticatedProfileTitle,
-                        fontSize: 18,
-                        fontColor: ColorsConstant.text950,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: SizeConstants.xs),
-                      const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          AppText.normal(
-                            ProfileStrings.unauthenticatedProfileSubTitle1,
-                            fontSize: 14,
-                            fontColor: ColorsConstant.text950,
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(width: SizeConstants.sm),
-                          AppText.semiBold(
-                            ProfileStrings.unauthenticatedProfileSubTitle2,
-                            fontSize: 14,
-                            fontColor: ColorsConstant.text950,
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
                       ),
                       const SizedBox(height: 52),
                     ],
