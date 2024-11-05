@@ -5,11 +5,10 @@ import 'package:app_ui/app_text/app_text.dart';
 import 'package:app_ui/app_text_field/app_labeled_text_field.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:proyectos_amor/features/forgot_password/forgot_password_strings.dart';
-import 'package:proyectos_amor/router/app_router.gr.dart';
+import 'package:proyectos_amor/features/code_verification/code_verification_strings.dart';
 
-class ForgotPasswordForm extends StatelessWidget {
-  const ForgotPasswordForm({super.key});
+class CodeVerificationForm extends StatelessWidget {
+  const CodeVerificationForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +18,24 @@ class ForgotPasswordForm extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         const AppText.normal(
-          ForgotPasswordStrings.forgotPasswordFormTitle,
+          CodeVerificationStrings.codeVerificationFormTitle,
           fontSize: 12,
           fontColor: ColorsConstant.primaryColor950,
           textAlign: TextAlign.start,
         ),
         const SizedBox(height: SizeConstants.xl),
         const AppLabeledTextField(
-          label: ForgotPasswordStrings.forgotPasswordFormEmailLabel,
-          hint: ForgotPasswordStrings.forgotPasswordFormEmailHint,
+          label: CodeVerificationStrings.codeVerificationFormCodeLabel,
+          hint: CodeVerificationStrings.codeVerificationFormCodeHint,
         ),
         const SizedBox(height: SizeConstants.xl),
         AppButton.solid(
-          text: ForgotPasswordStrings.forgotPasswordFormPrimaryButton,
-          onTap: () => AutoRouter.of(context).push(const CodeVerificationPageRoute()),
+          text: CodeVerificationStrings.codeVerificationFormPrimaryButton,
+          onTap: () {},
         ),
         const SizedBox(height: SizeConstants.xl),
         AppButton.link(
-          text: ForgotPasswordStrings.forgotPasswordFormSecondaryButton,
+          text: CodeVerificationStrings.codeVerificationFormSecondaryButton,
           onTap: AutoRouter.of(context).maybePop,
         ),
       ],

@@ -8,4 +8,5 @@ class AppRoutePath {
   static const String createAccountScreenPath = '/create_account_screen';
   static const String claimCertificationScreenPath = '/claim_certification_screen';
   static const String forgotPasswordScreenPath = '/forgot_password_screen';
+  static const String codeVerificationScreenPath = '/code_verification_screen';
 }
