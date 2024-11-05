@@ -2,13 +2,13 @@ import 'package:app_ui/app_button/app_button.dart';
 import 'package:app_ui/app_constants/colors_constant.dart';
 import 'package:app_ui/app_constants/size_constants.dart';
 import 'package:app_ui/app_scaffold/app_scaffold.dart';
-import 'package:app_ui/app_text/app_rich_text.dart';
 import 'package:app_ui/app_text/app_text.dart';
 import 'package:app_ui/app_text_field/app_labeled_text_field.dart';
 import 'package:app_ui/app_text_field/app_password_text_field.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectos_amor/features/login/login_strings.dart';
+import 'package:proyectos_amor/features/login/presentation/content/login_header/login_header.dart';
 import 'package:proyectos_amor/router/app_router.gr.dart';
 
 class LoginContent extends StatefulWidget {
@@ -29,15 +29,7 @@ class _LoginContentState extends State<LoginContent> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            const SizedBox(height: 56),
-            const AppRichText(
-              primaryText: LoginStrings.loginContentTitle1,
-              primaryFontSize: 24,
-              primaryFontColor: ColorsConstant.text950,
-              secondaryText: ' ${LoginStrings.loginContentTitle2}',
-              secondaryFontSize: 24,
-              secondaryFontColor: ColorsConstant.secondaryFontColor,
-            ),
+            const LoginHeader(),
             const SizedBox(height: 56),
             const AppLabeledTextField(
               label: LoginStrings.loginContentEmailLabel,
@@ -50,7 +42,7 @@ class _LoginContentState extends State<LoginContent> {
             ),
             const SizedBox(height: SizeConstants.xl),
             GestureDetector(
-              onTap: () {},
+              onTap: () => AutoRouter.of(context).push(const ForgotPasswordPageRoute()),
               behavior: HitTestBehavior.opaque,
               child: const AppText.normal(
                 LoginStrings.loginContentForgotAccountLabel,

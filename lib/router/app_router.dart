@@ -44,5 +44,9 @@ class AppRouter extends RootStackRouter {
       page: ClaimCertificationPageRoute.page,
       path: AppRoutePath.claimCertificationScreenPath,
     ),
+    CustomRoute(
+      page: ForgotPasswordPageRoute.page,
+      path: AppRoutePath.forgotPasswordScreenPath,
+    ),
   ];
 }
