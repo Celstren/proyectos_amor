@@ -40,5 +40,9 @@ class AppRouter extends RootStackRouter {
       page: CreateAccountPageRoute.page,
       path: AppRoutePath.createAccountScreenPath,
     ),
+    CustomRoute(
+      page: ClaimCertificationPageRoute.page,
+      path: AppRoutePath.claimCertificationScreenPath,
+    ),
   ];
 }

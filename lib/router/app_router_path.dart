@@ -6,4 +6,5 @@ class AppRoutePath {
   static const String dashboardScreenPath = '/dashboard_screen';
   static const String loginScreenPath = '/login_screen';
   static const String createAccountScreenPath = '/create_account_screen';
+  static const String claimCertificationScreenPath = '/claim_certification_screen';
 }

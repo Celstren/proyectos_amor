@@ -96,6 +96,8 @@ flutter:
     - assets/award/default/
     - assets/award/earned/
     - assets/profile/
+    - assets/create_account/
+    - assets/claim_certification/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

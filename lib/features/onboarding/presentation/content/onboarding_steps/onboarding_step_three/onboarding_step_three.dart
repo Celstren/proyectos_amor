@@ -18,16 +18,6 @@ class OnboardingStepThree extends StatefulWidget {
 
 class _OnboardingStepThreeState extends State<OnboardingStepThree> with TickerProviderStateMixin {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(24),
