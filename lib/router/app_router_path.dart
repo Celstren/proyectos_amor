@@ -9,4 +9,8 @@ class AppRoutePath {
   static const String claimCertificationScreenPath = '/claim_certification_screen';
   static const String forgotPasswordScreenPath = '/forgot_password_screen';
   static const String codeVerificationScreenPath = '/code_verification_screen';
+  static const String notificationScreenPath = '/notification_screen';
+  static const String donateMoneyScreenPath = '/donate_money_screen';
+  static const String donateGiftScreenPath = '/donate_gift_screen';
+  static const String confirmDonationScreenPath = '/confirm_donation_screen';
 }

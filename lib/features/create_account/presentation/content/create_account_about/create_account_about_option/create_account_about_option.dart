@@ -43,7 +43,8 @@ class CreateAccountAboutOption extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                AppIcon(asset: asset),
+                if (selected)
+                  AppIcon(asset: asset),
                 const SizedBox(width: SizeConstants.sm),
                 Expanded(
                   child: AppText.medium(
@@ -56,7 +57,8 @@ class CreateAccountAboutOption extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: SizeConstants.sm),
-                AppIcon(asset: asset),
+                if (selected)
+                  AppIcon(asset: asset),
               ],
             ),
           ),

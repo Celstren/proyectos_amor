@@ -52,5 +52,21 @@ class AppRouter extends RootStackRouter {
       page: CodeVerificationPageRoute.page,
       path: AppRoutePath.codeVerificationScreenPath,
     ),
+    CustomRoute(
+      page: NotificationsPageRoute.page,
+      path: AppRoutePath.notificationScreenPath,
+    ),
+    CustomRoute(
+      page: DonateGiftPageRoute.page,
+      path: AppRoutePath.donateGiftScreenPath,
+    ),
+    CustomRoute(
+      page: DonateMoneyPageRoute.page,
+      path: AppRoutePath.donateMoneyScreenPath,
+    ),
+    CustomRoute(
+      page: ConfirmDonationPageRoute.page,
+      path: AppRoutePath.confirmDonationScreenPath,
+    ),
   ];
 }

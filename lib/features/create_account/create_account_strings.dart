@@ -44,6 +44,7 @@ class CreateAccountStrings {
 
   static const String createAccountBottomBackButton = 'Volver';
   static const String createAccountBottomNextButton = 'Continuar';
+  static const String createAccountBottomLaterButton = 'Más tarde';
   static const String createAccountCompletedPrimaryButton = 'Entrar';
   static const String createAccountCompletedSecondaryButton = 'Conocer iniciativas';
 }

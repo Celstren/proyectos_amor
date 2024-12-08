@@ -12,6 +12,8 @@ class ColorsConstant {
   static const Color splashButtonSecondaryFontColor = Color(0xFFFFFFFF);
   static const Color sliderPrimaryColor = Color(0xFF009C39);
   static const Color sliderSecondaryColor = Color(0xFFE2E2E2);
+  static const Color textPlaceholder = Color(0xFF7E8083);
+  static const Color textLink = Color(0xFF048BA8);
 
   static const Color secondaryFontColor = Color(0xFFFF8C04);
 

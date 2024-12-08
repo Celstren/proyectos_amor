@@ -10,7 +10,7 @@ class ClaimCertificationBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: SizeConstants.xl),
+      margin: const EdgeInsets.all(SizeConstants.xl),
       padding: const EdgeInsets.all(SizeConstants.xl),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(SizeConstants.md),

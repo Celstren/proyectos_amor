@@ -73,7 +73,7 @@ class CreateAccountAbout extends StatelessWidget {
                   onTap: () => changeAboutCubit.change(AboutEnum.company),
                   text: CreateAccountStrings.createAccountAboutOptionTitle3,
                   description: CreateAccountStrings.createAccountAboutOptionDescription3,
-                  asset: CreateAccountImages.createAccountHearthIcon,
+                  asset: CreateAccountImages.createAccountCloudIcon,
                   selected: aboutState == AboutEnum.company,
                 ),
               ],

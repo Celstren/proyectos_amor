@@ -1,9 +1,11 @@
 import 'package:app_ui/app_constants/colors_constant.dart';
 import 'package:app_ui/app_constants/size_constants.dart';
 import 'package:app_ui/app_image/app_icon.dart';
+import 'package:app_ui/app_image/app_image.dart';
 import 'package:app_ui/app_text/app_rich_text.dart';
 import 'package:app_ui/app_text/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:proyectos_amor/features/create_account/create_account_images.dart';
 import 'package:proyectos_amor/features/create_account/create_account_strings.dart';
 import 'package:proyectos_amor/features/create_account/logic_holders/cubit/change_create_account_step_cubit/change_create_account_step_cubit.dart';
 import 'package:proyectos_amor/features/create_account/presentation/content/create_account_bottom/create_account_bottom.dart';
@@ -48,22 +50,26 @@ class CreateAccountPicture extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 56),
-          Center(
-            child: Container(
+          const Center(
+            child: SizedBox(
               height: 240,
               width: 240,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: ColorsConstant.text200,
-                  width: 2,
-                ),
-              ),
-              child: const Center(
-                child: AppIcon.cameraPlusIcon(
-                  size: 48,
-                  color: ColorsConstant.text400,
-                ),
+              child: Stack(
+                children: <Widget>[
+                  Center(
+                    child: AppImage.assetSvg(
+                      asset: CreateAccountImages.createAccountProfileCircle,
+                      color: ColorsConstant.text400,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  Center(
+                    child: AppIcon.cameraPlusIcon(
+                      size: 24,
+                      color: ColorsConstant.text400,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -74,7 +80,7 @@ class CreateAccountPicture extends StatelessWidget {
             ),
             child: CreateAccountBottom(
               onBack: () => changeCreateAccountStepCubit.change(CreateAccountStep.about),
-              onNext: () => changeCreateAccountStepCubit.change(CreateAccountStep.personal),
+              onLater: () => changeCreateAccountStepCubit.change(CreateAccountStep.personal),
             ),
           ),
         ],

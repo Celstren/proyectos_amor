@@ -6,7 +6,8 @@ import 'package:proyectos_amor/features/create_account/create_account_strings.da
 class CreateAccountBottom extends StatelessWidget {
   final VoidCallback? onBack;
   final VoidCallback? onNext;
-  const CreateAccountBottom({super.key, this.onBack, this.onNext});
+  final VoidCallback? onLater;
+  const CreateAccountBottom({super.key, this.onBack, this.onNext, this.onLater});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,38 @@ class CreateAccountBottom extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
           ),
+        if (onLater != null) ...[
+          const Spacer(),
+          GestureDetector(
+            onTap: onLater,
+            behavior: HitTestBehavior.opaque,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const AppText.bold(
+                  CreateAccountStrings.createAccountBottomLaterButton,
+                  fontSize: 16,
+                  fontColor: ColorsConstant.splashButtonPrimaryFontColor,
+                  textAlign: TextAlign.start,
+                ),
+                const SizedBox(width: 22),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: ColorsConstant.primaryColor,
+                  ),
+                  child: const Icon(
+                    Icons.chevron_right,
+                    size: 24,
+                    color: ColorsConstant.neutralWhite,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
         if (onNext != null) ...[
           const Spacer(),
           GestureDetector(

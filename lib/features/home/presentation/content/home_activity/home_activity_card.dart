@@ -80,6 +80,7 @@ class HomeActivityCard extends StatelessWidget {
                   const SizedBox(height: SizeConstants.lg),
                   AppButton.solid(
                     text: HomeStrings.homeActivityPrimaryButton,
+                    radius: 56,
                     onTap: () {},
                   ),
                 ],

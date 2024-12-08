@@ -5,4 +5,5 @@ class CreateAccountImages {
   static const String createAccountSpadesIcon = 'assets/create_account/create_account_spades_icon.svg';
   static const String createAccountHearthIcon = 'assets/profile/profile_hearth_icon.svg';
   static const String createAccountStarIcon = 'assets/profile/profile_star_icon.svg';
+  static const String createAccountProfileCircle = 'assets/create_account/create_account_profile_picture_circle.svg';
 }
