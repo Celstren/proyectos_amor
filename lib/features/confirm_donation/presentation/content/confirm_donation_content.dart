@@ -8,7 +8,17 @@ import 'package:proyectos_amor/features/confirm_donation/presentation/content/co
 import 'package:proyectos_amor/features/home/presentation/content/home_certification/home_certification.dart';
 
 class ConfirmDonationContent extends StatefulWidget {
-  const ConfirmDonationContent({super.key});
+  final String donation;
+  final String approvedAt;
+  final String location;
+  final String deliveryAt;
+  const ConfirmDonationContent({
+    super.key,
+    this.donation = '',
+    this.approvedAt = '',
+    this.location = '',
+    this.deliveryAt = '',
+  });
 
   @override
   State<ConfirmDonationContent> createState() => _ConfirmDonationContentState();
@@ -17,7 +27,7 @@ class ConfirmDonationContent extends StatefulWidget {
 class _ConfirmDonationContentState extends State<ConfirmDonationContent> {
   @override
   Widget build(BuildContext context) {
-    return const AppScaffold(
+    return AppScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -25,24 +35,29 @@ class _ConfirmDonationContentState extends State<ConfirmDonationContent> {
         children: <Widget>[
           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(18),
+              padding: const EdgeInsets.all(18),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  ConfirmDonationHeader(),
-                  ConfirmDonationImage(),
-                  ConfirmDonationDescription(),
-                  SizedBox(height: 24),
-                  ConfirmDonationCard(),
-                  SizedBox(height: 24),
-                  HomeCertification(),
+                  const ConfirmDonationHeader(),
+                  const ConfirmDonationImage(),
+                  ConfirmDonationDescription(
+                    donation: widget.donation,
+                    approvedAt: widget.approvedAt,
+                    location: widget.location,
+                    deliveryAt: widget.deliveryAt,
+                  ),
+                  const SizedBox(height: 24),
+                  const ConfirmDonationCard(),
+                  const SizedBox(height: 24),
+                  const HomeCertification(),
                 ],
               ),
             ),
           ),
-          ConfirmDonationBottom(),
+          const ConfirmDonationBottom(),
         ],
       ),
     );

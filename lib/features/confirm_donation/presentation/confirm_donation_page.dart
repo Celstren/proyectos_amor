@@ -4,10 +4,25 @@ import 'package:proyectos_amor/features/confirm_donation/presentation/content/co
 
 @RoutePage(name: 'ConfirmDonationPageRoute')
 class ConfirmDonationPage extends StatelessWidget {
-  const ConfirmDonationPage({super.key});
+  final String donation;
+  final String approvedAt;
+  final String location;
+  final String deliveryAt;
+  const ConfirmDonationPage({
+    super.key,
+    this.donation = '',
+    this.approvedAt = '',
+    this.location = '',
+    this.deliveryAt = '',
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const ConfirmDonationContent();
+    return ConfirmDonationContent(
+      donation: donation,
+      approvedAt: approvedAt,
+      location: location,
+      deliveryAt: deliveryAt,
+    );
   }
 }

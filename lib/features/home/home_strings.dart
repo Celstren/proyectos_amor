@@ -16,6 +16,9 @@ class HomeStrings {
   static const String homeCertificationDescription = 'Tus donaciones pueden recibir un diploma como voluntario';
   static const String homeCertificationCheckCertification = 'Revisa tu diploma';
 
+  static const String homeReminderTitle = '¡Recuerda!';
+  static const String homeReminderSubTitle = 'El regalo debe ser tan lindo como te gustaría recibirlo.';
+
   static const String homeStatisticsCardPrimaryButton = 'Ver datos';
 
   static const String homeDonationTitle = '¡Contamos contigo!';

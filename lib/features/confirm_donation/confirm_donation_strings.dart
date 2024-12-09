@@ -6,5 +6,7 @@ class ConfirmDonationStrings {
   static const String confirmDonationDescriptionSubTitle = '¡Recuerda!Tu donativo aún está siendo procesado. Verificaremos tu transacción pronto.';
   static const String confirmDonationDescriptionDonationLabel = 'Donación';
   static const String confirmDonationDescriptionApprovedLabel = 'Fecha de aprobación';
+  static const String confirmDonationDescriptionLocationLabel = 'Lugar de acopio';
+  static const String confirmDonationDescriptionDeliveryLabel = 'Fecha estimada entrega';
   static const String confirmDonationDescriptionPrimaryButton = 'Ir al inicio';
 }

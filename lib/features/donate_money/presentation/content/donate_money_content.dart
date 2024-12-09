@@ -41,7 +41,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const DonateMoneyHeader(),
+          DonateMoneyHeader(donateMoneyStepCubit: donateMoneyStepCubit),
           Expanded(
             child: BlocBuilder(
               bloc: donateMoneyStepCubit,
@@ -62,7 +62,10 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
             bloc: donateMoneyStepCubit,
             builder: (context, DonateMoneyStep stepState) => DonateMoneyBottom(
               onNext: stepState == DonateMoneyStep.howToDonate ? () => donateMoneyStepCubit.change(DonateMoneyStep.uploadVoucher) : null,
-              onDone: stepState == DonateMoneyStep.uploadVoucher ? () => AutoRouter.of(context).push(const ConfirmDonationPageRoute()) : null,
+              onDone: stepState == DonateMoneyStep.uploadVoucher ? () => AutoRouter.of(context).push(ConfirmDonationPageRoute(
+                donation: 'S/ 100.00',
+                approvedAt: '24 Abril 2024',
+              )) : null,
             ),
           )
         ],

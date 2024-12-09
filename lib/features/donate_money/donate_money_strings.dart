@@ -1,6 +1,6 @@
 class DonateMoneyStrings {
-  static const String donateMoneyContentStepHeader1 = 'Paso 1';
-  static const String donateMoneyContentStepHeader2 = ' de 2';
+  static const String donateMoneyContentStepHeader1 = 'Paso {step}';
+  static const String donateMoneyContentStepHeader2 = ' de {total}';
   static const String donateMoneyContentHeader1 = '¿Cómo deseas';
   static const String donateMoneyContentHeader2 = ' donar';
   static const String donateMoneyContentHeader3 = '?';

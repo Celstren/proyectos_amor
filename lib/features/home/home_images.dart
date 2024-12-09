@@ -7,6 +7,7 @@ class HomeImages {
   static const String homeHelpMoneyBg = 'assets/home/home_help_money_bg.svg';
   static const String homeActivityPlaceholder = 'assets/home/home_activity_placeholder.png';
   static const String homeCertificationIcon = 'assets/home/home_certification_icon.svg';
+  static const String homeReminderIcon = 'assets/home/home_reminder_icon.svg';
   static const String homeDonationIcon = 'assets/home/home_donation_icon.svg';
   static const String homeStatisticsPlaceholder = 'assets/home/home_statistics_placeholder.png';
 }

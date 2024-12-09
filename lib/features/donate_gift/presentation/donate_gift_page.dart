@@ -1,6 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:proyectos_amor/features/donate_money/presentation/content/donate_money_content.dart';
+import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_gift_content.dart';
 
 @RoutePage(name: 'DonateGiftPageRoute')
 class DonateGiftPage extends StatelessWidget {
@@ -8,6 +8,6 @@ class DonateGiftPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DonateMoneyContent();
+    return const DonateGiftContent();
   }
 }
