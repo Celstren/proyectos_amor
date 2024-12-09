@@ -2,6 +2,7 @@ import 'package:app_ui/app_constants/colors_constant.dart';
 import 'package:app_ui/app_image/app_image.dart';
 import 'package:app_ui/app_text/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:proyectos_amor/features/confirm_donation/confirm_donation_images.dart';
 
 class ConfirmDonationCard extends StatelessWidget {
   const ConfirmDonationCard({super.key});
@@ -26,7 +27,7 @@ class ConfirmDonationCard extends StatelessWidget {
             SizedBox(
               width: 100,
               child: AppImage.assetImage(
-                asset: 'assets/award/award_header_placeholder.png',
+                asset: ConfirmDonationImages.confirmDonationPlaceholder,
                 fit: BoxFit.cover,
               ),
             ),
