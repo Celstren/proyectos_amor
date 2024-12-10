@@ -6,6 +6,9 @@ class ProfileStrings {
   static const String unauthorizedProfileTabsHeaderTab1 = 'Sobre mí';
   static const String unauthorizedProfileTabsHeaderTab2 = 'Donaciones';
 
+  static const String authorizedProfileTabsHeaderTab1 = 'Sobre mí';
+  static const String authorizedProfileTabsHeaderTab2 = 'Donaciones';
+
   static const String unauthorizedSharingTitle = 'Comparte lo bueno';
   static const String unauthorizedSharingOption1 = 'Calificar la app';
   static const String unauthorizedSharingOption2 = 'Compartir con el mundo';
@@ -15,4 +18,13 @@ class ProfileStrings {
   static const String unauthorizedSocialOption2 = 'Facebook';
   static const String unauthorizedSocialOption3 = 'Tik tok';
   static const String unauthorizedSocialOption4 = 'LinkedIn';
+
+  static const String authenticatedAboutContentLeaderboard = 'Tabla de posición';
+  static const String authenticatedAboutContentLeaderboardHint = 'Mes';
+  static const String authenticatedCertificationsTitle = 'Mis diplomas';
+  static const String authenticatedCertificationsDescription = 'Comparte el apoyo que nos brindas.';
+  static const String authenticatedCertificationsButton = 'Descubre más';
+
+  static const String authenticatedDonationContentTitle = 'Mis donaciones';
+  static const String authenticatedDonationContentHint = 'Seleccionar';
 }
