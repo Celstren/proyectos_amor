@@ -1,6 +1,8 @@
 import 'package:app_ui/app_constants/colors_constant.dart';
 import 'package:app_ui/app_text/app_text.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:proyectos_amor/router/app_router.gr.dart';
 
 enum DonationStatus { pending, received, cancelled }
 
@@ -61,19 +63,23 @@ class AuthenticatedDonationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        AppText.normal(
-          text,
-          fontColor: ColorsConstant.splashPrimaryFontColor,
-          fontSize: 14,
-          textAlign: TextAlign.start,
-        ),
-        status.card,
-      ],
+    return GestureDetector(
+      onTap: () => AutoRouter.of(context).push(const DonationDetailPageRoute()),
+      behavior: HitTestBehavior.opaque,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          AppText.normal(
+            text,
+            fontColor: ColorsConstant.splashPrimaryFontColor,
+            fontSize: 14,
+            textAlign: TextAlign.start,
+          ),
+          status.card,
+        ],
+      ),
     );
   }
 }

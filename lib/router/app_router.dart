@@ -68,5 +68,9 @@ class AppRouter extends RootStackRouter {
       page: ConfirmDonationPageRoute.page,
       path: AppRoutePath.confirmDonationScreenPath,
     ),
+    CustomRoute(
+      page: DonationDetailPageRoute.page,
+      path: AppRoutePath.donationDetailScreenPath,
+    ),
   ];
 }

@@ -13,4 +13,5 @@ class AppRoutePath {
   static const String donateMoneyScreenPath = '/donate_money_screen';
   static const String donateGiftScreenPath = '/donate_gift_screen';
   static const String confirmDonationScreenPath = '/confirm_donation_screen';
+  static const String donationDetailScreenPath = '/donation_detail_screen';
 }
