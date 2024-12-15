@@ -40,7 +40,7 @@ class _DonationDetailContentState extends State<DonationDetailContent> {
                 child: DonationStatus.pending.card,
               ),
             ),
-            DonationDescription(
+            const DonationDescription(
               donation: '3 muñecas barbie',
               receivedBy: 'Maria Espinoza',
             ),

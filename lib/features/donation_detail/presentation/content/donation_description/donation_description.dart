@@ -7,11 +7,13 @@ class DonationDescription extends StatelessWidget {
   final String donation;
   final String receivedBy;
   final bool location;
+  final String locationPhone;
   const DonationDescription({
     super.key,
     this.donation = '',
     this.receivedBy = '',
     this.location = true,
+    this.locationPhone = '',
 });
 
   @override
@@ -117,6 +119,26 @@ class DonationDescription extends StatelessWidget {
                 ],
               ),
             ],
+          const SizedBox(height: 12),
+          const Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              AppText.normal(
+                DonationDetailStrings.donationDescriptionLocationPhoneTag,
+                fontSize: 12,
+                fontColor: ColorsConstant.textPlaceholder,
+                textAlign: TextAlign.center,
+              ),
+              AppText.semiBold(
+                '+51 999 600 600',
+                fontSize: 12,
+                fontColor: ColorsConstant.textLink,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ],
       ),
     );

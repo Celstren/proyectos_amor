@@ -6,4 +6,6 @@ class DonationDetailStrings {
   static const String donationDescriptionDeliveryDate = 'Fecha de entrega';
 
   static const String donationDescriptionLocationTitle = 'En el centro de acopio';
+
+  static const String donationDescriptionLocationPhoneTag = 'Celular del centro de acopio';
 }
