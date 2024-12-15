@@ -10,6 +10,7 @@ class AppButton extends StatelessWidget {
   final Color color;
   final Color hoveredColor;
   final Color pressedColor;
+  final Color? borderColor;
   final Color? fontColor;
   final Color? disabledColor;
   final Color? disabledFontColor;
@@ -27,6 +28,7 @@ class AppButton extends StatelessWidget {
     this.fontColor = ColorsConstant.neutralWhite,
     this.disabledColor = ColorsConstant.text050,
     this.disabledFontColor = ColorsConstant.text300,
+    this.borderColor,
     this.radius = 8,
     this.padding = const EdgeInsets.all(SizeConstants.md),
   });
@@ -42,6 +44,7 @@ class AppButton extends StatelessWidget {
     this.fontColor = ColorsConstant.neutralWhite,
     this.disabledColor = ColorsConstant.text050,
     this.disabledFontColor = ColorsConstant.text300,
+    this.borderColor,
     this.radius = 8,
     this.padding = const EdgeInsets.all(SizeConstants.md),
   });
@@ -57,6 +60,7 @@ class AppButton extends StatelessWidget {
     this.fontColor = ColorsConstant.primaryColor600,
     this.disabledColor = ColorsConstant.text050,
     this.disabledFontColor = ColorsConstant.text300,
+    this.borderColor,
     this.radius = 8,
     this.padding = const EdgeInsets.all(SizeConstants.md),
   });
@@ -72,6 +76,23 @@ class AppButton extends StatelessWidget {
     this.fontColor = ColorsConstant.primaryColor600,
     this.disabledColor = Colors.transparent,
     this.disabledFontColor = ColorsConstant.text300,
+    this.borderColor,
+    this.radius = 8,
+    this.padding = const EdgeInsets.all(SizeConstants.md),
+  });
+
+  const AppButton.bordered({
+    super.key,
+    this.text = '',
+    this.onTap,
+    this.fontSize = 16,
+    this.color = Colors.transparent,
+    this.hoveredColor = Colors.transparent,
+    this.pressedColor = Colors.transparent,
+    this.fontColor = ColorsConstant.primaryColor600,
+    this.disabledColor = Colors.transparent,
+    this.disabledFontColor = ColorsConstant.text300,
+    this.borderColor = ColorsConstant.primaryColor600,
     this.radius = 8,
     this.padding = const EdgeInsets.all(SizeConstants.md),
   });
@@ -84,6 +105,9 @@ class AppButton extends StatelessWidget {
         foregroundColor: onTap != null ? Colors.white : Colors.grey,
         padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
+          side: borderColor != null ? BorderSide(
+            color: borderColor!,
+          ) : BorderSide.none,
           borderRadius: BorderRadius.all(
             Radius.circular(radius),
           ),

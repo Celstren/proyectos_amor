@@ -62,18 +62,22 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile> with Ticker
                               ),
                             ),
                             const SizedBox(height: 12),
-                            Container(
-                              height: 102,
-                              width: 102,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: ColorsConstant.neutralWhite,
-                                border: Border.all(
+                            GestureDetector(
+                              onTap: () => AutoRouter.of(context).push(const ProfilePicturePreviewPageRoute()),
+                              behavior: HitTestBehavior.opaque,
+                              child: Container(
+                                height: 102,
+                                width: 102,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
                                   color: ColorsConstant.neutralWhite,
-                                ),
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                    ProfileImages.profileUserPlaceholderIcon,
+                                  border: Border.all(
+                                    color: ColorsConstant.neutralWhite,
+                                  ),
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                      ProfileImages.profileUserPlaceholderIcon,
+                                    ),
                                   ),
                                 ),
                               ),
