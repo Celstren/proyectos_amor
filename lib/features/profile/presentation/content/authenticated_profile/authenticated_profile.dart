@@ -51,13 +51,17 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile> with Ticker
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
                             const SizedBox(height: 24),
-                            const Align(
+                            Align(
                               alignment: Alignment.centerRight,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 18),
-                                child: Icon(
-                                  Icons.edit,
-                                  color: ColorsConstant.neutralBlack,
+                              child: GestureDetector(
+                                onTap: () => AutoRouter.of(context).push(const AccountPageRoute()),
+                                behavior: HitTestBehavior.opaque,
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 18),
+                                  child: Icon(
+                                    Icons.edit,
+                                    color: ColorsConstant.neutralBlack,
+                                  ),
                                 ),
                               ),
                             ),

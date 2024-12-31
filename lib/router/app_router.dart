@@ -76,5 +76,21 @@ class AppRouter extends RootStackRouter {
       page: ProfilePicturePreviewPageRoute.page,
       path: AppRoutePath.profilePicturePreviewScreenPath,
     ),
+    CustomRoute(
+      page: EditProfilePageRoute.page,
+      path: AppRoutePath.editProfileScreenPath,
+    ),
+    CustomRoute(
+      page: AccountPageRoute.page,
+      path: AppRoutePath.accountScreenPath,
+    ),
+    CustomRoute(
+      page: EditPasswordPageRoute.page,
+      path: AppRoutePath.editPasswordScreenPath,
+    ),
+    CustomRoute(
+      page: DeleteAccountPageRoute.page,
+      path: AppRoutePath.deleteAccountScreenPath,
+    ),
   ];
 }

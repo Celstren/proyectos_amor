@@ -15,4 +15,8 @@ class AppRoutePath {
   static const String confirmDonationScreenPath = '/confirm_donation_screen';
   static const String donationDetailScreenPath = '/donation_detail_screen';
   static const String profilePicturePreviewScreenPath = '/profile_picture_preview_screen';
+  static const String editProfileScreenPath = '/edit_profile_screen';
+  static const String accountScreenPath = '/account_screen';
+  static const String editPasswordScreenPath = '/edit_password_screen';
+  static const String deleteAccountScreenPath = '/delete_account_screen';
 }

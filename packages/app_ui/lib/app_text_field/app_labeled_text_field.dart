@@ -39,7 +39,7 @@ class AppLabeledTextField extends StatelessWidget {
           label,
           textAlign: TextAlign.left,
           fontSize: 16,
-          fontColor: enabled ? ColorsConstant.skyBlue950 : ColorsConstant.text200,
+          fontColor: ColorsConstant.skyBlue950,
         ),
         const SizedBox(height: 8),
         AppTextField(
@@ -51,6 +51,8 @@ class AppLabeledTextField extends StatelessWidget {
           enabled: enabled,
           readOnly: readOnly,
           inputFormatters: inputFormatters,
+          filled: true,
+          fillColor: enabled ? Colors.transparent : ColorsConstant.text100,
         ),
         if (error.isNotEmpty)
           ...[
