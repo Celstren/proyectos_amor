@@ -7,8 +7,7 @@ import 'package:proyectos_amor/features/donate_money/donate_money_strings.dart';
 import 'package:proyectos_amor/features/donate_money/logic/cubit/donate_money_step_cubit/donate_money_step_cubit.dart';
 
 class DonateMoneyHeader extends StatelessWidget {
-  final DonateMoneyStepCubit donateMoneyStepCubit;
-  const DonateMoneyHeader({super.key, required this.donateMoneyStepCubit});
+  const DonateMoneyHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +40,7 @@ class DonateMoneyHeader extends StatelessWidget {
                   ),
                 ),
               ),
-              BlocBuilder(
-                bloc: donateMoneyStepCubit,
+              BlocBuilder<DonateMoneyStepCubit, DonateMoneyStep>(
                 builder: (context, DonateMoneyStep stepState) => AppRichText(
                   primaryText: DonateMoneyStrings.donateMoneyContentStepHeader1.replaceAll('{step}','${stepState.index + 1}'),
                   primaryFontColor: ColorsConstant.splashPrimaryFontColor,

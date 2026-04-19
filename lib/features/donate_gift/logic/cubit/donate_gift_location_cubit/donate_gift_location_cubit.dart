@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
 enum GiftLocation { location1, location2, location3, location4, location5 }
 
@@ -20,7 +19,6 @@ extension GiftLocationExtension on GiftLocation {
   }
 }
 
-@injectable
 class DonateGiftLocationCubit extends Cubit<GiftLocation?> {
   DonateGiftLocationCubit() : super(null);
 

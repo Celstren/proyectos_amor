@@ -7,8 +7,7 @@ import 'package:proyectos_amor/features/donate_gift/donate_gift_strings.dart';
 import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_step_cubit/donate_gift_step_cubit.dart';
 
 class DonateGiftHeader extends StatelessWidget {
-  final DonateGiftStepCubit donateGiftStepCubit;
-  const DonateGiftHeader({super.key, required this.donateGiftStepCubit});
+  const DonateGiftHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +40,7 @@ class DonateGiftHeader extends StatelessWidget {
                   ),
                 ),
               ),
-              BlocBuilder(
-                bloc: donateGiftStepCubit,
+              BlocBuilder<DonateGiftStepCubit, DonateGiftStep>(
                 builder: (context, DonateGiftStep stepState) => AppRichText(
                   primaryText: DonateGiftStrings.donateGiftHeaderStep1.replaceAll('{step}','${stepState.index + 1}'),
                   primaryFontColor: ColorsConstant.splashPrimaryFontColor,
@@ -55,8 +53,7 @@ class DonateGiftHeader extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              BlocBuilder(
-                bloc: donateGiftStepCubit,
+              BlocBuilder<DonateGiftStepCubit, DonateGiftStep>(
                 builder: (context, DonateGiftStep stepState) {
                   switch(stepState) {
                     case DonateGiftStep.giftType:

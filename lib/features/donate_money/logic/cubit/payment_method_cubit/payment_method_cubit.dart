@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
 enum PaymentMethod { yapePlin, bank, cashier }
 
@@ -16,7 +15,6 @@ extension PaymentMethodExtension on PaymentMethod {
   }
 }
 
-@injectable
 class PaymentMethodCubit extends Cubit<PaymentMethod?>{
   PaymentMethodCubit() : super(null);
 

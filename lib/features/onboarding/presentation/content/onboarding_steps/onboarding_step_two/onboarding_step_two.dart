@@ -3,6 +3,7 @@ import 'package:app_ui/app_constants/size_constants.dart';
 import 'package:app_ui/app_image/app_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:proyectos_amor/features/onboarding/logic_holders/cubits/change_onboarding_step_cubit/change_onboarding_step_cubit.dart';
 import 'package:proyectos_amor/features/onboarding/onboarding_images.dart';
 import 'package:proyectos_amor/features/onboarding/onboarding_strings.dart';
@@ -10,8 +11,7 @@ import 'package:proyectos_amor/features/onboarding/presentation/content/onboardi
 import 'package:proyectos_amor/features/onboarding/presentation/content/onboarding_header/onboarding_header.dart';
 
 class OnboardingStepTwo extends StatefulWidget {
-  final ChangeOnboardingStepCubit changeOnboardingStepCubit;
-  const OnboardingStepTwo({super.key, required this.changeOnboardingStepCubit});
+  const OnboardingStepTwo({super.key});
 
   @override
   State<OnboardingStepTwo> createState() => _OnboardingStepTwoState();
@@ -103,8 +103,8 @@ class _OnboardingStepTwoState extends State<OnboardingStepTwo> {
           ),
           const Spacer(),
           OnboardingBottom(
-            onBack: () => widget.changeOnboardingStepCubit.change(0),
-            onNext: () => widget.changeOnboardingStepCubit.change(2),
+            onBack: () => context.read<ChangeOnboardingStepCubit>().change(0),
+            onNext: () => context.read<ChangeOnboardingStepCubit>().change(2),
           ),
         ],
       ),

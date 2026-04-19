@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
 enum GiftType { food, toys, cleanArticles, clothes, homeArticles, cash }
 
@@ -22,7 +21,6 @@ extension GiftTypeExtension on GiftType {
   }
 }
 
-@injectable
 class DonateGiftTypeCubit extends Cubit<GiftType?>{
   DonateGiftTypeCubit() : super(null);
 

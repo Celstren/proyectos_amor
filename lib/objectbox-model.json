@@ -53,7 +53,7 @@
     },
     {
       "id": "3:8643999438812417531",
-      "lastPropertyId": "10:1405239119387660935",
+      "lastPropertyId": "18:8032830263063029097",
       "name": "SystemUserEntity",
       "properties": [
         {
@@ -63,49 +63,49 @@
           "flags": 1
         },
         {
-          "id": "2:1974288838718269186",
-          "name": "name",
-          "type": 9
-        },
-        {
-          "id": "3:8610701599322730355",
-          "name": "fullName",
-          "type": 9
-        },
-        {
           "id": "4:8929700066920889547",
           "name": "email",
           "type": 9
         },
         {
-          "id": "5:4140269801692395296",
-          "name": "gender",
+          "id": "11:4717411920145444254",
+          "name": "userId",
           "type": 9
         },
         {
-          "id": "6:9017510478756353673",
-          "name": "locale",
+          "id": "12:277105170690575764",
+          "name": "accountType",
           "type": 9
         },
         {
-          "id": "7:403088034138966482",
-          "name": "avatarRef",
+          "id": "13:7650772083176589609",
+          "name": "role",
           "type": 9
         },
         {
-          "id": "8:4933211244298596350",
-          "name": "avatarType",
+          "id": "14:8572962179970702895",
+          "name": "status",
           "type": 9
         },
         {
-          "id": "9:3799324146152953192",
-          "name": "preferencesString",
+          "id": "15:4600419608149911439",
+          "name": "createdAt",
           "type": 9
         },
         {
-          "id": "10:1405239119387660935",
-          "name": "emailVerified",
-          "type": 1
+          "id": "16:9119580422811863094",
+          "name": "firstName",
+          "type": 9
+        },
+        {
+          "id": "17:7220465324999389894",
+          "name": "lastName",
+          "type": 9
+        },
+        {
+          "id": "18:8032830263063029097",
+          "name": "profileImageUrl",
+          "type": 9
         }
       ],
       "relations": []
@@ -119,7 +119,16 @@
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    1974288838718269186,
+    8610701599322730355,
+    4140269801692395296,
+    9017510478756353673,
+    403088034138966482,
+    4933211244298596350,
+    3799324146152953192,
+    1405239119387660935
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

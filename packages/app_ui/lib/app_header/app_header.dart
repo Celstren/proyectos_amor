@@ -29,7 +29,7 @@ class AppHeader extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: ColorsConstant.neutralWhite.withOpacity(.05),
+            color: ColorsConstant.neutralWhite.withAlpha((255 * .05).toInt()),
           ),
         ),
       ),
@@ -46,7 +46,7 @@ class AppHeader extends StatelessWidget {
               margin: const EdgeInsets.only(right: 12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: iconBackgroundColor ?? ColorsConstant.neutralWhite.withOpacity(.1),
+                color: iconBackgroundColor ?? ColorsConstant.neutralWhite.withAlpha((255 * .1).toInt()),
               ),
               child: AppIcon.chevronLeftIcon(
                 size: 20,

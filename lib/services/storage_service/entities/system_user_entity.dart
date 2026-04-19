@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -7,28 +5,28 @@ class SystemUserEntity {
   @Id()
   int id;
 
-  String? name;
-  String? fullName;
+  String? userId;
+  String? firstName;
+  String? lastName;
   String? email;
-  String? gender;
-  String? locale;
-  String? avatarRef;
-  String? avatarType;
-  String? preferencesString;
-  bool? emailVerified;
+  String? accountType;
+  String? role;
+  String? status;
+  String? createdAt;
+  String? profileImageUrl;
 
   SystemUserEntity({
     this.id = 0,
-    this.name = '',
-    this.fullName = '',
+    this.userId = '',
+    this.firstName = '',
+    this.lastName = '',
     this.email = '',
-    this.gender = '',
-    this.locale = '',
-    this.avatarRef = '',
-    this.avatarType = '',
-    this.preferencesString = '',
-    this.emailVerified = false,
+    this.accountType = '',
+    this.role = '',
+    this.status = '',
+    this.createdAt = '',
+    this.profileImageUrl = '',
   });
 
-  List<String> get preferences => (json.decode(preferencesString ?? '') as List).map((p) => p.toString()).toList();
+  String get fullName => '$firstName $lastName'.trim();
 }

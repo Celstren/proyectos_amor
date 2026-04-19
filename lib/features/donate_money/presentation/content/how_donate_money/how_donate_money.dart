@@ -10,8 +10,7 @@ import 'package:proyectos_amor/features/donate_money/presentation/content/how_do
 import 'package:proyectos_amor/features/donate_money/presentation/content/how_donate_money/phone_number_content.dart';
 
 class HowDonateMoney extends StatelessWidget {
-  final PaymentMethodCubit paymentMethodCubit;
-  const HowDonateMoney({super.key, required this.paymentMethodCubit});
+  const HowDonateMoney({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +28,7 @@ class HowDonateMoney extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 18),
-          BlocBuilder(
-            bloc: paymentMethodCubit,
+          BlocBuilder<PaymentMethodCubit, PaymentMethod?>(
             builder: (context, PaymentMethod? methodState) => Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -50,7 +48,7 @@ class HowDonateMoney extends StatelessWidget {
                   onChanged: (e) {
                     if (e == null) return;
                     final method = PaymentMethod.values[e.id];
-                    paymentMethodCubit.change(method);
+                    context.read<PaymentMethodCubit>().change(method);
                   },
                   hint: DonateMoneyStrings.howDonateMoneyHint,
                 ),

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:proyectos_amor/features/onboarding/logic_holders/cubits/change_onboarding_step_cubit/change_onboarding_step_cubit.dart';
 import 'package:proyectos_amor/features/onboarding/onboarding_images.dart';
 import 'package:proyectos_amor/features/onboarding/onboarding_strings.dart';
@@ -9,8 +10,7 @@ import 'package:proyectos_amor/features/onboarding/presentation/content/onboardi
 import 'package:proyectos_amor/router/app_router.gr.dart';
 
 class OnboardingStepThree extends StatefulWidget {
-  final ChangeOnboardingStepCubit changeOnboardingStepCubit;
-  const OnboardingStepThree({super.key, required this.changeOnboardingStepCubit});
+  const OnboardingStepThree({super.key});
 
   @override
   State<OnboardingStepThree> createState() => _OnboardingStepThreeState();
@@ -74,8 +74,8 @@ class _OnboardingStepThreeState extends State<OnboardingStepThree> with TickerPr
           const SizedBox(height: 24),
           const Spacer(),
           OnboardingBottom(
-            onBack: () => widget.changeOnboardingStepCubit.change(1),
-            onFinish: () => AutoRouter.of(context).replaceAll([ const DashboardPageRoute() ]),
+            onBack: () => context.read<ChangeOnboardingStepCubit>().change(1),
+            onFinish: () => AutoRouter.of(context).replaceAll([ const LoginPageRoute() ]),
           ),
         ],
       ),

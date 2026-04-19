@@ -16,8 +16,12 @@ class CreateAccountStrings {
   static const String createAccountPersonalTitle2 = 'llamemos';
   static const String createAccountPersonalTitle3 = '?';
   static const String createAccountPersonalSubTitle = 'Recuerda que este nombre aparecerá en tu certificado como voluntario';
-  static const String createAccountPersonalNameLabel = 'Nombre';
-  static const String createAccountPersonalNameHint = 'Escribe tu nombre completo';
+  
+  static const String createAccountPersonalFirstNameLabel = 'Nombres';
+  static const String createAccountPersonalFirstNameHint = 'Escribe tus nombres';
+  static const String createAccountPersonalLastNameLabel = 'Apellidos';
+  static const String createAccountPersonalLastNameHint = 'Escribe tus apellidos';
+
   static const String createAccountPersonalEmailLabel = 'Correo electrónico';
   static const String createAccountPersonalEmailHint = 'Ingresa tu correo para registrarte';
 
@@ -27,10 +31,11 @@ class CreateAccountStrings {
   static const String createAccountPasswordSubTitle = '¡Aguarda! Ya casi acabamos';
   static const String createAccountPasswordLabel = 'Contraseña';
   static const String createAccountPasswordHint = 'Ingresa tu contraseña';
-  static const String createAccountPasswordCheck1 = '8 dígitos';
+  static const String createAccountPasswordCheck1 = '8 a 20 dígitos';
   static const String createAccountPasswordCheck2 = 'Una letra minúscula';
   static const String createAccountPasswordCheck3 = 'Un número';
   static const String createAccountPasswordCheck4 = 'Una letra mayúscula';
+  static const String createAccountPasswordCheck5 = 'Un carácter especial';
   static const String createAccountConfirmPasswordLabel = 'Confirmar Contraseña';
   static const String createAccountConfirmPasswordHint = 'Ingresa tu contraseña de nuevo';
 

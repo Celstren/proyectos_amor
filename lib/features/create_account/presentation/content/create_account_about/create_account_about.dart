@@ -6,19 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:proyectos_amor/features/create_account/create_account_images.dart';
 import 'package:proyectos_amor/features/create_account/create_account_strings.dart';
-import 'package:proyectos_amor/features/create_account/logic_holders/cubit/change_about_cubit/change_about_cubit.dart';
-import 'package:proyectos_amor/features/create_account/logic_holders/cubit/change_create_account_step_cubit/change_create_account_step_cubit.dart';
+import 'package:proyectos_amor/features/create_account/logic/cubit/change_about_cubit/change_about_cubit.dart';
+import 'package:proyectos_amor/features/create_account/logic/cubit/change_create_account_cubit/change_create_account_step_cubit.dart';
 import 'package:proyectos_amor/features/create_account/presentation/content/create_account_about/create_account_about_option/create_account_about_option.dart';
 import 'package:proyectos_amor/features/create_account/presentation/content/create_account_bottom/create_account_bottom.dart';
 
 class CreateAccountAbout extends StatelessWidget {
-  final ChangeCreateAccountStepCubit changeCreateAccountStepCubit;
-  final ChangeAboutCubit changeAboutCubit;
-  const CreateAccountAbout({
-    super.key,
-    required this.changeCreateAccountStepCubit,
-    required this.changeAboutCubit,
-  });
+  const CreateAccountAbout({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +40,14 @@ class CreateAccountAbout extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: SizeConstants.xl),
-          BlocBuilder(
-            bloc: changeAboutCubit,
+          BlocBuilder<ChangeAboutCubit, AboutEnum?>(
             builder: (context, AboutEnum? aboutState) => Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 CreateAccountAboutOption(
-                  onTap: () => changeAboutCubit.change(AboutEnum.person),
+                  onTap: () => context.read<ChangeAboutCubit>().change(AboutEnum.person),
                   text: CreateAccountStrings.createAccountAboutOptionTitle1,
                   description: CreateAccountStrings.createAccountAboutOptionDescription1,
                   asset: CreateAccountImages.createAccountSpadesIcon,
@@ -62,7 +55,7 @@ class CreateAccountAbout extends StatelessWidget {
                 ),
                 const SizedBox(height: SizeConstants.xl),
                 CreateAccountAboutOption(
-                  onTap: () => changeAboutCubit.change(AboutEnum.school),
+                  onTap: () => context.read<ChangeAboutCubit>().change(AboutEnum.school),
                   text: CreateAccountStrings.createAccountAboutOptionTitle2,
                   description: CreateAccountStrings.createAccountAboutOptionDescription2,
                   asset: CreateAccountImages.createAccountStarIcon,
@@ -70,7 +63,7 @@ class CreateAccountAbout extends StatelessWidget {
                 ),
                 const SizedBox(height: SizeConstants.xl),
                 CreateAccountAboutOption(
-                  onTap: () => changeAboutCubit.change(AboutEnum.company),
+                  onTap: () => context.read<ChangeAboutCubit>().change(AboutEnum.company),
                   text: CreateAccountStrings.createAccountAboutOptionTitle3,
                   description: CreateAccountStrings.createAccountAboutOptionDescription3,
                   asset: CreateAccountImages.createAccountCloudIcon,
@@ -86,7 +79,7 @@ class CreateAccountAbout extends StatelessWidget {
             ),
             child: CreateAccountBottom(
               onBack: AutoRouter.of(context).maybePop,
-              onNext: () => changeCreateAccountStepCubit.change(CreateAccountStep.picture),
+              onNext: () => context.read<ChangeCreateAccountStepCubit>().change(CreateAccountStep.picture),
             ),
           ),
         ],

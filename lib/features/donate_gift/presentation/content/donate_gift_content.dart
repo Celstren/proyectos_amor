@@ -2,17 +2,13 @@ import 'package:app_ui/app_scaffold/app_scaffold.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_date_cubit/donate_gift_date_cubit.dart';
-import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_location_cubit/donate_gift_location_cubit.dart';
 import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_step_cubit/donate_gift_step_cubit.dart';
-import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_type_cubit/donate_gift_type_cubit.dart';
 import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_gift_bottom/donate_gift_bottom.dart';
 import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_gift_date/donate_gift_date.dart';
 import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_gift_header/donate_gift_header.dart';
 import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_gift_information/donate_gift_information.dart';
 import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_gift_location/donate_gift_location.dart';
 import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_gift_type/donate_gift_type.dart';
-import 'package:proyectos_amor/injection.dart';
 import 'package:proyectos_amor/router/app_router.gr.dart';
 
 class DonateGiftContent extends StatefulWidget {
@@ -23,19 +19,6 @@ class DonateGiftContent extends StatefulWidget {
 }
 
 class _DonateGiftContentState extends State<DonateGiftContent> {
-  final donateGiftStepCubit = getIt<DonateGiftStepCubit>();
-  final donateGiftTypeCubit = getIt<DonateGiftTypeCubit>();
-  final donateGiftLocationCubit = getIt<DonateGiftLocationCubit>();
-  final donateGiftDateCubit = getIt<DonateGiftDateCubit>();
-
-  @override
-  void dispose() {
-    donateGiftStepCubit.close();
-    donateGiftTypeCubit.close();
-    donateGiftLocationCubit.close();
-    donateGiftDateCubit.close();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,42 +29,41 @@ class _DonateGiftContentState extends State<DonateGiftContent> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          DonateGiftHeader(donateGiftStepCubit: donateGiftStepCubit),
+          const DonateGiftHeader(),
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(16),
-              child: BlocBuilder(
-                bloc: donateGiftStepCubit,
+              child: BlocBuilder<DonateGiftStepCubit, DonateGiftStep>(
                 builder: (context, DonateGiftStep stepState) {
                   switch(stepState) {
                     case DonateGiftStep.giftType:
-                      return DonateGiftType(donateGiftTypeCubit: donateGiftTypeCubit);
+                      return const DonateGiftType();
                     case DonateGiftStep.information:
-                      return DonateGiftInformation(donateGiftStepCubit: donateGiftStepCubit);
+                      return const DonateGiftInformation();
                     case DonateGiftStep.locations:
-                      return DonateGiftLocation(donateGiftStepCubit: donateGiftStepCubit, donateGiftLocationCubit: donateGiftLocationCubit);
+                      return const DonateGiftLocation();
                     case DonateGiftStep.deliveryDate:
-                      return DonateGiftDate(donateGiftStepCubit: donateGiftStepCubit, donateGiftDateCubit: donateGiftDateCubit);
+                      return const DonateGiftDate();
                   }
                 },
               ),
             ),
           ),
-          BlocBuilder(
-            bloc: donateGiftStepCubit,
+          BlocBuilder<DonateGiftStepCubit, DonateGiftStep>(
             builder: (context, DonateGiftStep stepState) {
+              final stepCubit = context.read<DonateGiftStepCubit>();
               switch(stepState) {
                 case DonateGiftStep.giftType:
                   return DonateGiftBottom(
-                    onNext: () => donateGiftStepCubit.change(DonateGiftStep.information),
+                    onNext: () => stepCubit.change(DonateGiftStep.information),
                   );
                 case DonateGiftStep.information:
                   return DonateGiftBottom(
-                    onNext: () => donateGiftStepCubit.change(DonateGiftStep.locations),
+                    onNext: () => stepCubit.change(DonateGiftStep.locations),
                   );
                 case DonateGiftStep.locations:
                   return DonateGiftBottom(
-                    onNext: () => donateGiftStepCubit.change(DonateGiftStep.deliveryDate),
+                    onNext: () => stepCubit.change(DonateGiftStep.deliveryDate),
                   );
                 case DonateGiftStep.deliveryDate:
                   return DonateGiftBottom(

@@ -8,16 +8,14 @@ import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_step
 import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_gift_chip_item.dart';
 
 class DonateGiftLocation extends StatelessWidget {
-  final DonateGiftStepCubit donateGiftStepCubit;
-  final DonateGiftLocationCubit donateGiftLocationCubit;
-  const DonateGiftLocation({super.key, required this.donateGiftStepCubit, required this.donateGiftLocationCubit});
+  const DonateGiftLocation({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        donateGiftStepCubit.change(DonateGiftStep.information);
+        context.read<DonateGiftStepCubit>().change(DonateGiftStep.information);
       },
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -31,8 +29,7 @@ class DonateGiftLocation extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 18),
-          BlocBuilder(
-            bloc: donateGiftLocationCubit,
+          BlocBuilder<DonateGiftLocationCubit, GiftLocation?>(
             builder: (context, GiftLocation? locationState) => Wrap(
               spacing: 12,
               runSpacing: 12,
@@ -40,7 +37,7 @@ class DonateGiftLocation extends StatelessWidget {
                   .map((e) => DonateGiftChipItem(
                 text: e.text,
                 selected: e == locationState,
-                onTap: () => donateGiftLocationCubit.change(e),
+                onTap: () => context.read<DonateGiftLocationCubit>().change(e),
               )).toList(),
             ),
           ),

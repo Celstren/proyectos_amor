@@ -80,7 +80,7 @@ class NotificationVideoTextCard extends StatelessWidget {
                           size: 120,
                         ),
                         Container(
-                          color: Colors.black.withOpacity(.4),
+                          color: Colors.black.withAlpha((255 * .4).toInt()),
                           child: const Center(
                             child: Icon(
                               Icons.play_arrow_rounded,

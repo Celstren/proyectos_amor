@@ -23,7 +23,7 @@ class AppBottomNavigation extends StatelessWidget {
         boxShadow: <BoxShadow>[
           BoxShadow(
             offset: const Offset(0, -1),
-            color: Colors.grey.withOpacity(.05),
+            color: Colors.grey.withAlpha((255 * .05).toInt()),
             blurRadius: 1,
             spreadRadius: 4,
           ),

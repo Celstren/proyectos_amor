@@ -10,16 +10,14 @@ import 'package:proyectos_amor/features/donate_money/logic/cubit/donate_money_st
 import 'package:proyectos_amor/features/donate_money/logic/cubit/enable_donation_certification_cubit/enable_donation_certification_cubit.dart';
 
 class UploadVoucher extends StatelessWidget {
-  final DonateMoneyStepCubit donateMoneyStepCubit;
-  final EnableDonationCertificationCubit enableDonationCertificationCubit;
-  const UploadVoucher({super.key, required this.donateMoneyStepCubit, required this.enableDonationCertificationCubit});
+  const UploadVoucher({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        donateMoneyStepCubit.change(DonateMoneyStep.howToDonate);
+        context.read<DonateMoneyStepCubit>().change(DonateMoneyStep.howToDonate);
       },
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -82,15 +80,14 @@ class UploadVoucher extends StatelessWidget {
             const SizedBox(height: 32),
             const AppTextField(hint: DonateMoneyStrings.uploadVoucherHint),
             const SizedBox(height: 32),
-            BlocBuilder(
-              bloc: enableDonationCertificationCubit,
+            BlocBuilder<EnableDonationCertificationCubit, bool>(
               builder: (context, bool enabledState) => Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   GestureDetector(
-                    onTap: () => enableDonationCertificationCubit.change(!enabledState),
+                    onTap: () => context.read<EnableDonationCertificationCubit>().change(!enabledState),
                     behavior: HitTestBehavior.opaque,
                     child: Row(
                       mainAxisSize: MainAxisSize.max,

@@ -8,8 +8,7 @@ import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_
 import 'package:proyectos_amor/features/home/presentation/content/home_reminder/home_reminder.dart';
 
 class DonateGiftType extends StatelessWidget {
-  final DonateGiftTypeCubit donateGiftTypeCubit;
-  const DonateGiftType({super.key, required this.donateGiftTypeCubit});
+  const DonateGiftType({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +24,7 @@ class DonateGiftType extends StatelessWidget {
           textAlign: TextAlign.start,
         ),
         const SizedBox(height: 18),
-        BlocBuilder(
-          bloc: donateGiftTypeCubit,
+        BlocBuilder<DonateGiftTypeCubit, GiftType?>(
           builder: (context, GiftType? typeState) => Wrap(
             spacing: 12,
             runSpacing: 12,
@@ -34,7 +32,7 @@ class DonateGiftType extends StatelessWidget {
                 .map((e) => DonateGiftChipItem(
               text: e.text,
               selected: e == typeState,
-              onTap: () => donateGiftTypeCubit.change(e),
+              onTap: () => context.read<DonateGiftTypeCubit>().change(e),
             )).toList(),
           ),
         ),

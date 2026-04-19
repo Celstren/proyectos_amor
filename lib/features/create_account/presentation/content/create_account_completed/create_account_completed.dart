@@ -4,14 +4,14 @@ import 'package:app_ui/app_constants/size_constants.dart';
 import 'package:app_ui/app_image/app_image.dart';
 import 'package:app_ui/app_text/app_rich_text.dart';
 import 'package:app_ui/app_text/app_text.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectos_amor/features/create_account/create_account_images.dart';
 import 'package:proyectos_amor/features/create_account/create_account_strings.dart';
-import 'package:proyectos_amor/features/create_account/logic_holders/cubit/change_create_account_step_cubit/change_create_account_step_cubit.dart';
+import 'package:proyectos_amor/router/app_router.gr.dart';
 
 class CreateAccountCompleted extends StatelessWidget {
-  final ChangeCreateAccountStepCubit changeCreateAccountStepCubit;
-  const CreateAccountCompleted({super.key, required this.changeCreateAccountStepCubit});
+  const CreateAccountCompleted({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +128,7 @@ class CreateAccountCompleted extends StatelessWidget {
                 const SizedBox(height: SizeConstants.xl),
                 AppButton.solid(
                   text: CreateAccountStrings.createAccountCompletedPrimaryButton,
-                  onTap: () {},
+                  onTap: () => AutoRouter.of(context).replaceAll([const DashboardPageRoute()]),
                 ),
                 SizedBox(height: MediaQuery.of(context).viewPadding.bottom),
               ],

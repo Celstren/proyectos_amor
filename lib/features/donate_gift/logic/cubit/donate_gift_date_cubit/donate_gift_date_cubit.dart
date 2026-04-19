@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 
 enum GiftDate { now, inHours, tomorrow, other }
 
@@ -18,7 +17,6 @@ extension GiftDateExtension on GiftDate {
   }
 }
 
-@injectable
 class DonateGiftDateCubit extends Cubit<GiftDate?> {
   DonateGiftDateCubit() : super(null);
 

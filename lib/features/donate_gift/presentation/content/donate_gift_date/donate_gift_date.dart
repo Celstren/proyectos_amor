@@ -9,16 +9,14 @@ import 'package:proyectos_amor/features/donate_gift/presentation/content/donate_
 import 'package:proyectos_amor/features/home/presentation/content/home_reminder/home_reminder.dart';
 
 class DonateGiftDate extends StatelessWidget {
-  final DonateGiftStepCubit donateGiftStepCubit;
-  final DonateGiftDateCubit donateGiftDateCubit;
-  const DonateGiftDate({super.key, required this.donateGiftStepCubit, required this.donateGiftDateCubit});
+  const DonateGiftDate({super.key});
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        donateGiftStepCubit.change(DonateGiftStep.locations);
+        context.read<DonateGiftStepCubit>().change(DonateGiftStep.locations);
       },
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -32,8 +30,7 @@ class DonateGiftDate extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 18),
-          BlocBuilder(
-            bloc: donateGiftDateCubit,
+          BlocBuilder<DonateGiftDateCubit, GiftDate?>(
             builder: (context, GiftDate? dateState) => Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -46,7 +43,7 @@ class DonateGiftDate extends StatelessWidget {
                       .map((e) => DonateGiftChipItem(
                     text: e.text,
                     selected: e == dateState,
-                    onTap: () => donateGiftDateCubit.change(e),
+                    onTap: () => context.read<DonateGiftDateCubit>().change(e),
                   )).toList(),
                 ),
                 if (dateState == GiftDate.now)

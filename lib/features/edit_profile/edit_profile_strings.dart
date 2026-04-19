@@ -1,14 +1,17 @@
 class EditProfileStrings {
   static const String editProfileHeader = 'Editar los datos';
 
-  static const String editProfileForms1Label = 'Nombre completo';
-  static const String editProfileForms1Hint = 'Juan Jose Torres';
+  static const String editProfileFormsFirstNameLabel = 'Nombres';
+  static const String editProfileFormsFirstNameHint = 'Juan Jose';
 
-  static const String editProfileForms2Label = 'Correo electrónico';
-  static const String editProfileForms2Hint = 'juanjose@hotmail.com';
+  static const String editProfileFormsLastNameLabel = 'Apellidos';
+  static const String editProfileFormsLastNameHint = 'Torres';
 
-  static const String editProfileForms3Label = 'Tipo de usuario';
-  static const String editProfileForms3Hint = 'Persona jurídica';
+  static const String editProfileFormsEmailLabel = 'Correo electrónico';
+  static const String editProfileFormsEmailHint = 'juanjose@hotmail.com';
+
+  static const String editProfileFormsAccountTypeLabel = 'Tipo de usuario';
+  static const String editProfileFormsAccountTypeHint = 'Persona';
 
   static const String editProfileBottomPrimaryButton = 'Actualizar datos';
 }
