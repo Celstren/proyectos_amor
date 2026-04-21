@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyectos_amor/features/notifications/notifications_images.dart';
+import 'package:proyectos_amor/features/notifications/notifications_strings.dart';
 import 'package:proyectos_amor/features/notifications/presentation/content/notifications_content/notifications_list/notifications_card/notification_image_text_card.dart';
 import 'package:proyectos_amor/features/notifications/presentation/content/notifications_content/notifications_list/notifications_card/notification_text_card.dart';
 import 'package:proyectos_amor/features/notifications/presentation/content/notifications_content/notifications_list/notifications_card/notification_video_text_card.dart';
@@ -18,41 +19,41 @@ class NotificationsList extends StatelessWidget {
         children: <Widget>[
           NotificationTextCard(
             tag: NotificationsTagEnum.urgent,
-            timeAgo: '12 min',
-            title: 'Necesitamos 3 barbies',
-            subTitle: 'Melisa, Esperanza y María están a la espera',
-            description: 'Queremos regarle a 3 niñas del hospital Dos de Mayo barbies para que puedan jugar.',
-            button: 'Quiero donar',
+            timeAgo: NotificationsStrings.sampleDonationTimeAgo,
+            title: NotificationsStrings.sampleDonationTitle,
+            subTitle: NotificationsStrings.sampleDonationSubTitle,
+            description: NotificationsStrings.sampleDonationDescription,
+            button: NotificationsStrings.sampleDonationButton,
           ),
           NotificationImageTextCard(
             tag: NotificationsTagEnum.thanks,
             image: NotificationsImages.notificationPlaceholder2Icon,
-            timeAgo: '1 día',
-            subTitle: 'Valentina dice',
-            description: 'Me encantó la muñeca que recibí el día de hoy. Estoy muy feliz del regalo, gracias por todo.',
+            timeAgo: NotificationsStrings.sampleThanksTimeAgo,
+            subTitle: NotificationsStrings.sampleThanksSubTitle,
+            description: NotificationsStrings.sampleThanksDescription,
           ),
           NotificationImageTextCard(
             tag: NotificationsTagEnum.urgent,
             image: NotificationsImages.notificationPlaceholder1Icon,
-            timeAgo: '2 h',
-            title: '¡Urgente! 2 Bolsas de dormir',
-            subTitle: 'Abraham está a la espera',
-            description: 'Llegó una familia de provincia y no tiene como dormir 😭 Queremos solucionar lo antes posible.',
-            button: 'Quiero donar',
+            timeAgo: NotificationsStrings.sampleUrgentTimeAgo,
+            title: NotificationsStrings.sampleUrgentTitle,
+            subTitle: NotificationsStrings.sampleUrgentSubTitle,
+            description: NotificationsStrings.sampleUrgentDescription,
+            button: NotificationsStrings.sampleDonationButton,
           ),
           NotificationImageTextCard(
             tag: NotificationsTagEnum.news,
             image: NotificationsImages.notificationPlaceholder3Icon,
-            timeAgo: '1 día',
-            title: 'Bienvenida Tai Loy',
-            description: 'Estamos seguros que lograremos muchas cosas juntos. ❤️🫶',
+            timeAgo: NotificationsStrings.sampleThanksTimeAgo,
+            title: NotificationsStrings.sampleNewsTitle,
+            description: NotificationsStrings.sampleNewsDescription,
           ),
           NotificationVideoTextCard(
             tag: NotificationsTagEnum.thanks,
             image: NotificationsImages.notificationPlaceholder2Icon,
-            timeAgo: '1 día',
-            subTitle: 'Jesús Portocarrero dice',
-            description: 'Estoy emocionado por el nuevo tren que me regalaron. Es la mejor navidad del mundo.',
+            timeAgo: NotificationsStrings.sampleThanksTimeAgo,
+            subTitle: NotificationsStrings.sampleVideoSubTitle,
+            description: NotificationsStrings.sampleVideoDescription,
           ),
         ],
       ),

@@ -36,9 +36,15 @@ class _OnboardingStepThreeState extends State<OnboardingStepThree> {
           const _OnboardingChipMarquee(
             duration: Duration(seconds: 14),
             chips: <Widget>[
-              OnboardingChip.yellow(text: '+12k voluntarios'),
-              OnboardingChip.black(text: '+22 iniciativas'),
-              OnboardingChip.yellow(text: '+200 sueños cumplidos'),
+              OnboardingChip.yellow(
+                text: OnboardingStrings.splashThreeChipVolunteers,
+              ),
+              OnboardingChip.black(
+                text: OnboardingStrings.splashThreeChipInitiatives,
+              ),
+              OnboardingChip.yellow(
+                text: OnboardingStrings.splashThreeChipDreams,
+              ),
             ],
           ),
           const SizedBox(height: 15),
@@ -46,18 +52,30 @@ class _OnboardingStepThreeState extends State<OnboardingStepThree> {
             reverse: true,
             duration: Duration(seconds: 18),
             chips: <Widget>[
-              OnboardingChip.black(text: '+102 programas'),
-              OnboardingChip.yellow(text: '+49 familias beneficiadas'),
-              OnboardingChip.black(text: '+17k almuerzos entregados'),
+              OnboardingChip.black(
+                text: OnboardingStrings.splashThreeChipPrograms,
+              ),
+              OnboardingChip.yellow(
+                text: OnboardingStrings.splashThreeChipFamilies,
+              ),
+              OnboardingChip.black(
+                text: OnboardingStrings.splashThreeChipLunches,
+              ),
             ],
           ),
           const SizedBox(height: 15),
           const _OnboardingChipMarquee(
             duration: Duration(seconds: 16),
             chips: <Widget>[
-              OnboardingChip.yellow(text: '+200 sueños cumplidos'),
-              OnboardingChip.black(text: '+17k almuerzos entregados'),
-              OnboardingChip.yellow(text: '+22 iniciativas'),
+              OnboardingChip.yellow(
+                text: OnboardingStrings.splashThreeChipDreams,
+              ),
+              OnboardingChip.black(
+                text: OnboardingStrings.splashThreeChipLunches,
+              ),
+              OnboardingChip.yellow(
+                text: OnboardingStrings.splashThreeChipInitiatives,
+              ),
             ],
           ),
           const SizedBox(height: 24),

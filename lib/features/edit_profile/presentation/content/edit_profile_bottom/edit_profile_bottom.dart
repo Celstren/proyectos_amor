@@ -18,7 +18,7 @@ class EditProfileBottom extends StatelessWidget {
             context.read<FetchProfileBloc>().add(const FetchLocalProfile());
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
-                content: Text('Perfil actualizado con éxito'),
+                content: Text(EditProfileStrings.updateSuccessMessage),
                 backgroundColor: Colors.green,
               ),
             );
@@ -41,7 +41,7 @@ class EditProfileBottom extends StatelessWidget {
           padding: const EdgeInsets.all(18),
           child: AppButton.solid(
             text: isLoading
-                ? 'Guardando...'
+                ? EditProfileStrings.savingButton
                 : EditProfileStrings.editProfileBottomPrimaryButton,
             radius: 56,
             onTap: isLoading

@@ -14,7 +14,9 @@ class AuthenticatedProfileTabs extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         AuthenticatedProfileTabsHeader(tabController: tabController),
-        Flexible(child: AuthenticatedProfileTabsContent(tabController: tabController)),
+        Flexible(
+            child:
+                AuthenticatedProfileTabsContent(tabController: tabController)),
       ],
     );
   }

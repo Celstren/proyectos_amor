@@ -9,7 +9,6 @@ class ProfileContent extends StatefulWidget {
 }
 
 class _ProfileContentState extends State<ProfileContent> {
-
   @override
   Widget build(BuildContext context) {
     return const AuthenticatedProfile();

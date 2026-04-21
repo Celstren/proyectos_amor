@@ -24,32 +24,32 @@ class DonateGiftChipItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
         decoration: selected
             ? BoxDecoration(
-          color: ColorsConstant.splashPrimaryFontColor,
-          borderRadius: BorderRadius.circular(56),
-        )
+                color: ColorsConstant.splashPrimaryFontColor,
+                borderRadius: BorderRadius.circular(56),
+              )
             : BoxDecoration(
-          borderRadius: BorderRadius.circular(56),
-          border: Border.all(color: ColorsConstant.splashPrimaryFontColor),
-        ),
+                borderRadius: BorderRadius.circular(56),
+                border:
+                    Border.all(color: ColorsConstant.splashPrimaryFontColor),
+              ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            if (selected)
-              ...[
-                const SizedBox(
-                  height: 16,
-                  width: 16,
-                  child: Center(
-                    child: AppImage.assetSvg(
-                      asset: DonateGiftImages.starIcon,
-                      color: ColorsConstant.secondaryColor,
-                    ),
+            if (selected) ...[
+              const SizedBox(
+                height: 16,
+                width: 16,
+                child: Center(
+                  child: AppImage.assetSvg(
+                    asset: DonateGiftImages.starIcon,
+                    color: ColorsConstant.secondaryColor,
                   ),
                 ),
-                const SizedBox(width: 8),
-              ],
+              ),
+              const SizedBox(width: 8),
+            ],
             AppText.normal(
               text,
               fontSize: 12,
@@ -58,20 +58,19 @@ class DonateGiftChipItem extends StatelessWidget {
                   : ColorsConstant.splashPrimaryFontColor,
               textAlign: TextAlign.center,
             ),
-            if (selected)
-              ...[
-                const SizedBox(width: 8),
-                const SizedBox(
-                  height: 16,
-                  width: 16,
-                  child: Center(
-                    child: AppImage.assetSvg(
-                      asset: DonateGiftImages.starIcon,
-                      color: ColorsConstant.secondaryColor,
-                    ),
+            if (selected) ...[
+              const SizedBox(width: 8),
+              const SizedBox(
+                height: 16,
+                width: 16,
+                child: Center(
+                  child: AppImage.assetSvg(
+                    asset: DonateGiftImages.starIcon,
+                    color: ColorsConstant.secondaryColor,
                   ),
                 ),
-              ],
+              ),
+            ],
           ],
         ),
       ),

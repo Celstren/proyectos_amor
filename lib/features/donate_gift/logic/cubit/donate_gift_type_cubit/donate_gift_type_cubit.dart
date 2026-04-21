@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:proyectos_amor/features/donate_gift/donate_gift_strings.dart';
 
 enum GiftType { food, toys, cleanArticles, clothes, homeArticles, cash }
 
@@ -6,22 +7,22 @@ extension GiftTypeExtension on GiftType {
   String get text {
     switch (this) {
       case GiftType.food:
-        return 'Comida';
+        return DonateGiftStrings.giftTypeFood;
       case GiftType.toys:
-        return 'Juguetes';
+        return DonateGiftStrings.giftTypeToys;
       case GiftType.cleanArticles:
-        return 'Artículos de aseo';
+        return DonateGiftStrings.giftTypeCleanArticles;
       case GiftType.clothes:
-        return 'Ropa';
+        return DonateGiftStrings.giftTypeClothes;
       case GiftType.homeArticles:
-        return 'Artículos de casa';
+        return DonateGiftStrings.giftTypeHomeArticles;
       case GiftType.cash:
-        return 'Efectivo';
+        return DonateGiftStrings.giftTypeCash;
     }
   }
 }
 
-class DonateGiftTypeCubit extends Cubit<GiftType?>{
+class DonateGiftTypeCubit extends Cubit<GiftType?> {
   DonateGiftTypeCubit() : super(null);
 
   void change(GiftType? type) => emit(type);

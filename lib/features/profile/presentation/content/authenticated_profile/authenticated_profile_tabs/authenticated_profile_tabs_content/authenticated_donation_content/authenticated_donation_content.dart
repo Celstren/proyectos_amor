@@ -34,15 +34,36 @@ class _AuthenticatedDonationContentViewState
   static const _pageSize = 10;
 
   final _dateOptions = <AppDropDownOption>[
-    AppDropDownOption(id: 1, value: 'Todas'),
-    AppDropDownOption(id: 2, value: 'Hoy'),
-    AppDropDownOption(id: 3, value: 'Ayer'),
+    AppDropDownOption(
+      id: 1,
+      value: ProfileStrings.authenticatedDonationDateAll,
+    ),
+    AppDropDownOption(
+      id: 2,
+      value: ProfileStrings.authenticatedDonationDateToday,
+    ),
+    AppDropDownOption(
+      id: 3,
+      value: ProfileStrings.authenticatedDonationDateYesterday,
+    ),
   ];
   final _statusOptions = <AppDropDownOption>[
-    AppDropDownOption(id: 1, value: 'Todos'),
-    AppDropDownOption(id: 2, value: 'Pendiente'),
-    AppDropDownOption(id: 3, value: 'Recibido'),
-    AppDropDownOption(id: 4, value: 'Cancelado'),
+    AppDropDownOption(
+      id: 1,
+      value: ProfileStrings.authenticatedDonationStatusAll,
+    ),
+    AppDropDownOption(
+      id: 2,
+      value: ProfileStrings.authenticatedDonationStatusPending,
+    ),
+    AppDropDownOption(
+      id: 3,
+      value: ProfileStrings.authenticatedDonationStatusReceived,
+    ),
+    AppDropDownOption(
+      id: 4,
+      value: ProfileStrings.authenticatedDonationStatusCancelled,
+    ),
   ];
 
   AppDropDownOption? _selectedDateOption;
@@ -120,8 +141,12 @@ class _AuthenticatedDonationContentViewState
     final donationDate = DateTime(date.year, date.month, date.day);
     final yesterday = today.subtract(const Duration(days: 1));
 
-    if (donationDate == today) return 'Hoy';
-    if (donationDate == yesterday) return 'Ayer';
+    if (donationDate == today) {
+      return ProfileStrings.authenticatedDonationDateToday;
+    }
+    if (donationDate == yesterday) {
+      return ProfileStrings.authenticatedDonationDateYesterday;
+    }
     return DateFormat('dd MMM yyyy', 'es_MX').format(date);
   }
 
@@ -129,7 +154,8 @@ class _AuthenticatedDonationContentViewState
     if (donation.donationType == 'money') {
       final currency = donation.currency ?? '';
       final amount = donation.amount ?? '0.00';
-      return 'dinero - $currency $amount'.trim();
+      return '${ProfileStrings.authenticatedDonationMoneyLabel} - $currency $amount'
+          .trim();
     }
 
     final quantity = donation.quantity ?? 0;
@@ -168,7 +194,7 @@ class _AuthenticatedDonationContentViewState
             setState(() => _selectedStatusOption = option);
             _fetchDonations();
           },
-          hint: 'Estado',
+          hint: ProfileStrings.authenticatedDonationStatusHint,
         ),
       ],
     );
@@ -273,23 +299,24 @@ class _DonationListSkeleton extends StatelessWidget {
         child: Column(
           children: [
             AuthenticatedDonationGroup(
-              title: 'Hoy',
+              title: ProfileStrings.authenticatedDonationDateToday,
               items: [
                 AuthenticatedDonationItem(
-                  text: 'dinero - PEN 50.00',
+                  text:
+                      '${ProfileStrings.authenticatedDonationMoneyLabel} - PEN 50.00',
                   status: DonationStatus.pending,
                 ),
                 AuthenticatedDonationItem(
-                  text: '2 juguetes educativos',
+                  text: ProfileStrings.authenticatedDonationSkeletonToys,
                   status: DonationStatus.received,
                 ),
               ],
             ),
             AuthenticatedDonationGroup(
-              title: 'Ayer',
+              title: ProfileStrings.authenticatedDonationDateYesterday,
               items: [
                 AuthenticatedDonationItem(
-                  text: '1 caja de ropa para niños',
+                  text: ProfileStrings.authenticatedDonationSkeletonGift,
                   status: DonationStatus.pending,
                 ),
               ],
@@ -312,10 +339,11 @@ class _DonationLoadMoreSkeleton extends StatelessWidget {
         enabled: true,
         child: IgnorePointer(
           child: AuthenticatedDonationGroup(
-            title: 'Más donaciones',
+            title: ProfileStrings.authenticatedDonationSkeletonMore,
             items: [
               AuthenticatedDonationItem(
-                text: 'dinero - PEN 25.00',
+                text:
+                    '${ProfileStrings.authenticatedDonationMoneyLabel} - PEN 25.00',
                 status: DonationStatus.pending,
               ),
             ],

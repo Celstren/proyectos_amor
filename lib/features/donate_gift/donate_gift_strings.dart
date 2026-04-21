@@ -20,6 +20,12 @@ class DonateGiftStrings {
   static const String donateGiftInformationHint1 = 'Ej. muñeca barbie';
   static const String donateGiftInformationLabel2 = 'Ingresa una cantidad';
   static const String donateGiftInformationHint2 = 'Ej. 5 (unidades)';
+  static const String giftTypeFood = 'Comida';
+  static const String giftTypeToys = 'Juguetes';
+  static const String giftTypeCleanArticles = 'Artículos de aseo';
+  static const String giftTypeClothes = 'Ropa';
+  static const String giftTypeHomeArticles = 'Artículos de casa';
+  static const String giftTypeCash = 'Efectivo';
 
   static const String donateGiftTypeReminderTitle = '¡Recuerda!';
   static const String donateGiftTypeReminderSubTitle =
@@ -36,4 +42,22 @@ class DonateGiftStrings {
       'Entre más pronto lo entregues, más rápido podemos seguir mejorando';
   static const String donateGiftDateTitle =
       'Selecciona cuándo puedes entregar tu donativo';
+  static const String selectGiftTypeError =
+      'Selecciona el tipo de regalo que vas a donar.';
+  static const String missingGiftProductError =
+      'Ingresa el producto que vas a donar.';
+  static const String invalidGiftQuantityError = 'Ingresa una cantidad válida.';
+  static const String missingGiftLocationError =
+      'Selecciona el lugar de entrega más cercano.';
+  static const String missingGiftDeliveryDateError =
+      'Selecciona cuándo puedes llevar tu donativo.';
+  static const String createGiftDonationError =
+      'No pudimos registrar tu donativo.';
+  static const String futureDeliveryTimeError =
+      'Selecciona una hora futura para la entrega.';
+  static const String selectDeliveryDate = 'Seleccionar fecha';
+  static const String selectDeliveryTime = 'Seleccionar hora';
+  static const String deliveryDateLabel = 'Fecha de entrega';
+  static const String deliveryTimeLabel = 'Hora de entrega';
+  static const String scheduledDeliveryTitle = 'Entrega programada';
 }

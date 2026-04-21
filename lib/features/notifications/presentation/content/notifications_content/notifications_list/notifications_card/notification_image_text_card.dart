@@ -24,13 +24,16 @@ class NotificationImageTextCard extends StatelessWidget {
     this.subTitle = '',
     this.description = '',
     this.button = '',
-});
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(SizeConstants.xl),
-      margin: const EdgeInsets.only(left: SizeConstants.xl, right: SizeConstants.xl, bottom: SizeConstants.xl),
+      margin: const EdgeInsets.only(
+          left: SizeConstants.xl,
+          right: SizeConstants.xl,
+          bottom: SizeConstants.xl),
       decoration: BoxDecoration(
         color: ColorsConstant.neutralWhite,
         borderRadius: BorderRadius.circular(8),
@@ -56,57 +59,52 @@ class NotificationImageTextCard extends StatelessWidget {
               ),
             ],
           ),
-          if (title.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.lg),
-              AppText.bold(
-                title,
-                fontColor: ColorsConstant.text950,
-                fontSize: 18,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          if (image.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.sm),
-              Center(
-                child: ClipOval(
-                  child: AppImage.assetImage(
-                    asset: image,
-                    fit: BoxFit.cover,
-                    size: 120,
-                  ),
+          if (title.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.lg),
+            AppText.bold(
+              title,
+              fontColor: ColorsConstant.text950,
+              fontSize: 18,
+              textAlign: TextAlign.start,
+            ),
+          ],
+          if (image.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.sm),
+            Center(
+              child: ClipOval(
+                child: AppImage.assetImage(
+                  asset: image,
+                  fit: BoxFit.cover,
+                  size: 120,
                 ),
               ),
-            ],
-          if (subTitle.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.sm),
-              AppText.semiBold(
-                subTitle,
-                fontColor: ColorsConstant.text950,
-                fontSize: 12,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          if (description.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.sm),
-              AppText.normal(
-                description,
-                fontColor: ColorsConstant.text600,
-                fontSize: 12,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          if (button.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.xl),
-              AppButton(
-                text: button,
-                onTap: () {},
-              ),
-            ],
+            ),
+          ],
+          if (subTitle.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.sm),
+            AppText.semiBold(
+              subTitle,
+              fontColor: ColorsConstant.text950,
+              fontSize: 12,
+              textAlign: TextAlign.start,
+            ),
+          ],
+          if (description.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.sm),
+            AppText.normal(
+              description,
+              fontColor: ColorsConstant.text600,
+              fontSize: 12,
+              textAlign: TextAlign.start,
+            ),
+          ],
+          if (button.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.xl),
+            AppButton(
+              text: button,
+              onTap: () {},
+            ),
+          ],
         ],
       ),
     );

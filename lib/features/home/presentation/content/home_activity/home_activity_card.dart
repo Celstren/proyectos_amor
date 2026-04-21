@@ -35,12 +35,12 @@ class HomeActivityCard extends StatelessWidget {
         ? '${AppConstants.appCurrency} 600.00'
         : isMoneyCampaign
             ? _formatMoney(donationCampaign.currentAmount)
-            : '${donationCampaign.currentQuantity} donados';
+            : '${donationCampaign.currentQuantity} ${HomeStrings.homeActivityDonatedSuffix}';
     final goalValue = donationCampaign == null
         ? '${AppConstants.appCurrency} 1,200.00'
         : isMoneyCampaign
             ? _formatMoney(donationCampaign.goalAmount ?? '0')
-            : '${donationCampaign.goalQuantity ?? 0} meta';
+            : '${donationCampaign.goalQuantity ?? 0} ${HomeStrings.homeActivityGoalSuffix}';
 
     return Container(
       decoration: BoxDecoration(
@@ -78,7 +78,8 @@ class HomeActivityCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   AppText.semiBold(
-                    donationCampaign?.title ?? 'Sanar Jugando',
+                    donationCampaign?.title ??
+                        HomeStrings.homeActivityFallbackTitle,
                     fontColor: ColorsConstant.text950,
                     fontSize: 16,
                     textAlign: TextAlign.start,
@@ -88,7 +89,7 @@ class HomeActivityCard extends StatelessWidget {
                   const SizedBox(height: SizeConstants.sm),
                   AppText.normal(
                     donationCampaign?.description ??
-                        'Queremos trasladar a 30 niños de provincia a Lima para que puedan aprender mejor',
+                        HomeStrings.homeActivityFallbackDescription,
                     fontColor: ColorsConstant.text950,
                     fontSize: 12,
                     textAlign: TextAlign.start,

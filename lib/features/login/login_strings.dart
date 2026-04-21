@@ -8,4 +8,9 @@ class LoginStrings {
   static const String loginContentForgotAccountLabel = 'Recuperar contraseña';
   static const String loginContentPrimaryButton = 'Iniciar sesión';
   static const String loginContentSecondaryButton = 'Crear cuenta';
+  static const String loginUnexpectedError = 'Ocurrió un error inesperado';
+  static const String loginConnectionError =
+      'Error de conexión. Revisa tu internet.';
+  static const String loginUnauthorizedError = 'Credenciales incorrectas.';
+  static const String loginLoadingButton = 'Iniciando sesión...';
 }

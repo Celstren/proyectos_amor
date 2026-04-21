@@ -42,11 +42,15 @@ class DonateMoneyHeader extends StatelessWidget {
               ),
               BlocBuilder<DonateMoneyStepCubit, DonateMoneyStep>(
                 builder: (context, DonateMoneyStep stepState) => AppRichText(
-                  primaryText: DonateMoneyStrings.donateMoneyContentStepHeader1.replaceAll('{step}','${stepState.index + 1}'),
+                  primaryText: DonateMoneyStrings.donateMoneyContentStepHeader1
+                      .replaceAll('{step}', '${stepState.index + 1}'),
                   primaryFontColor: ColorsConstant.splashPrimaryFontColor,
                   primaryFontWeight: FontWeight.bold,
                   primaryFontSize: 12,
-                  secondaryText: DonateMoneyStrings.donateMoneyContentStepHeader2.replaceAll('{total}', '${DonateMoneyStep.values.length}'),
+                  secondaryText: DonateMoneyStrings
+                      .donateMoneyContentStepHeader2
+                      .replaceAll(
+                          '{total}', '${DonateMoneyStep.values.length}'),
                   secondaryFontColor: ColorsConstant.splashPrimaryFontColor,
                   secondaryFontWeight: FontWeight.w400,
                   secondaryFontSize: 12,

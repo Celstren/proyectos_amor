@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:proyectos_amor/features/donate_gift/donate_gift_strings.dart';
 import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_date_cubit/donate_gift_date_cubit.dart';
 import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_location_cubit/donate_gift_location_cubit.dart';
 import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_step_cubit/donate_gift_step_cubit.dart';
@@ -49,7 +50,7 @@ class _DonateGiftContentState extends State<DonateGiftContent> {
   void _goToInformation(BuildContext context) {
     final giftType = context.read<DonateGiftTypeCubit>().state;
     if (giftType == null) {
-      _showValidationMessage('Selecciona el tipo de regalo que vas a donar.');
+      _showValidationMessage(DonateGiftStrings.selectGiftTypeError);
       return;
     }
 
@@ -61,12 +62,12 @@ class _DonateGiftContentState extends State<DonateGiftContent> {
     final quantity = _quantity;
 
     if (product.isEmpty) {
-      _showValidationMessage('Ingresa el producto que vas a donar.');
+      _showValidationMessage(DonateGiftStrings.missingGiftProductError);
       return;
     }
 
     if (quantity == null || quantity <= 0) {
-      _showValidationMessage('Ingresa una cantidad válida.');
+      _showValidationMessage(DonateGiftStrings.invalidGiftQuantityError);
       return;
     }
 
@@ -76,7 +77,7 @@ class _DonateGiftContentState extends State<DonateGiftContent> {
   void _goToDeliveryDate(BuildContext context) {
     final location = context.read<DonateGiftLocationCubit>().state;
     if (location == null) {
-      _showValidationMessage('Selecciona el lugar de entrega más cercano.');
+      _showValidationMessage(DonateGiftStrings.missingGiftLocationError);
       return;
     }
 
@@ -91,27 +92,27 @@ class _DonateGiftContentState extends State<DonateGiftContent> {
     final quantity = _quantity;
 
     if (giftType == null) {
-      _showValidationMessage('Selecciona el tipo de regalo que vas a donar.');
+      _showValidationMessage(DonateGiftStrings.selectGiftTypeError);
       return;
     }
 
     if (product.isEmpty) {
-      _showValidationMessage('Ingresa el producto que vas a donar.');
+      _showValidationMessage(DonateGiftStrings.missingGiftProductError);
       return;
     }
 
     if (quantity == null || quantity <= 0) {
-      _showValidationMessage('Ingresa una cantidad válida.');
+      _showValidationMessage(DonateGiftStrings.invalidGiftQuantityError);
       return;
     }
 
     if (location == null) {
-      _showValidationMessage('Selecciona el lugar de entrega más cercano.');
+      _showValidationMessage(DonateGiftStrings.missingGiftLocationError);
       return;
     }
 
     if (deliveryDate == null) {
-      _showValidationMessage('Selecciona cuándo puedes llevar tu donativo.');
+      _showValidationMessage(DonateGiftStrings.missingGiftDeliveryDateError);
       return;
     }
 
@@ -157,7 +158,7 @@ class _DonateGiftContentState extends State<DonateGiftContent> {
                 content: Text(
                   message.isNotEmpty
                       ? message
-                      : 'No pudimos registrar tu donativo.',
+                      : DonateGiftStrings.createGiftDonationError,
                 ),
                 backgroundColor: Colors.red,
               ),

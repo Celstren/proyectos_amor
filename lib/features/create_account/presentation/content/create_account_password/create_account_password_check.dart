@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 class CreateAccountPasswordCheck extends StatelessWidget {
   final String label;
   final bool checked;
-  const CreateAccountPasswordCheck({super.key, this.label = '', this.checked = false});
+  const CreateAccountPasswordCheck(
+      {super.key, this.label = '', this.checked = false});
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +21,21 @@ class CreateAccountPasswordCheck extends StatelessWidget {
           width: 18,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: checked ? null : Border.all(
-              color: ColorsConstant.feedbackSuccess600,
-              width: 2,
-            ),
+            border: checked
+                ? null
+                : Border.all(
+                    color: ColorsConstant.feedbackSuccess600,
+                    width: 2,
+                  ),
             color: checked ? ColorsConstant.feedbackSuccess600 : null,
           ),
           child: Center(
             child: Icon(
               Icons.check,
               size: 14,
-              color: checked ? ColorsConstant.neutralWhite : ColorsConstant.feedbackSuccess600,
+              color: checked
+                  ? ColorsConstant.neutralWhite
+                  : ColorsConstant.feedbackSuccess600,
             ),
           ),
         ),

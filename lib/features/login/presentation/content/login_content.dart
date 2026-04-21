@@ -38,7 +38,7 @@ class _LoginContentState extends State<LoginContent> {
                 SnackBar(
                   content: Text(message.isNotEmpty
                       ? message
-                      : 'Ocurrió un error inesperado'),
+                      : LoginStrings.loginUnexpectedError),
                   backgroundColor: Colors.red,
                 ),
               );
@@ -49,7 +49,7 @@ class _LoginContentState extends State<LoginContent> {
                   content: Text(
                     message.isNotEmpty
                         ? message
-                        : 'Error de conexión. Revisa tu internet.',
+                        : LoginStrings.loginConnectionError,
                   ),
                   backgroundColor: Colors.orange,
                 ),
@@ -59,7 +59,9 @@ class _LoginContentState extends State<LoginContent> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    message.isNotEmpty ? message : 'Credenciales incorrectas.',
+                    message.isNotEmpty
+                        ? message
+                        : LoginStrings.loginUnauthorizedError,
                   ),
                   backgroundColor: Colors.red,
                 ),
@@ -117,7 +119,7 @@ class _LoginContentState extends State<LoginContent> {
                           ? null
                           : () => context.read<LoginBloc>().add(const Login()),
                       text: isLoading
-                          ? 'Iniciando sesión...'
+                          ? LoginStrings.loginLoadingButton
                           : LoginStrings.loginContentPrimaryButton,
                     );
                   },

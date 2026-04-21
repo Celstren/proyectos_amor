@@ -35,9 +35,9 @@ class AuthenticatedDonationGroup extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
           ...items.map((e) => Padding(
-            padding: const EdgeInsets.only(bottom: 16),
-            child: e,
-          )),
+                padding: const EdgeInsets.only(bottom: 16),
+                child: e,
+              )),
         ],
       ),
     );

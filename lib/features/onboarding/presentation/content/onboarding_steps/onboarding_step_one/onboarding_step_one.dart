@@ -102,7 +102,9 @@ class _OnboardingStepOneState extends State<OnboardingStepOne> {
             ),
           ),
           const Spacer(),
-          OnboardingBottom(onNext: () => context.read<ChangeOnboardingStepCubit>().change(1)),
+          OnboardingBottom(
+              onNext: () =>
+                  context.read<ChangeOnboardingStepCubit>().change(1)),
         ],
       ),
     );

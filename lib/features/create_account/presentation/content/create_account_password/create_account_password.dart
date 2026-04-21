@@ -24,7 +24,7 @@ class CreateAccountPassword extends StatelessWidget {
     if (!validationState.isValid) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Por favor completa los requerimientos de contraseña'),
+          content: Text(CreateAccountStrings.passwordRequirementsError),
           backgroundColor: Colors.orange,
         ),
       );
@@ -55,8 +55,7 @@ class CreateAccountPassword extends StatelessWidget {
             if (imageUploadFailed) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content:
-                      Text('Cuenta creada, pero no pudimos subir tu foto.'),
+                  content: Text(CreateAccountStrings.profileImageUploadWarning),
                   backgroundColor: Colors.orange,
                 ),
               );

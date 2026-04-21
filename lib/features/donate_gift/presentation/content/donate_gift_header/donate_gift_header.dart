@@ -42,11 +42,13 @@ class DonateGiftHeader extends StatelessWidget {
               ),
               BlocBuilder<DonateGiftStepCubit, DonateGiftStep>(
                 builder: (context, DonateGiftStep stepState) => AppRichText(
-                  primaryText: DonateGiftStrings.donateGiftHeaderStep1.replaceAll('{step}','${stepState.index + 1}'),
+                  primaryText: DonateGiftStrings.donateGiftHeaderStep1
+                      .replaceAll('{step}', '${stepState.index + 1}'),
                   primaryFontColor: ColorsConstant.splashPrimaryFontColor,
                   primaryFontWeight: FontWeight.bold,
                   primaryFontSize: 12,
-                  secondaryText: DonateGiftStrings.donateGiftHeaderStep2.replaceAll('{total}', '${DonateGiftStep.values.length}'),
+                  secondaryText: DonateGiftStrings.donateGiftHeaderStep2
+                      .replaceAll('{total}', '${DonateGiftStep.values.length}'),
                   secondaryFontColor: ColorsConstant.splashPrimaryFontColor,
                   secondaryFontWeight: FontWeight.w400,
                   secondaryFontSize: 12,
@@ -55,7 +57,7 @@ class DonateGiftHeader extends StatelessWidget {
               const SizedBox(height: 8),
               BlocBuilder<DonateGiftStepCubit, DonateGiftStep>(
                 builder: (context, DonateGiftStep stepState) {
-                  switch(stepState) {
+                  switch (stepState) {
                     case DonateGiftStep.giftType:
                       return const AppRichText(
                         primaryText: DonateGiftStrings.donateGiftHeader11,
@@ -72,16 +74,16 @@ class DonateGiftHeader extends StatelessWidget {
                         ternaryFontSize: 18,
                       );
                     case DonateGiftStep.information:
-                    return const AppRichText(
-                      primaryText: DonateGiftStrings.donateGiftHeader21,
-                      primaryFontColor: ColorsConstant.splashPrimaryFontColor,
-                      primaryFontWeight: FontWeight.bold,
-                      primaryFontSize: 18,
-                      secondaryText: DonateGiftStrings.donateGiftHeader22,
-                      secondaryFontColor: ColorsConstant.primaryColor,
-                      secondaryFontWeight: FontWeight.bold,
-                      secondaryFontSize: 18,
-                    );
+                      return const AppRichText(
+                        primaryText: DonateGiftStrings.donateGiftHeader21,
+                        primaryFontColor: ColorsConstant.splashPrimaryFontColor,
+                        primaryFontWeight: FontWeight.bold,
+                        primaryFontSize: 18,
+                        secondaryText: DonateGiftStrings.donateGiftHeader22,
+                        secondaryFontColor: ColorsConstant.primaryColor,
+                        secondaryFontWeight: FontWeight.bold,
+                        secondaryFontSize: 18,
+                      );
                     case DonateGiftStep.locations:
                       return const AppRichText(
                         primaryText: DonateGiftStrings.donateGiftHeader31,

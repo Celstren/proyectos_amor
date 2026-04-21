@@ -18,4 +18,8 @@ class EditProfileStrings {
   static const String editProfileFormsAccountTypeHint = 'Persona';
 
   static const String editProfileBottomPrimaryButton = 'Actualizar datos';
+  static const String imageSourceGallery = 'Galería';
+  static const String imageSourceCamera = 'Cámara';
+  static const String updateSuccessMessage = 'Perfil actualizado con éxito';
+  static const String savingButton = 'Guardando...';
 }

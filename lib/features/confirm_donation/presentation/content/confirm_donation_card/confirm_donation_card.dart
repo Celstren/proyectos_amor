@@ -3,6 +3,7 @@ import 'package:app_ui/app_image/app_image.dart';
 import 'package:app_ui/app_text/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectos_amor/features/confirm_donation/confirm_donation_images.dart';
+import 'package:proyectos_amor/features/confirm_donation/confirm_donation_strings.dart';
 
 class ConfirmDonationCard extends StatelessWidget {
   const ConfirmDonationCard({super.key});
@@ -40,13 +41,13 @@ class ConfirmDonationCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     AppText.bold(
-                      '4 familias te lo agradecerán',
+                      ConfirmDonationStrings.confirmDonationCardTitle,
                       fontSize: 12,
                       fontColor: ColorsConstant.splashPrimaryFontColor,
                       textAlign: TextAlign.start,
                     ),
                     AppText.normal(
-                      'Estarán viajando a Lima para poder atenderse en los hospitales',
+                      ConfirmDonationStrings.confirmDonationCardDescription,
                       fontSize: 10,
                       fontColor: ColorsConstant.splashPrimaryFontColor,
                       textAlign: TextAlign.start,

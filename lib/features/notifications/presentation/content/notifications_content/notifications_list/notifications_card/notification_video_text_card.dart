@@ -15,20 +15,25 @@ class NotificationVideoTextCard extends StatelessWidget {
   final String subTitle;
   final String description;
   final String button;
-  const NotificationVideoTextCard({super.key,
+  const NotificationVideoTextCard({
+    super.key,
     required this.image,
     this.tag = NotificationsTagEnum.urgent,
     this.timeAgo = '',
     this.title = '',
     this.subTitle = '',
     this.description = '',
-    this.button = '',});
+    this.button = '',
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(SizeConstants.xl),
-      margin: const EdgeInsets.only(left: SizeConstants.xl, right: SizeConstants.xl, bottom: SizeConstants.xl),
+      margin: const EdgeInsets.only(
+          left: SizeConstants.xl,
+          right: SizeConstants.xl,
+          bottom: SizeConstants.xl),
       decoration: BoxDecoration(
         color: ColorsConstant.neutralWhite,
         borderRadius: BorderRadius.circular(8),
@@ -54,75 +59,70 @@ class NotificationVideoTextCard extends StatelessWidget {
               ),
             ],
           ),
-          if (title.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.lg),
-              AppText.bold(
-                title,
-                fontColor: ColorsConstant.text950,
-                fontSize: 18,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          if (image.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.sm),
-              Center(
-                child: ClipOval(
-                  child: SizedBox(
-                    height: 120,
-                    width: 120,
-                    child: Stack(
-                      children: <Widget>[
-                        AppImage.assetImage(
-                          asset: image,
-                          fit: BoxFit.cover,
-                          size: 120,
-                        ),
-                        Container(
-                          color: Colors.black.withAlpha((255 * .4).toInt()),
-                          child: const Center(
-                            child: Icon(
-                              Icons.play_arrow_rounded,
-                              size: 48,
-                              color: ColorsConstant.neutralWhite,
-                            ),
+          if (title.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.lg),
+            AppText.bold(
+              title,
+              fontColor: ColorsConstant.text950,
+              fontSize: 18,
+              textAlign: TextAlign.start,
+            ),
+          ],
+          if (image.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.sm),
+            Center(
+              child: ClipOval(
+                child: SizedBox(
+                  height: 120,
+                  width: 120,
+                  child: Stack(
+                    children: <Widget>[
+                      AppImage.assetImage(
+                        asset: image,
+                        fit: BoxFit.cover,
+                        size: 120,
+                      ),
+                      Container(
+                        color: Colors.black.withAlpha((255 * .4).toInt()),
+                        child: const Center(
+                          child: Icon(
+                            Icons.play_arrow_rounded,
+                            size: 48,
+                            color: ColorsConstant.neutralWhite,
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-            ],
-          if (subTitle.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.sm),
-              AppText.semiBold(
-                subTitle,
-                fontColor: ColorsConstant.text950,
-                fontSize: 12,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          if (description.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.sm),
-              AppText.normal(
-                description,
-                fontColor: ColorsConstant.text600,
-                fontSize: 12,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          if (button.isNotEmpty)
-            ...[
-              const SizedBox(height: SizeConstants.xl),
-              AppButton(
-                text: button,
-                onTap: () {},
-              ),
-            ],
+            ),
+          ],
+          if (subTitle.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.sm),
+            AppText.semiBold(
+              subTitle,
+              fontColor: ColorsConstant.text950,
+              fontSize: 12,
+              textAlign: TextAlign.start,
+            ),
+          ],
+          if (description.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.sm),
+            AppText.normal(
+              description,
+              fontColor: ColorsConstant.text600,
+              fontSize: 12,
+              textAlign: TextAlign.start,
+            ),
+          ],
+          if (button.isNotEmpty) ...[
+            const SizedBox(height: SizeConstants.xl),
+            AppButton(
+              text: button,
+              onTap: () {},
+            ),
+          ],
         ],
       ),
     );

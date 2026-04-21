@@ -47,25 +47,32 @@ class CreateAccountAbout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 CreateAccountAboutOption(
-                  onTap: () => context.read<ChangeAboutCubit>().change(AboutEnum.person),
+                  onTap: () =>
+                      context.read<ChangeAboutCubit>().change(AboutEnum.person),
                   text: CreateAccountStrings.createAccountAboutOptionTitle1,
-                  description: CreateAccountStrings.createAccountAboutOptionDescription1,
+                  description:
+                      CreateAccountStrings.createAccountAboutOptionDescription1,
                   asset: CreateAccountImages.createAccountSpadesIcon,
                   selected: aboutState == AboutEnum.person,
                 ),
                 const SizedBox(height: SizeConstants.xl),
                 CreateAccountAboutOption(
-                  onTap: () => context.read<ChangeAboutCubit>().change(AboutEnum.school),
+                  onTap: () =>
+                      context.read<ChangeAboutCubit>().change(AboutEnum.school),
                   text: CreateAccountStrings.createAccountAboutOptionTitle2,
-                  description: CreateAccountStrings.createAccountAboutOptionDescription2,
+                  description:
+                      CreateAccountStrings.createAccountAboutOptionDescription2,
                   asset: CreateAccountImages.createAccountStarIcon,
                   selected: aboutState == AboutEnum.school,
                 ),
                 const SizedBox(height: SizeConstants.xl),
                 CreateAccountAboutOption(
-                  onTap: () => context.read<ChangeAboutCubit>().change(AboutEnum.company),
+                  onTap: () => context
+                      .read<ChangeAboutCubit>()
+                      .change(AboutEnum.company),
                   text: CreateAccountStrings.createAccountAboutOptionTitle3,
-                  description: CreateAccountStrings.createAccountAboutOptionDescription3,
+                  description:
+                      CreateAccountStrings.createAccountAboutOptionDescription3,
                   asset: CreateAccountImages.createAccountCloudIcon,
                   selected: aboutState == AboutEnum.company,
                 ),
@@ -79,7 +86,9 @@ class CreateAccountAbout extends StatelessWidget {
             ),
             child: CreateAccountBottom(
               onBack: AutoRouter.of(context).maybePop,
-              onNext: () => context.read<ChangeCreateAccountStepCubit>().change(CreateAccountStep.picture),
+              onNext: () => context
+                  .read<ChangeCreateAccountStepCubit>()
+                  .change(CreateAccountStep.picture),
             ),
           ),
         ],

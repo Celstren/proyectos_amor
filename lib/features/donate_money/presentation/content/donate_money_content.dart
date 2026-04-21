@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:proyectos_amor/features/donate_money/donate_money_strings.dart';
 import 'package:proyectos_amor/features/donate_money/logic/cubit/enable_donation_certification_cubit/enable_donation_certification_cubit.dart';
 import 'package:proyectos_amor/features/donate_money/logic/cubit/donate_money_step_cubit/donate_money_step_cubit.dart';
 import 'package:proyectos_amor/features/donate_money/logic/cubit/payment_method_cubit/payment_method_cubit.dart';
@@ -54,7 +55,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
     if (paymentMethod == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Selecciona un método de donación.'),
+          content: Text(DonateMoneyStrings.selectDonationMethodError),
           backgroundColor: Colors.orange,
         ),
       );
@@ -70,7 +71,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
     if (amount == null || amount <= 0) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Ingresa un monto válido para tu donativo.'),
+          content: Text(DonateMoneyStrings.invalidDonationAmountError),
           backgroundColor: Colors.orange,
         ),
       );
@@ -80,7 +81,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
     if (_voucherFiles.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Adjunta al menos un voucher de tu donativo.'),
+          content: Text(DonateMoneyStrings.missingVoucherError),
           backgroundColor: Colors.orange,
         ),
       );
@@ -98,8 +99,8 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
             request: CreateDonationRequest(
               donationType: DonationType.money,
               description: paymentMethod != null
-                  ? 'Donación de dinero por ${paymentMethod.text}'
-                  : 'Donación de dinero',
+                  ? '${DonateMoneyStrings.moneyDonationDescription} por ${paymentMethod.text}'
+                  : DonateMoneyStrings.moneyDonationDescription,
               amount: amount,
               currency: 'PEN',
               needsCertification: needsCertification,
@@ -120,7 +121,10 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
   Future<void> _addVoucherFiles(List<File> files) async {
     if (_voucherFiles.length >= _maxVoucherFiles) {
       _showValidationMessage(
-        'Solo puedes adjuntar hasta $_maxVoucherFiles vouchers.',
+        DonateMoneyStrings.attachVoucherLimitError.replaceAll(
+          '{maxFiles}',
+          _maxVoucherFiles.toString(),
+        ),
       );
       return;
     }
@@ -134,7 +138,10 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
 
     if (files.length > availableSlots) {
       _showValidationMessage(
-        'Solo puedes adjuntar hasta $_maxVoucherFiles vouchers.',
+        DonateMoneyStrings.attachVoucherLimitError.replaceAll(
+          '{maxFiles}',
+          _maxVoucherFiles.toString(),
+        ),
       );
     }
 
@@ -152,7 +159,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
 
     if (oversizedFiles.isNotEmpty) {
       _showValidationMessage(
-        'Cada voucher debe pesar como máximo 1MB.',
+        DonateMoneyStrings.attachVoucherSizeError,
       );
     }
 
@@ -223,7 +230,12 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('No pudimos adjuntar el archivo: $error'),
+        content: Text(
+          DonateMoneyStrings.attachVoucherError.replaceAll(
+            '{error}',
+            error.toString(),
+          ),
+        ),
         backgroundColor: Colors.red,
       ),
     );
@@ -251,7 +263,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.photo_camera_outlined),
-                title: const Text('Tomar foto'),
+                title: const Text(DonateMoneyStrings.takePhotoOption),
                 onTap: () {
                   Navigator.of(bottomSheetContext).pop();
                   _takeVoucherPhoto();
@@ -259,7 +271,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
               ),
               ListTile(
                 leading: const Icon(Icons.image_outlined),
-                title: const Text('Adjuntar imagen o imágenes'),
+                title: const Text(DonateMoneyStrings.attachImagesOption),
                 onTap: () {
                   Navigator.of(bottomSheetContext).pop();
                   _pickVoucherImages();
@@ -267,7 +279,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
               ),
               ListTile(
                 leading: const Icon(Icons.description_outlined),
-                title: const Text('Adjuntar archivo o archivos'),
+                title: const Text(DonateMoneyStrings.attachFilesOption),
                 onTap: () {
                   Navigator.of(bottomSheetContext).pop();
                   _pickVoucherFiles();
@@ -311,7 +323,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
                 content: Text(
                   message.isNotEmpty
                       ? message
-                      : 'No pudimos registrar tu donativo.',
+                      : DonateMoneyStrings.createDonationError,
                 ),
                 backgroundColor: Colors.red,
               ),

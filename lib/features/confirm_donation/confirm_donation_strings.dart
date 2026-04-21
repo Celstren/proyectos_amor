@@ -3,10 +3,17 @@ class ConfirmDonationStrings {
   static const String confirmDonationHeader2 = ' una sonrisa!';
 
   static const String confirmDonationDescriptionTitle = 'Donativo registrado';
-  static const String confirmDonationDescriptionSubTitle = '¡Recuerda!Tu donativo aún está siendo procesado. Verificaremos tu transacción pronto.';
+  static const String confirmDonationDescriptionSubTitle =
+      '¡Recuerda!Tu donativo aún está siendo procesado. Verificaremos tu transacción pronto.';
   static const String confirmDonationDescriptionDonationLabel = 'Donación';
-  static const String confirmDonationDescriptionApprovedLabel = 'Fecha de aprobación';
-  static const String confirmDonationDescriptionLocationLabel = 'Lugar de acopio';
-  static const String confirmDonationDescriptionDeliveryLabel = 'Fecha estimada entrega';
+  static const String confirmDonationDescriptionApprovedLabel =
+      'Fecha de aprobación';
+  static const String confirmDonationDescriptionLocationLabel =
+      'Lugar de acopio';
+  static const String confirmDonationDescriptionDeliveryLabel =
+      'Fecha estimada entrega';
   static const String confirmDonationDescriptionPrimaryButton = 'Ir al inicio';
+  static const String confirmDonationCardTitle = '4 familias te lo agradecerán';
+  static const String confirmDonationCardDescription =
+      'Estarán viajando a Lima para poder atenderse en los hospitales';
 }

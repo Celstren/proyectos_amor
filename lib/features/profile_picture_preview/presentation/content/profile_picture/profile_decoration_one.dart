@@ -3,6 +3,7 @@ import 'package:app_ui/app_image/app_image.dart';
 import 'package:app_ui/app_text/app_rich_text.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectos_amor/features/profile_picture_preview/profile_picture_preview_images.dart';
+import 'package:proyectos_amor/features/profile_picture_preview/profile_picture_preview_strings.dart';
 
 class ProfileDecorationOne extends StatelessWidget {
   const ProfileDecorationOne({super.key});
@@ -22,7 +23,8 @@ class ProfileDecorationOne extends StatelessWidget {
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,11 +33,13 @@ class ProfileDecorationOne extends StatelessWidget {
                     const SizedBox(width: 56),
                     const Expanded(
                       child: AppRichText(
-                        primaryText: 'Yo soy un padrino de',
+                        primaryText:
+                            ProfilePicturePreviewStrings.decorationPrimaryText,
                         primaryFontColor: ColorsConstant.neutralWhite,
                         primaryFontWeight: FontWeight.normal,
                         primaryFontSize: 16,
-                        secondaryText: '\n#Proyectos de amor',
+                        secondaryText: ProfilePicturePreviewStrings
+                            .decorationSecondaryText,
                         secondaryFontColor: ColorsConstant.neutralWhite,
                         secondaryFontWeight: FontWeight.bold,
                         secondaryFontSize: 18,
@@ -52,7 +56,8 @@ class ProfileDecorationOne extends StatelessWidget {
                       child: const Center(
                         child: AppImage.assetImage(
                           height: 32,
-                          asset: ProfilePicturePreviewImages.profilePicturePreviewCompany,
+                          asset: ProfilePicturePreviewImages
+                              .profilePicturePreviewCompany,
                           fit: BoxFit.contain,
                         ),
                       ),

@@ -25,7 +25,7 @@ class CreateAccountPicture extends StatelessWidget {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: const Text('Galería'),
+                title: const Text(CreateAccountStrings.imageSourceGallery),
                 onTap: () {
                   context.read<ProfilePictureBloc>().add(
                         const ProfilePictureEvent.pickImage(
@@ -37,7 +37,7 @@ class CreateAccountPicture extends StatelessWidget {
               ),
               ListTile(
                 leading: const Icon(Icons.photo_camera),
-                title: const Text('Cámara'),
+                title: const Text(CreateAccountStrings.imageSourceCamera),
                 onTap: () {
                   context.read<ProfilePictureBloc>().add(
                         const ProfilePictureEvent.pickImage(

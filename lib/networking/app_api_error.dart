@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:proyectos_amor/networking/app_api_exception.dart';
+import 'package:proyectos_amor/networking/app_api_error_strings.dart';
 
 class AppApiError {
   final String message;
@@ -46,7 +47,7 @@ class AppApiError {
     }
 
     return const AppApiError(
-      message: 'Ocurrió un error inesperado. Inténtalo nuevamente.',
+      message: AppApiErrorStrings.unexpected,
       errorCode: AppApiErrorCodes.unexpected,
     );
   }
@@ -127,27 +128,27 @@ class AppApiError {
   static String _messageForCode(String? code, {String? fallback}) {
     switch (code) {
       case AppApiErrorCodes.noInternetConnection:
-        return 'No tienes conexión a internet. Revisa tu red e inténtalo nuevamente.';
+        return AppApiErrorStrings.noInternet;
       case AppApiErrorCodes.serverUnavailable:
-        return 'No pudimos conectarnos con el servidor. Inténtalo nuevamente en unos segundos.';
+        return AppApiErrorStrings.serverUnavailable;
       case AppApiErrorCodes.connectionTimeout:
-        return 'El servidor tardó demasiado en responder. Inténtalo nuevamente.';
+        return AppApiErrorStrings.connectionTimeout;
       case AppApiErrorCodes.requestCancelled:
-        return 'La solicitud fue cancelada.';
+        return AppApiErrorStrings.requestCancelled;
       case AppApiErrorCodes.badCertificate:
-        return 'No pudimos validar la conexión segura con el servidor.';
+        return AppApiErrorStrings.badCertificate;
       case 'AUTH_002':
-        return 'Credenciales incorrectas. Revisa tu correo y contraseña.';
+        return AppApiErrorStrings.wrongCredentials;
       case 'AUTH_003':
-        return 'Tu sesión expiró. Inicia sesión nuevamente.';
+        return AppApiErrorStrings.sessionExpired;
       case 'USER_003':
-        return 'Esta cuenta fue eliminada.';
+        return AppApiErrorStrings.deletedAccount;
       case 'USER_004':
-        return 'Esta cuenta está programada para eliminación.';
+        return AppApiErrorStrings.scheduledForDeletion;
       default:
         return fallback?.isNotEmpty == true
             ? fallback!
-            : 'Ocurrió un error inesperado. Inténtalo nuevamente.';
+            : AppApiErrorStrings.unexpected;
     }
   }
 }

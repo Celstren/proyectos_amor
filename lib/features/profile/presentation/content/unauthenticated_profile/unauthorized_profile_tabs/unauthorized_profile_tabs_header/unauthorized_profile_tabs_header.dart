@@ -30,8 +30,12 @@ class UnauthorizedProfileTabsHeader extends StatelessWidget {
           labelColor: ColorsConstant.text950,
           unselectedLabelColor: ColorsConstant.text400,
           tabs: [
-            AppTabBar.normal(label: ProfileStrings.unauthorizedProfileTabsHeaderTab1, height: 42),
-            AppTabBar.normal(label: ProfileStrings.unauthorizedProfileTabsHeaderTab2, height: 42),
+            AppTabBar.normal(
+                label: ProfileStrings.unauthorizedProfileTabsHeaderTab1,
+                height: 42),
+            AppTabBar.normal(
+                label: ProfileStrings.unauthorizedProfileTabsHeaderTab2,
+                height: 42),
           ],
         ),
       ),

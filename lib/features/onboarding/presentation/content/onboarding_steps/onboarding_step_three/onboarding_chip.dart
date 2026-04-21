@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 class OnboardingChip extends StatelessWidget {
   final String text;
   final Color color;
-  const OnboardingChip.yellow({super.key, this.text = '', this.color = ColorsConstant.secondaryColor});
-  const OnboardingChip.black({super.key, this.text = '', this.color = ColorsConstant.neutralBlack});
+  const OnboardingChip.yellow(
+      {super.key, this.text = '', this.color = ColorsConstant.secondaryColor});
+  const OnboardingChip.black(
+      {super.key, this.text = '', this.color = ColorsConstant.neutralBlack});
 
   @override
   Widget build(BuildContext context) {

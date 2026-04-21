@@ -85,7 +85,7 @@ class DonateGiftDate extends StatelessWidget {
     if (selectedDateTime.isBefore(DateTime.now())) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Selecciona una hora futura para la entrega.'),
+          content: Text(DonateGiftStrings.futureDeliveryTimeError),
           backgroundColor: Colors.orange,
         ),
       );
@@ -96,12 +96,12 @@ class DonateGiftDate extends StatelessWidget {
   }
 
   String _formatDate(DateTime? date) {
-    if (date == null) return 'Seleccionar fecha';
+    if (date == null) return DonateGiftStrings.selectDeliveryDate;
     return DateFormat('dd MMM yyyy', 'es_MX').format(date);
   }
 
   String _formatTime(DateTime? date) {
-    if (date == null) return 'Seleccionar hora';
+    if (date == null) return DonateGiftStrings.selectDeliveryTime;
     return DateFormat('h:mm a', 'es_MX').format(date);
   }
 
@@ -131,7 +131,7 @@ class DonateGiftDate extends StatelessWidget {
               children: <Widget>[
                 _DonateGiftDateSelector(
                   icon: Icons.calendar_today_outlined,
-                  label: 'Fecha de entrega',
+                  label: DonateGiftStrings.deliveryDateLabel,
                   value: _formatDate(deliveryDate),
                   selected: deliveryDate != null,
                   onTap: () => _selectDate(context, deliveryDate),
@@ -139,7 +139,7 @@ class DonateGiftDate extends StatelessWidget {
                 const SizedBox(height: 12),
                 _DonateGiftDateSelector(
                   icon: Icons.schedule_outlined,
-                  label: 'Hora de entrega',
+                  label: DonateGiftStrings.deliveryTimeLabel,
                   value: _formatTime(deliveryDate),
                   selected: deliveryDate != null,
                   onTap: () => _selectTime(context, deliveryDate),
@@ -147,7 +147,7 @@ class DonateGiftDate extends StatelessWidget {
                 if (deliveryDate != null) ...[
                   const SizedBox(height: 24),
                   HomeReminder(
-                    title: 'Entrega programada',
+                    title: DonateGiftStrings.scheduledDeliveryTitle,
                     subTitle: deliveryDate.confirmText,
                     background: ColorsConstant.secondaryColor,
                   ),

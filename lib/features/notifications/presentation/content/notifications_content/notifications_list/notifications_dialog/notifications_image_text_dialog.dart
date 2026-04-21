@@ -20,7 +20,7 @@ class NotificationsImageTextDialog extends StatelessWidget {
     this.image = '',
     this.subTitle = '',
     this.description = '',
-});
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -117,13 +117,13 @@ class NotificationsImageTextDialog extends StatelessWidget {
 }
 
 void showNotificationsImageTextDialog(
-    BuildContext context, {
-      String timeAgo = '',
-      String image = '',
-      String title = '',
-      String subTitle = '',
-      String description = '',
-    }) {
+  BuildContext context, {
+  String timeAgo = '',
+  String image = '',
+  String title = '',
+  String subTitle = '',
+  String description = '',
+}) {
   showDialog(
     context: context,
     builder: (context) => NotificationsImageTextDialog(

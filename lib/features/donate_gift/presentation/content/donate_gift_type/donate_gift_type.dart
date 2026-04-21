@@ -30,10 +30,12 @@ class DonateGiftType extends StatelessWidget {
             runSpacing: 12,
             children: GiftType.values
                 .map((e) => DonateGiftChipItem(
-              text: e.text,
-              selected: e == typeState,
-              onTap: () => context.read<DonateGiftTypeCubit>().change(e),
-            )).toList(),
+                      text: e.text,
+                      selected: e == typeState,
+                      onTap: () =>
+                          context.read<DonateGiftTypeCubit>().change(e),
+                    ))
+                .toList(),
           ),
         ),
         const SizedBox(height: 24),

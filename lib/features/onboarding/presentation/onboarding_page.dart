@@ -14,7 +14,8 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: <BlocProvider>[
-        BlocProvider<ChangeOnboardingStepCubit>(create: (_) => ChangeOnboardingStepCubit()),
+        BlocProvider<ChangeOnboardingStepCubit>(
+            create: (_) => ChangeOnboardingStepCubit()),
       ],
       child: const AppScaffold(
         backgroundColor: ColorsConstant.scaffoldBackground,

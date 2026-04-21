@@ -7,10 +7,12 @@ class ProfilePicturePreviewContent extends StatefulWidget {
   const ProfilePicturePreviewContent({super.key});
 
   @override
-  State<ProfilePicturePreviewContent> createState() => _ProfilePicturePreviewContentState();
+  State<ProfilePicturePreviewContent> createState() =>
+      _ProfilePicturePreviewContentState();
 }
 
-class _ProfilePicturePreviewContentState extends State<ProfilePicturePreviewContent> {
+class _ProfilePicturePreviewContentState
+    extends State<ProfilePicturePreviewContent> {
   @override
   Widget build(BuildContext context) {
     return const AppScaffold(

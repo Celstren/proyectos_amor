@@ -6,12 +6,11 @@ const _kDebug = true;
 
 @injectable
 class LoggingInterceptors extends Interceptor {
-
   @override
   void onRequest(
-      RequestOptions options,
-      RequestInterceptorHandler handler,
-      ) {
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) {
     final logger = Logger();
     var headers = <String>[], queryParams = <String>[];
     options.headers.forEach((k, v) => headers.add('$k: $v'));
@@ -34,13 +33,14 @@ class LoggingInterceptors extends Interceptor {
     final logger = Logger();
     var headers = <String>[], queryParams = <String>[];
     err.requestOptions.headers.forEach((k, v) => headers.add('$k: $v'));
-    err.requestOptions.queryParameters.forEach((k, v) => queryParams.add('$k: $v'));
+    err.requestOptions.queryParameters
+        .forEach((k, v) => queryParams.add('$k: $v'));
     if (_kDebug) {
       logger.d('''
         ERROR ${err.message} ${(err.requestOptions.baseUrl + err.requestOptions.path)}
         Headers: ${headers.join('\n')}
         Query Parameters: ${queryParams.join('\n')}
-        Message: ${err.response?.data ?? (err.error != null ? err.message :'Unknown Error')}
+        Message: ${err.response?.data ?? (err.error != null ? err.message : 'Unknown Error')}
     ''');
     }
     super.onError(err, handler);
@@ -52,7 +52,8 @@ class LoggingInterceptors extends Interceptor {
     final logger = Logger();
     var requestHeaders = <String>[], responseHeaders = <String>[];
     response.headers.forEach((k, v) => responseHeaders.add('$k: $v'));
-    response.requestOptions.headers.forEach((k, v) => requestHeaders.add('$k: $v'));
+    response.requestOptions.headers
+        .forEach((k, v) => requestHeaders.add('$k: $v'));
     if (_kDebug) {
       logger.d('''
         RESPONSE ${response.statusCode} ${(response.requestOptions.baseUrl + response.requestOptions.path)}

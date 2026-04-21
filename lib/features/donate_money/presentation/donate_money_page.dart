@@ -16,10 +16,13 @@ class DonateMoneyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: <BlocProvider>[
-        BlocProvider<CreateDonationBloc>(create: (_) => getIt<CreateDonationBloc>()),
-        BlocProvider<DonateMoneyStepCubit>(create: (_) => DonateMoneyStepCubit()),
+        BlocProvider<CreateDonationBloc>(
+            create: (_) => getIt<CreateDonationBloc>()),
+        BlocProvider<DonateMoneyStepCubit>(
+            create: (_) => DonateMoneyStepCubit()),
         BlocProvider<PaymentMethodCubit>(create: (_) => PaymentMethodCubit()),
-        BlocProvider<EnableDonationCertificationCubit>(create: (_) => EnableDonationCertificationCubit()),
+        BlocProvider<EnableDonationCertificationCubit>(
+            create: (_) => EnableDonationCertificationCubit()),
       ],
       child: const DonateMoneyContent(),
     );

@@ -13,7 +13,6 @@ class OnboardingContent extends StatefulWidget {
 }
 
 class _OnboardingContentState extends State<OnboardingContent> {
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChangeOnboardingStepCubit, int>(

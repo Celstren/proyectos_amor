@@ -11,6 +11,7 @@ import 'package:proyectos_amor/features/create_account/logic/bloc/fetch_profile_
 import 'package:proyectos_amor/features/profile/logic/bloc/logout_bloc/logout_bloc.dart';
 import 'package:proyectos_amor/features/profile/presentation/content/authenticated_profile/authenticated_profile_tabs/authenticated_profile_tabs.dart';
 import 'package:proyectos_amor/features/profile/presentation/content/user_initials_avatar.dart';
+import 'package:proyectos_amor/features/profile/profile_strings.dart';
 import 'package:proyectos_amor/router/app_router.gr.dart';
 
 class AuthenticatedProfile extends StatefulWidget {
@@ -37,16 +38,19 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile>
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          title: const AppText.bold('Cerrar sesión', fontSize: 18),
+          title: const AppText.bold(
+            ProfileStrings.logoutDialogTitle,
+            fontSize: 18,
+          ),
           content: const AppText.normal(
-            '¿Estás seguro de que quieres cerrar sesión?',
+            ProfileStrings.logoutDialogMessage,
             fontSize: 16,
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(dialogContext),
               child: const AppText.medium(
-                'Cancelar',
+                ProfileStrings.logoutDialogCancelButton,
                 fontColor: ColorsConstant.text400,
               ),
             ),
@@ -56,7 +60,7 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile>
                 context.read<LogoutBloc>().add(const LogoutEvent.logout());
               },
               child: const AppText.medium(
-                'Sí, cerrar sesión',
+                ProfileStrings.logoutDialogConfirmButton,
                 fontColor: Colors.red,
               ),
             ),
@@ -69,13 +73,13 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile>
   String _accountTypeLabel(String? accountType) {
     switch (accountType?.trim().toLowerCase()) {
       case 'person':
-        return 'Persona amiga';
+        return ProfileStrings.accountTypePerson;
       case 'school':
-        return 'Colegio';
+        return ProfileStrings.accountTypeSchool;
       case 'company':
-        return 'Empresa solidaria';
+        return ProfileStrings.accountTypeCompany;
       default:
-        return 'Miembro';
+        return ProfileStrings.accountTypeDefault;
     }
   }
 

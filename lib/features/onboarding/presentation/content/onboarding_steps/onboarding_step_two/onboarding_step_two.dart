@@ -88,7 +88,7 @@ class _OnboardingStepTwoState extends State<OnboardingStepTwo> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
               3,
-                  (index) => Container(
+              (index) => Container(
                 width: 8,
                 height: 8,
                 margin: index != 0 ? const EdgeInsets.only(left: 8) : null,

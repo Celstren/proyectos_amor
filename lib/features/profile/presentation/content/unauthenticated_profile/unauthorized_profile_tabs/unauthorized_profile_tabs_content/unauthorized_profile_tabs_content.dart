@@ -4,7 +4,8 @@ import 'package:proyectos_amor/features/profile/presentation/content/unauthentic
 
 class UnauthorizedProfileTabsContent extends StatelessWidget {
   final TabController tabController;
-  const UnauthorizedProfileTabsContent({super.key, required this.tabController});
+  const UnauthorizedProfileTabsContent(
+      {super.key, required this.tabController});
 
   @override
   Widget build(BuildContext context) {

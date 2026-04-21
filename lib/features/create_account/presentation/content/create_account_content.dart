@@ -9,7 +9,6 @@ import 'package:proyectos_amor/features/create_account/presentation/content/crea
 import 'package:proyectos_amor/features/create_account/presentation/content/create_account_picture/create_account_picture.dart';
 
 class CreateAccountContent extends StatefulWidget {
-
   const CreateAccountContent({super.key});
 
   @override
@@ -17,14 +16,13 @@ class CreateAccountContent extends StatefulWidget {
 }
 
 class _CreateAccountContentState extends State<CreateAccountContent> {
-
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
       safeTop: false,
       body: BlocBuilder<ChangeCreateAccountStepCubit, CreateAccountStep>(
         builder: (context, CreateAccountStep stepState) {
-          switch(stepState) {
+          switch (stepState) {
             case CreateAccountStep.about:
               return const CreateAccountAbout();
             case CreateAccountStep.picture:

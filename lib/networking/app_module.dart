@@ -8,8 +8,8 @@ import 'package:proyectos_amor/networking/token_interceptor.dart';
 abstract class AppModule {
   @LazySingleton()
   FlutterSecureStorage get secureStorage => const FlutterSecureStorage(
-    aOptions: AndroidOptions(encryptedSharedPreferences: true),
-  );
+        aOptions: AndroidOptions(encryptedSharedPreferences: true),
+      );
 
   @Named('rawDio')
   @lazySingleton
@@ -18,7 +18,9 @@ abstract class AppModule {
   @LazySingleton()
   Dio dio(LoggingInterceptors logging, TokenInterceptor token) {
     final client = Dio();
-    client.interceptors..add(logging)..add(token);
+    client.interceptors
+      ..add(logging)
+      ..add(token);
     return client;
   }
 }

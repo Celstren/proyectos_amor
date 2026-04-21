@@ -9,7 +9,8 @@ class HomeReminder extends StatelessWidget {
   final String title;
   final String subTitle;
   final Color? background;
-  const HomeReminder({super.key, this.title = '', this.subTitle = '', this.background});
+  const HomeReminder(
+      {super.key, this.title = '', this.subTitle = '', this.background});
 
   @override
   Widget build(BuildContext context) {

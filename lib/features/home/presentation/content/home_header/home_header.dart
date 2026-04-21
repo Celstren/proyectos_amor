@@ -17,7 +17,8 @@ class HomeHeader extends StatelessWidget {
       children: <Widget>[
         const HomeUserToken(),
         GestureDetector(
-          onTap: () => AutoRouter.of(context).push(const NotificationsPageRoute()),
+          onTap: () =>
+              AutoRouter.of(context).push(const NotificationsPageRoute()),
           child: const AppIcon.bellIcon(
             size: 24,
             color: ColorsConstant.neutralBlack,

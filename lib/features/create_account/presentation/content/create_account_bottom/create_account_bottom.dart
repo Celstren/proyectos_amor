@@ -7,7 +7,8 @@ class CreateAccountBottom extends StatelessWidget {
   final VoidCallback? onBack;
   final VoidCallback? onNext;
   final VoidCallback? onLater;
-  const CreateAccountBottom({super.key, this.onBack, this.onNext, this.onLater});
+  const CreateAccountBottom(
+      {super.key, this.onBack, this.onNext, this.onLater});
 
   @override
   Widget build(BuildContext context) {

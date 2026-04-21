@@ -32,52 +32,50 @@ class OnboardingBottom extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
           ),
-        if (onNext != null)
-          ...[
-            const Spacer(),
-            GestureDetector(
-              onTap: onNext,
-              behavior: HitTestBehavior.opaque,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  const AppText.bold(
-                    OnboardingStrings.onboardingNextButton,
-                    fontSize: 16,
-                    fontColor: ColorsConstant.splashButtonPrimaryFontColor,
-                    textAlign: TextAlign.start,
+        if (onNext != null) ...[
+          const Spacer(),
+          GestureDetector(
+            onTap: onNext,
+            behavior: HitTestBehavior.opaque,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const AppText.bold(
+                  OnboardingStrings.onboardingNextButton,
+                  fontSize: 16,
+                  fontColor: ColorsConstant.splashButtonPrimaryFontColor,
+                  textAlign: TextAlign.start,
+                ),
+                const SizedBox(width: 22),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: ColorsConstant.primaryColor,
                   ),
-                  const SizedBox(width: 22),
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: ColorsConstant.primaryColor,
-                    ),
-                    child: const Icon(
-                      Icons.chevron_right,
-                      size: 24,
-                      color: ColorsConstant.neutralWhite,
-                    ),
+                  child: const Icon(
+                    Icons.chevron_right,
+                    size: 24,
+                    color: ColorsConstant.neutralWhite,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        if (onFinish != null)
-          ...[
-            const Spacer(),
-            SizedBox(
-              width: 180,
-              child: AppButton(
-                text: OnboardingStrings.onboardingFinishButton,
-                onTap: onFinish,
-                radius: 50,
-                color: ColorsConstant.primaryColor,
-              ),
+          ),
+        ],
+        if (onFinish != null) ...[
+          const Spacer(),
+          SizedBox(
+            width: 180,
+            child: AppButton(
+              text: OnboardingStrings.onboardingFinishButton,
+              onTap: onFinish,
+              radius: 50,
+              color: ColorsConstant.primaryColor,
             ),
-          ],
+          ),
+        ],
       ],
     );
   }

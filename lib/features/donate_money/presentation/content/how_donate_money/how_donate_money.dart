@@ -35,16 +35,20 @@ class HowDonateMoney extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 AppDropDown(
-                  optionSelected: methodState != null ? AppDropDownOption(
-                    id: methodState.index,
-                    value: methodState.text,
-                  ) : null,
-                  options: PaymentMethod.values.map(
+                  optionSelected: methodState != null
+                      ? AppDropDownOption(
+                          id: methodState.index,
+                          value: methodState.text,
+                        )
+                      : null,
+                  options: PaymentMethod.values
+                      .map(
                         (p) => AppDropDownOption(
-                      id: p.index,
-                      value: p.text,
-                    ),
-                  ).toList(),
+                          id: p.index,
+                          value: p.text,
+                        ),
+                      )
+                      .toList(),
                   onChanged: (e) {
                     if (e == null) return;
                     final method = PaymentMethod.values[e.id];
@@ -53,7 +57,7 @@ class HowDonateMoney extends StatelessWidget {
                   hint: DonateMoneyStrings.howDonateMoneyHint,
                 ),
                 const SizedBox(height: 16),
-                switch(methodState){
+                switch (methodState) {
                   null => const SizedBox(),
                   PaymentMethod.yapePlin => const PhoneNumberContent(),
                   PaymentMethod.bank => const BankAccountContent(),

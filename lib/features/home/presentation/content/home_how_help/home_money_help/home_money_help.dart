@@ -42,7 +42,8 @@ class HomeMoneyHelp extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: SizeConstants.md),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: SizeConstants.md),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,

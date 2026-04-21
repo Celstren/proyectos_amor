@@ -20,10 +20,13 @@ class CreateAccountPage extends StatelessWidget {
       providers: <BlocProvider>[
         BlocProvider<SignUpBloc>(create: (_) => getIt<SignUpBloc>()),
         BlocProvider<ProfilePictureBloc>(create: (_) => ProfilePictureBloc()),
-        BlocProvider<ChangeCreateAccountStepCubit>(create: (_) => ChangeCreateAccountStepCubit()),
+        BlocProvider<ChangeCreateAccountStepCubit>(
+            create: (_) => ChangeCreateAccountStepCubit()),
         BlocProvider<ChangeAboutCubit>(create: (_) => ChangeAboutCubit()),
-        BlocProvider<PasswordVisibilityCubit>(create: (_) => PasswordVisibilityCubit()),
-        BlocProvider<PasswordValidationCubit>(create: (_) => PasswordValidationCubit()),
+        BlocProvider<PasswordVisibilityCubit>(
+            create: (_) => PasswordVisibilityCubit()),
+        BlocProvider<PasswordValidationCubit>(
+            create: (_) => PasswordValidationCubit()),
       ],
       child: const CreateAccountContent(),
     );

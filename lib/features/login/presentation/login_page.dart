@@ -11,9 +11,9 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
-    providers: <BlocProvider>[
-      BlocProvider<LoginBloc>(create: (context) => getIt<LoginBloc>()),
-    ],
-    child: const LoginContent(),
-  );
+        providers: <BlocProvider>[
+          BlocProvider<LoginBloc>(create: (context) => getIt<LoginBloc>()),
+        ],
+        child: const LoginContent(),
+      );
 }

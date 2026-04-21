@@ -59,98 +59,94 @@ class ConfirmDonationDescription extends StatelessWidget {
           fontColor: ColorsConstant.splashPrimaryFontColor,
           textAlign: TextAlign.center,
         ),
-        if (donation.isNotEmpty)
-          ...[
-            const SizedBox(height: 24),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const AppText.normal(
-                  ConfirmDonationStrings.confirmDonationDescriptionDonationLabel,
-                  fontSize: 12,
-                  fontColor: ColorsConstant.textPlaceholder,
-                  textAlign: TextAlign.start,
-                ),
-                AppText.normal(
-                  donation,
-                  fontSize: 12,
-                  fontColor: ColorsConstant.splashPrimaryFontColor,
-                  textAlign: TextAlign.end,
-                ),
-              ],
-            ),
-          ],
-        if (approvedAt.isNotEmpty)
-          ...[
-            const SizedBox(height: 24),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const AppText.normal(
-                  ConfirmDonationStrings.confirmDonationDescriptionApprovedLabel,
-                  fontSize: 12,
-                  fontColor: ColorsConstant.textPlaceholder,
-                  textAlign: TextAlign.start,
-                ),
-                AppText.normal(
-                  approvedAt,
-                  fontSize: 12,
-                  fontColor: ColorsConstant.splashPrimaryFontColor,
-                  textAlign: TextAlign.end,
-                ),
-              ],
-            ),
-          ],
-        if (location.isNotEmpty)
-          ...[
-            const SizedBox(height: 24),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const AppText.normal(
-                  ConfirmDonationStrings.confirmDonationDescriptionLocationLabel,
-                  fontSize: 12,
-                  fontColor: ColorsConstant.textPlaceholder,
-                  textAlign: TextAlign.start,
-                ),
-                AppText.normal(
-                  location,
-                  fontSize: 12,
-                  fontColor: ColorsConstant.splashPrimaryFontColor,
-                  textAlign: TextAlign.end,
-                ),
-              ],
-            ),
-          ],
-        if (deliveryAt.isNotEmpty)
-          ...[
-            const SizedBox(height: 24),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const AppText.normal(
-                  ConfirmDonationStrings.confirmDonationDescriptionDeliveryLabel,
-                  fontSize: 12,
-                  fontColor: ColorsConstant.textPlaceholder,
-                  textAlign: TextAlign.start,
-                ),
-                AppText.normal(
-                  deliveryAt,
-                  fontSize: 12,
-                  fontColor: ColorsConstant.splashPrimaryFontColor,
-                  textAlign: TextAlign.end,
-                ),
-              ],
-            ),
-          ],
+        if (donation.isNotEmpty) ...[
+          const SizedBox(height: 24),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const AppText.normal(
+                ConfirmDonationStrings.confirmDonationDescriptionDonationLabel,
+                fontSize: 12,
+                fontColor: ColorsConstant.textPlaceholder,
+                textAlign: TextAlign.start,
+              ),
+              AppText.normal(
+                donation,
+                fontSize: 12,
+                fontColor: ColorsConstant.splashPrimaryFontColor,
+                textAlign: TextAlign.end,
+              ),
+            ],
+          ),
+        ],
+        if (approvedAt.isNotEmpty) ...[
+          const SizedBox(height: 24),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const AppText.normal(
+                ConfirmDonationStrings.confirmDonationDescriptionApprovedLabel,
+                fontSize: 12,
+                fontColor: ColorsConstant.textPlaceholder,
+                textAlign: TextAlign.start,
+              ),
+              AppText.normal(
+                approvedAt,
+                fontSize: 12,
+                fontColor: ColorsConstant.splashPrimaryFontColor,
+                textAlign: TextAlign.end,
+              ),
+            ],
+          ),
+        ],
+        if (location.isNotEmpty) ...[
+          const SizedBox(height: 24),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const AppText.normal(
+                ConfirmDonationStrings.confirmDonationDescriptionLocationLabel,
+                fontSize: 12,
+                fontColor: ColorsConstant.textPlaceholder,
+                textAlign: TextAlign.start,
+              ),
+              AppText.normal(
+                location,
+                fontSize: 12,
+                fontColor: ColorsConstant.splashPrimaryFontColor,
+                textAlign: TextAlign.end,
+              ),
+            ],
+          ),
+        ],
+        if (deliveryAt.isNotEmpty) ...[
+          const SizedBox(height: 24),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              const AppText.normal(
+                ConfirmDonationStrings.confirmDonationDescriptionDeliveryLabel,
+                fontSize: 12,
+                fontColor: ColorsConstant.textPlaceholder,
+                textAlign: TextAlign.start,
+              ),
+              AppText.normal(
+                deliveryAt,
+                fontSize: 12,
+                fontColor: ColorsConstant.splashPrimaryFontColor,
+                textAlign: TextAlign.end,
+              ),
+            ],
+          ),
+        ],
       ],
     );
   }

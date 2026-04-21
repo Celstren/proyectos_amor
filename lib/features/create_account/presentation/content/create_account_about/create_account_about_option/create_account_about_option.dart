@@ -43,8 +43,7 @@ class CreateAccountAboutOption extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                if (selected)
-                  AppIcon(asset: asset),
+                if (selected) AppIcon(asset: asset),
                 const SizedBox(width: SizeConstants.sm),
                 Expanded(
                   child: AppText.medium(
@@ -57,22 +56,20 @@ class CreateAccountAboutOption extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: SizeConstants.sm),
-                if (selected)
-                  AppIcon(asset: asset),
+                if (selected) AppIcon(asset: asset),
               ],
             ),
           ),
         ),
-        if (selected)
-          ...[
-            const SizedBox(height: SizeConstants.sm),
-            AppText.normal(
-              description,
-              fontSize: 12,
-              fontColor: ColorsConstant.text950,
-              textAlign: TextAlign.start,
-            ),
-          ],
+        if (selected) ...[
+          const SizedBox(height: SizeConstants.sm),
+          AppText.normal(
+            description,
+            fontSize: 12,
+            fontColor: ColorsConstant.text950,
+            textAlign: TextAlign.start,
+          ),
+        ],
       ],
     );
   }

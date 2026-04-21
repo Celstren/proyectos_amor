@@ -16,7 +16,8 @@ class ConfirmDonationBottom extends StatelessWidget {
         child: AppButton(
           text: ConfirmDonationStrings.confirmDonationDescriptionPrimaryButton,
           radius: 56,
-          onTap: () => AutoRouter.of(context).replaceAll([const HomePageRoute()]),
+          onTap: () =>
+              AutoRouter.of(context).replaceAll([const HomePageRoute()]),
         ),
       ),
     );

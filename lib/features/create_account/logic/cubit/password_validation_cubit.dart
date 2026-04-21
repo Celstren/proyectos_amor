@@ -35,8 +35,7 @@ class PasswordValidationCubit extends Cubit<PasswordValidationState> {
     final hasUppercase = password.contains(RegExp(r'[A-Z]'));
     final hasLowercase = password.contains(RegExp(r'[a-z]'));
     final hasNumber = password.contains(RegExp(r'[0-9]'));
-    final hasSpecialChar =
-        password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
+    final hasSpecialChar = password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'));
     final isMatch = password.isNotEmpty && password == confirmPassword;
 
     emit(state.copyWith(

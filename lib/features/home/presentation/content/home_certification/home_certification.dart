@@ -14,7 +14,8 @@ class HomeCertification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => AutoRouter.of(context).push(const ClaimCertificationPageRoute()),
+      onTap: () =>
+          AutoRouter.of(context).push(const ClaimCertificationPageRoute()),
       behavior: HitTestBehavior.opaque,
       child: Container(
         height: 112,

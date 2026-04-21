@@ -5,7 +5,8 @@ import 'package:proyectos_amor/features/profile/profile_strings.dart';
 
 class AuthenticatedProfileTabsHeader extends StatelessWidget {
   final TabController tabController;
-  const AuthenticatedProfileTabsHeader({super.key, required this.tabController});
+  const AuthenticatedProfileTabsHeader(
+      {super.key, required this.tabController});
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +31,12 @@ class AuthenticatedProfileTabsHeader extends StatelessWidget {
           labelColor: ColorsConstant.text950,
           unselectedLabelColor: ColorsConstant.text400,
           tabs: [
-            AppTabBar.normal(label: ProfileStrings.authorizedProfileTabsHeaderTab1, height: 42),
-            AppTabBar.normal(label: ProfileStrings.authorizedProfileTabsHeaderTab2, height: 42),
+            AppTabBar.normal(
+                label: ProfileStrings.authorizedProfileTabsHeaderTab1,
+                height: 42),
+            AppTabBar.normal(
+                label: ProfileStrings.authorizedProfileTabsHeaderTab2,
+                height: 42),
           ],
         ),
       ),

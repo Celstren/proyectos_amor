@@ -15,7 +15,8 @@ class UnauthenticatedProfile extends StatefulWidget {
   State<UnauthenticatedProfile> createState() => _UnauthenticatedProfileState();
 }
 
-class _UnauthenticatedProfileState extends State<UnauthenticatedProfile> with TickerProviderStateMixin {
+class _UnauthenticatedProfileState extends State<UnauthenticatedProfile>
+    with TickerProviderStateMixin {
   late final TabController tabController;
 
   @override
@@ -42,10 +43,12 @@ class _UnauthenticatedProfileState extends State<UnauthenticatedProfile> with Ti
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       if (MediaQuery.of(context).viewPadding.top > 0)
-                        SizedBox(height: MediaQuery.of(context).viewPadding.top),
+                        SizedBox(
+                            height: MediaQuery.of(context).viewPadding.top),
                       const SizedBox(height: 45),
                       GestureDetector(
-                        onTap: () => AutoRouter.of(context).push(const LoginPageRoute()),
+                        onTap: () =>
+                            AutoRouter.of(context).push(const LoginPageRoute()),
                         behavior: HitTestBehavior.opaque,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -80,14 +83,16 @@ class _UnauthenticatedProfileState extends State<UnauthenticatedProfile> with Ti
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 AppText.normal(
-                                  ProfileStrings.unauthenticatedProfileSubTitle1,
+                                  ProfileStrings
+                                      .unauthenticatedProfileSubTitle1,
                                   fontSize: 14,
                                   fontColor: ColorsConstant.text950,
                                   textAlign: TextAlign.center,
                                 ),
                                 SizedBox(width: SizeConstants.sm),
                                 AppText.semiBold(
-                                  ProfileStrings.unauthenticatedProfileSubTitle2,
+                                  ProfileStrings
+                                      .unauthenticatedProfileSubTitle2,
                                   fontSize: 14,
                                   fontColor: ColorsConstant.text950,
                                   textAlign: TextAlign.center,

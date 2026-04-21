@@ -4,6 +4,7 @@ import 'package:app_ui/app_image/app_icon.dart';
 import 'package:app_ui/app_text/app_text.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:proyectos_amor/features/profile/profile_strings.dart';
 import 'package:proyectos_amor/router/app_router.gr.dart';
 
 class AuthenticatedDonationEmpty extends StatelessWidget {
@@ -21,7 +22,9 @@ class AuthenticatedDonationEmpty extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Icons.volunteer_activism_outlined),
-                  title: const Text('Donar dinero'),
+                  title: const Text(
+                    ProfileStrings.authenticatedDonationEmptyMoneyOption,
+                  ),
                   onTap: () {
                     Navigator.of(bottomSheetContext).pop();
                     AutoRouter.of(context).push(const DonateMoneyPageRoute());
@@ -29,7 +32,9 @@ class AuthenticatedDonationEmpty extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.card_giftcard_outlined),
-                  title: const Text('Donar regalos'),
+                  title: const Text(
+                    ProfileStrings.authenticatedDonationEmptyGiftOption,
+                  ),
                   onTap: () {
                     Navigator.of(bottomSheetContext).pop();
                     AutoRouter.of(context).push(const DonateGiftPageRoute());
@@ -72,7 +77,7 @@ class AuthenticatedDonationEmpty extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             const AppText.semiBold(
-              'No hay donaciones pero puedes empezar hoy',
+              ProfileStrings.authenticatedDonationEmptyTitle,
               fontColor: ColorsConstant.text950,
               fontSize: 18,
               textAlign: TextAlign.center,
@@ -80,7 +85,7 @@ class AuthenticatedDonationEmpty extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const AppText.normal(
-              'Elige cómo quieres ayudar y registra tu aporte para hacer seguimiento desde tu perfil.',
+              ProfileStrings.authenticatedDonationEmptyDescription,
               fontColor: ColorsConstant.text700,
               fontSize: 14,
               textAlign: TextAlign.center,
@@ -90,7 +95,7 @@ class AuthenticatedDonationEmpty extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: AppButton.solid(
-                text: 'Donar ahora',
+                text: ProfileStrings.authenticatedDonationEmptyButton,
                 radius: 56,
                 onTap: () => _showDonationOptions(context),
               ),

@@ -69,4 +69,10 @@ class CreateAccountStrings {
   static const String createAccountCompletedPrimaryButton = 'Entrar';
   static const String createAccountCompletedSecondaryButton =
       'Conocer iniciativas';
+  static const String imageSourceGallery = 'Galería';
+  static const String imageSourceCamera = 'Cámara';
+  static const String passwordRequirementsError =
+      'Por favor completa los requerimientos de contraseña';
+  static const String profileImageUploadWarning =
+      'Cuenta creada, pero no pudimos subir tu foto.';
 }

@@ -5,6 +5,7 @@ import 'package:app_ui/app_text/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:proyectos_amor/features/donation_detail/donation_detail_string.dart';
 import 'package:proyectos_amor/features/donation_detail/logic/bloc/fetch_donation_detail_bloc/fetch_donation_detail_bloc.dart';
 import 'package:proyectos_amor/features/donation_detail/presentation/content/donation_description/donation_description.dart';
 import 'package:proyectos_amor/features/donation_detail/presentation/content/donation_detail_header/donation_detail_header.dart';
@@ -55,7 +56,8 @@ class _DonationDetailContentState extends State<DonationDetailContent> {
     if (donation.donationType == 'money') {
       final currency = donation.currency ?? '';
       final amount = donation.amount ?? '0.00';
-      return 'Donación de dinero - $currency $amount'.trim();
+      return '${DonationDetailStrings.moneyDonationTitle} - $currency $amount'
+          .trim();
     }
 
     final quantity = donation.quantity ?? 0;

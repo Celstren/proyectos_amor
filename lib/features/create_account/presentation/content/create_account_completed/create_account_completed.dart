@@ -47,11 +47,13 @@ class CreateAccountCompleted extends StatelessWidget {
                 primaryFontColor: ColorsConstant.splashPrimaryFontColor,
                 primaryFontSize: 24,
                 primaryFontWeight: FontWeight.w700,
-                secondaryText: ' ${CreateAccountStrings.createAccountCompletedTitle2}',
+                secondaryText:
+                    ' ${CreateAccountStrings.createAccountCompletedTitle2}',
                 secondaryFontColor: ColorsConstant.splashSecondaryFontColor,
                 secondaryFontSize: 24,
                 secondaryFontWeight: FontWeight.w700,
-                ternaryText: ' ${CreateAccountStrings.createAccountCompletedTitle3}',
+                ternaryText:
+                    ' ${CreateAccountStrings.createAccountCompletedTitle3}',
                 ternaryFontColor: ColorsConstant.splashPrimaryFontColor,
                 ternaryFontSize: 24,
                 ternaryFontWeight: FontWeight.w700,
@@ -63,7 +65,8 @@ class CreateAccountCompleted extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: Padding(
-                      padding: EdgeInsets.only(top: SizeConstants.xs, right: 128),
+                      padding:
+                          EdgeInsets.only(top: SizeConstants.xs, right: 128),
                       child: AppImage.assetSvg(
                         height: 82,
                         asset: CreateAccountImages.createAccountCloudLeftIcon,
@@ -110,11 +113,13 @@ class CreateAccountCompleted extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const AppRichText(
-                  primaryText: CreateAccountStrings.createAccountCompletedQuantitySubTitle1,
+                  primaryText: CreateAccountStrings
+                      .createAccountCompletedQuantitySubTitle1,
                   primaryFontColor: ColorsConstant.splashPrimaryFontColor,
                   primaryFontSize: 16,
                   primaryFontWeight: FontWeight.w500,
-                  secondaryText: ' ${CreateAccountStrings.createAccountCompletedQuantitySubTitle2}',
+                  secondaryText:
+                      ' ${CreateAccountStrings.createAccountCompletedQuantitySubTitle2}',
                   secondaryFontColor: ColorsConstant.splashSecondaryFontColor,
                   secondaryFontSize: 16,
                   secondaryFontWeight: FontWeight.w500,
@@ -122,13 +127,16 @@ class CreateAccountCompleted extends StatelessWidget {
                 ),
                 const Spacer(),
                 AppButton.link(
-                  text: CreateAccountStrings.createAccountCompletedSecondaryButton,
+                  text: CreateAccountStrings
+                      .createAccountCompletedSecondaryButton,
                   onTap: () {},
                 ),
                 const SizedBox(height: SizeConstants.xl),
                 AppButton.solid(
-                  text: CreateAccountStrings.createAccountCompletedPrimaryButton,
-                  onTap: () => AutoRouter.of(context).replaceAll([const DashboardPageRoute()]),
+                  text:
+                      CreateAccountStrings.createAccountCompletedPrimaryButton,
+                  onTap: () => AutoRouter.of(context)
+                      .replaceAll([const DashboardPageRoute()]),
                 ),
                 SizedBox(height: MediaQuery.of(context).viewPadding.bottom),
               ],
