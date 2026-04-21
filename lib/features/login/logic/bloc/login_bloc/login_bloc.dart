@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/authentication_service/authentication_service.dart';
 import 'package:proyectos_amor/services/authentication_service/models/request/login_request.dart';
 import 'package:proyectos_amor/services/storage_service/entities/system_user_entity.dart';
@@ -20,11 +21,20 @@ class LoginState with _$LoginState {
   const factory LoginState.loginUninitializedState() = LoginUninitializedState;
   const factory LoginState.loginLoadingState() = LoginLoadingState;
   const factory LoginState.loginSuccessState() = LoginSuccessState;
-  const factory LoginState.loginErrorState({@Default('') String message}) =
-      LoginErrorState;
-  const factory LoginState.loginConnectionErrorState() =
-      LoginConnectionErrorState;
-  const factory LoginState.loginUnauthorizedState() = LoginUnauthorizedState;
+  const factory LoginState.loginErrorState({
+    @Default('') String message,
+    String? errorCode,
+    int? statusCode,
+  }) = LoginErrorState;
+  const factory LoginState.loginConnectionErrorState({
+    @Default('') String message,
+    String? errorCode,
+  }) = LoginConnectionErrorState;
+  const factory LoginState.loginUnauthorizedState({
+    @Default('') String message,
+    String? errorCode,
+    int? statusCode,
+  }) = LoginUnauthorizedState;
 }
 
 /// [LoginBloc] manages the user authentication flow.
@@ -91,7 +101,36 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         },
       );
     } catch (e) {
-      emitter(LoginErrorState(message: e.toString()));
+      final error = AppApiError.fromException(e);
+
+      if (error.isConnectionError) {
+        emitter(
+          LoginConnectionErrorState(
+            message: error.displayMessage,
+            errorCode: error.errorCode,
+          ),
+        );
+        return;
+      }
+
+      if (error.isUnauthorized) {
+        emitter(
+          LoginUnauthorizedState(
+            message: error.displayMessage,
+            errorCode: error.errorCode,
+            statusCode: error.statusCode,
+          ),
+        );
+        return;
+      }
+
+      emitter(
+        LoginErrorState(
+          message: error.displayMessage,
+          errorCode: error.errorCode,
+          statusCode: error.statusCode,
+        ),
+      );
     }
   }
 }

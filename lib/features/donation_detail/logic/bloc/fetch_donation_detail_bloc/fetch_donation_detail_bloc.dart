@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/donation_service/donation_service.dart';
 import 'package:proyectos_amor/services/donation_service/models/donation_response.dart';
 
@@ -25,6 +26,8 @@ class FetchDonationDetailState with _$FetchDonationDetailState {
   }) = FetchDonationDetailSuccessState;
   const factory FetchDonationDetailState.fetchDonationDetailErrorState({
     @Default('') String message,
+    String? errorCode,
+    int? statusCode,
   }) = FetchDonationDetailErrorState;
 }
 
@@ -57,7 +60,14 @@ class FetchDonationDetailBloc
         },
       );
     } catch (e) {
-      emitter(FetchDonationDetailErrorState(message: e.toString()));
+      final error = AppApiError.fromException(e);
+      emitter(
+        FetchDonationDetailErrorState(
+          message: error.displayMessage,
+          errorCode: error.errorCode,
+          statusCode: error.statusCode,
+        ),
+      );
     }
   }
 }

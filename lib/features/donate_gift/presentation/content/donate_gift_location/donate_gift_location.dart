@@ -80,7 +80,8 @@ class _DonateGiftLocationState extends State<DonateGiftLocation> {
                     ),
                   );
                 },
-                collectionCentersErrorState: (message) => Column(
+                collectionCentersErrorState: (message, errorCode, statusCode) =>
+                    Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [

@@ -23,7 +23,7 @@ class EditProfileBottom extends StatelessWidget {
               ),
             );
           },
-          editProfileErrorState: (message) {
+          editProfileErrorState: (message, errorCode, statusCode) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(message),

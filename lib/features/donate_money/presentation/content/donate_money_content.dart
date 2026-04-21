@@ -305,7 +305,7 @@ class _DonateMoneyContentState extends State<DonateMoneyContent> {
               ),
             );
           },
-          createDonationErrorState: (message) {
+          createDonationErrorState: (message, errorCode, statusCode) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(

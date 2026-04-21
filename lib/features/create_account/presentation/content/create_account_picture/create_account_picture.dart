@@ -59,7 +59,7 @@ class CreateAccountPicture extends StatelessWidget {
     return BlocListener<ProfilePictureBloc, ProfilePictureState>(
       listener: (context, state) {
         state.maybeWhen(
-          error: (message) {
+          error: (message, errorCode) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(message),

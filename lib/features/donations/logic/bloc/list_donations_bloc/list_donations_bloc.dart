@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/donation_service/donation_service.dart';
 import 'package:proyectos_amor/services/donation_service/models/donation_response.dart';
 import 'package:proyectos_amor/services/donation_service/models/list_donations_request.dart';
@@ -36,6 +37,8 @@ class ListDonationsState with _$ListDonationsState {
   }) = ListDonationsSuccessState;
   const factory ListDonationsState.listDonationsErrorState({
     @Default('') String message,
+    String? errorCode,
+    int? statusCode,
   }) = ListDonationsErrorState;
 }
 
@@ -122,7 +125,14 @@ class ListDonationsBloc extends Bloc<ListDonationsEvent, ListDonationsState> {
         },
       );
     } catch (e) {
-      emitter(ListDonationsErrorState(message: e.toString()));
+      final error = AppApiError.fromException(e);
+      emitter(
+        ListDonationsErrorState(
+          message: error.displayMessage,
+          errorCode: error.errorCode,
+          statusCode: error.statusCode,
+        ),
+      );
     }
   }
 }

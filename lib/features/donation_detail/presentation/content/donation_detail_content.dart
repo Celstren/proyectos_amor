@@ -164,7 +164,7 @@ class _DonationDetailContentState extends State<DonationDetailContent> {
     );
   }
 
-  Widget _buildError(String message) {
+  Widget _buildError(String message, String? errorCode, int? statusCode) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

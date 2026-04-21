@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/authentication_service/authentication_service.dart';
 import 'package:proyectos_amor/services/authentication_service/models/request/register_request.dart';
 import 'package:proyectos_amor/services/file_service/file_service.dart';
@@ -30,8 +31,11 @@ class SignUpState with _$SignUpState {
   const factory SignUpState.signUpSuccessState({
     @Default(false) bool imageUploadFailed,
   }) = SignUpSuccessState;
-  const factory SignUpState.signUpErrorState({@Default('') String message}) =
-      SignUpErrorState;
+  const factory SignUpState.signUpErrorState({
+    @Default('') String message,
+    String? errorCode,
+    int? statusCode,
+  }) = SignUpErrorState;
 }
 
 /// [SignUpBloc] handles the user registration process.
@@ -145,7 +149,14 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
         },
       );
     } catch (e) {
-      emitter(SignUpErrorState(message: e.toString()));
+      final error = AppApiError.fromException(e);
+      emitter(
+        SignUpErrorState(
+          message: error.displayMessage,
+          errorCode: error.errorCode,
+          statusCode: error.statusCode,
+        ),
+      );
     }
   }
 }

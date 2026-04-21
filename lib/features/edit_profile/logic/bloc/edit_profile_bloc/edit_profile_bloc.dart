@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/file_service/file_service.dart';
 import 'package:proyectos_amor/services/storage_service/entities/system_user_entity.dart';
 import 'package:proyectos_amor/services/storage_service/implementations/system_user_box_service.dart';
@@ -29,6 +30,8 @@ class EditProfileState with _$EditProfileState {
   }) = EditProfileSuccessState;
   const factory EditProfileState.editProfileErrorState({
     @Default('') String message,
+    String? errorCode,
+    int? statusCode,
   }) = EditProfileErrorState;
 }
 
@@ -114,7 +117,14 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
         },
       );
     } catch (e) {
-      emitter(EditProfileErrorState(message: e.toString()));
+      final error = AppApiError.fromException(e);
+      emitter(
+        EditProfileErrorState(
+          message: error.displayMessage,
+          errorCode: error.errorCode,
+          statusCode: error.statusCode,
+        ),
+      );
     }
   }
 }

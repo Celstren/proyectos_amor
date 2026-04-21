@@ -96,7 +96,7 @@ class _EditProfileFormsState extends State<EditProfileForms> {
         BlocListener<ProfilePictureBloc, ProfilePictureState>(
           listener: (context, state) {
             state.maybeWhen(
-              error: (message) {
+              error: (message, errorCode) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(message),

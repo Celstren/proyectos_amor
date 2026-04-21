@@ -31,27 +31,36 @@ class _LoginContentState extends State<LoginContent> {
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
           state.maybeWhen(
-            loginSuccessState: () => context.router.replace(const HomePageRoute()),
-            loginErrorState: (message) {
+            loginSuccessState: () =>
+                context.router.replace(const HomePageRoute()),
+            loginErrorState: (message, errorCode, statusCode) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(message.isNotEmpty ? message : 'Ocurrió un error inesperado'),
+                  content: Text(message.isNotEmpty
+                      ? message
+                      : 'Ocurrió un error inesperado'),
                   backgroundColor: Colors.red,
                 ),
               );
             },
-            loginConnectionErrorState: () {
+            loginConnectionErrorState: (message, errorCode) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Error de conexión. Revisa tu internet.'),
+                SnackBar(
+                  content: Text(
+                    message.isNotEmpty
+                        ? message
+                        : 'Error de conexión. Revisa tu internet.',
+                  ),
                   backgroundColor: Colors.orange,
                 ),
               );
             },
-            loginUnauthorizedState: () {
-               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Credenciales incorrectas.'),
+            loginUnauthorizedState: (message, errorCode, statusCode) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    message.isNotEmpty ? message : 'Credenciales incorrectas.',
+                  ),
                   backgroundColor: Colors.red,
                 ),
               );
@@ -82,13 +91,15 @@ class _LoginContentState extends State<LoginContent> {
                       label: LoginStrings.loginContentPasswordLabel,
                       hint: LoginStrings.loginContentPasswordHint,
                       obscured: isObscured,
-                      onObscureTap: () => context.read<ObscureTextCubit>().toggle(),
+                      onObscureTap: () =>
+                          context.read<ObscureTextCubit>().toggle(),
                     );
                   },
                 ),
                 const SizedBox(height: SizeConstants.xl),
                 GestureDetector(
-                  onTap: () => AutoRouter.of(context).push(const ForgotPasswordPageRoute()),
+                  onTap: () => AutoRouter.of(context)
+                      .push(const ForgotPasswordPageRoute()),
                   behavior: HitTestBehavior.opaque,
                   child: const AppText.normal(
                     LoginStrings.loginContentForgotAccountLabel,
@@ -102,14 +113,19 @@ class _LoginContentState extends State<LoginContent> {
                   builder: (context, state) {
                     final isLoading = state is LoginLoadingState;
                     return AppButton.solid(
-                      onTap: isLoading ? null : () => context.read<LoginBloc>().add(const Login()),
-                      text: isLoading ? 'Iniciando sesión...' : LoginStrings.loginContentPrimaryButton,
+                      onTap: isLoading
+                          ? null
+                          : () => context.read<LoginBloc>().add(const Login()),
+                      text: isLoading
+                          ? 'Iniciando sesión...'
+                          : LoginStrings.loginContentPrimaryButton,
                     );
                   },
                 ),
                 const SizedBox(height: SizeConstants.xl),
                 AppButton.link(
-                  onTap: () => AutoRouter.of(context).push(const CreateAccountPageRoute()),
+                  onTap: () => AutoRouter.of(context)
+                      .push(const CreateAccountPageRoute()),
                   text: LoginStrings.loginContentSecondaryButton,
                 ),
               ],

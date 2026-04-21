@@ -239,7 +239,8 @@ class _AuthenticatedDonationContentViewState
                         if (isLoadingMore) const _DonationLoadMoreSkeleton(),
                       ],
                     ),
-                    listDonationsErrorState: (message) => Padding(
+                    listDonationsErrorState: (message, errorCode, statusCode) =>
+                        Padding(
                       padding: const EdgeInsets.only(top: 32),
                       child: AppText.normal(
                         message,

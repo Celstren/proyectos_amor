@@ -55,7 +55,8 @@ class CreateAccountPassword extends StatelessWidget {
             if (imageUploadFailed) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text('Cuenta creada, pero no pudimos subir tu foto.'),
+                  content:
+                      Text('Cuenta creada, pero no pudimos subir tu foto.'),
                   backgroundColor: Colors.orange,
                 ),
               );
@@ -64,7 +65,7 @@ class CreateAccountPassword extends StatelessWidget {
                 .read<ChangeCreateAccountStepCubit>()
                 .change(CreateAccountStep.completed);
           },
-          signUpErrorState: (message) =>
+          signUpErrorState: (message, errorCode, statusCode) =>
               ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(message),
@@ -82,8 +83,8 @@ class CreateAccountPassword extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(
-                  top: SizeConstants.xl +
-                      MediaQuery.of(context).viewPadding.top,
+                  top:
+                      SizeConstants.xl + MediaQuery.of(context).viewPadding.top,
                   left: SizeConstants.xl,
                   right: SizeConstants.xl,
                   bottom: SizeConstants.xl,
@@ -127,18 +128,15 @@ class CreateAccountPassword extends StatelessWidget {
                           controller: signUpBloc.passwordController,
                           label:
                               CreateAccountStrings.createAccountPasswordLabel,
-                          hint:
-                              CreateAccountStrings.createAccountPasswordHint,
+                          hint: CreateAccountStrings.createAccountPasswordHint,
                           obscured: isObscured,
-                          onObscureTap: () => context
-                              .read<PasswordVisibilityCubit>()
-                              .toggle(),
-                          onChanged: (value) => context
-                              .read<PasswordValidationCubit>()
-                              .validate(
-                                value,
-                                signUpBloc.confirmPassword,
-                              ),
+                          onObscureTap: () =>
+                              context.read<PasswordVisibilityCubit>().toggle(),
+                          onChanged: (value) =>
+                              context.read<PasswordValidationCubit>().validate(
+                                    value,
+                                    signUpBloc.confirmPassword,
+                                  ),
                         );
                       },
                     ),
@@ -150,8 +148,7 @@ class CreateAccountPassword extends StatelessWidget {
                           children: [
                             Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Expanded(
@@ -173,8 +170,7 @@ class CreateAccountPassword extends StatelessWidget {
                             const SizedBox(height: SizeConstants.xl),
                             Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Expanded(
@@ -196,8 +192,7 @@ class CreateAccountPassword extends StatelessWidget {
                             const SizedBox(height: SizeConstants.xl),
                             Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Expanded(
@@ -225,15 +220,13 @@ class CreateAccountPassword extends StatelessWidget {
                           hint: CreateAccountStrings
                               .createAccountConfirmPasswordHint,
                           obscured: isObscured,
-                          onObscureTap: () => context
-                              .read<PasswordVisibilityCubit>()
-                              .toggle(),
-                          onChanged: (value) => context
-                              .read<PasswordValidationCubit>()
-                              .validate(
-                                signUpBloc.password,
-                                value,
-                              ),
+                          onObscureTap: () =>
+                              context.read<PasswordVisibilityCubit>().toggle(),
+                          onChanged: (value) =>
+                              context.read<PasswordValidationCubit>().validate(
+                                    signUpBloc.password,
+                                    value,
+                                  ),
                         );
                       },
                     ),
@@ -246,9 +239,8 @@ class CreateAccountPassword extends StatelessWidget {
                         onBack: () => context
                             .read<ChangeCreateAccountStepCubit>()
                             .change(CreateAccountStep.picture),
-                        onNext: isSignUpLoading
-                            ? null
-                            : () => _onSignUp(context),
+                        onNext:
+                            isSignUpLoading ? null : () => _onSignUp(context),
                       ),
                     ),
                   ],

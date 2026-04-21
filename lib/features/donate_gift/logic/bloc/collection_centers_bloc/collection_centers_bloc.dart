@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/collection_center_service/collection_center_service.dart';
 import 'package:proyectos_amor/services/collection_center_service/models/collection_center_response.dart';
 
@@ -25,6 +26,8 @@ class CollectionCentersState with _$CollectionCentersState {
   }) = CollectionCentersSuccessState;
   const factory CollectionCentersState.collectionCentersErrorState({
     @Default('') String message,
+    String? errorCode,
+    int? statusCode,
   }) = CollectionCentersErrorState;
 }
 
@@ -71,7 +74,14 @@ class CollectionCentersBloc
         },
       );
     } catch (e) {
-      emitter(CollectionCentersErrorState(message: e.toString()));
+      final error = AppApiError.fromException(e);
+      emitter(
+        CollectionCentersErrorState(
+          message: error.displayMessage,
+          errorCode: error.errorCode,
+          statusCode: error.statusCode,
+        ),
+      );
     }
   }
 }

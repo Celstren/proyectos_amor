@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:proyectos_amor/config/file_extension.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/donation_service/donation_service.dart';
 import 'package:proyectos_amor/services/donation_service/models/create_donation_request.dart';
 import 'package:proyectos_amor/services/donation_service/models/donation_response.dart';
@@ -30,6 +31,8 @@ class CreateDonationState with _$CreateDonationState {
   }) = CreateDonationSuccessState;
   const factory CreateDonationState.createDonationErrorState({
     @Default('') String message,
+    String? errorCode,
+    int? statusCode,
   }) = CreateDonationErrorState;
 }
 
@@ -104,7 +107,14 @@ class CreateDonationBloc
         },
       );
     } catch (e) {
-      emitter(CreateDonationErrorState(message: e.toString()));
+      final error = AppApiError.fromException(e);
+      emitter(
+        CreateDonationErrorState(
+          message: error.displayMessage,
+          errorCode: error.errorCode,
+          statusCode: error.statusCode,
+        ),
+      );
     }
   }
 }

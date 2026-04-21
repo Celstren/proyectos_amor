@@ -16,20 +16,24 @@ class DioClient {
   DioClient(this._client, this._sharedPreferencesService);
 
   Future<Response> get(
-      String url, {
-        Map<String, dynamic>? headers,
-        CancelToken? cancelToken,
-        Map<String, String>? queryParams,
-        Map<String, dynamic>? extra,
-        Duration? connectionTimeout,
-        String? language,
-        bool applyToken = true,
-      }) async {
+    String url, {
+    Map<String, dynamic>? headers,
+    CancelToken? cancelToken,
+    Map<String, String>? queryParams,
+    Map<String, dynamic>? extra,
+    Duration? connectionTimeout,
+    String? language,
+    bool applyToken = true,
+  }) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
     final dioHeaders = (headers ?? <String, dynamic>{});
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     dioHeaders.addAll({
       if (token.isNotEmpty && applyToken)
         HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -37,30 +41,32 @@ class DioClient {
     if (connectionTimeout != null) {
       _client.options.connectTimeout = connectionTimeout;
     }
-    return await _client.get(
-        url,
+    return await _client.get(url,
         options: Options(headers: dioHeaders, extra: extra),
         queryParameters: queryParams,
-        cancelToken: cancelToken
-    );
+        cancelToken: cancelToken);
   }
 
   Future<Response> post(
-      String url, {
-        Map<String, dynamic>? headers,
-        Map<String, dynamic>? body,
-        CancelToken? cancelToken,
-        Map<String, String>? queryParams,
-        Map<String, dynamic>? extra,
-        Duration? connectionTimeout,
-        String? language,
-        bool applyToken = true,
-      }) async {
+    String url, {
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? body,
+    CancelToken? cancelToken,
+    Map<String, String>? queryParams,
+    Map<String, dynamic>? extra,
+    Duration? connectionTimeout,
+    String? language,
+    bool applyToken = true,
+  }) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
     final dioHeaders = (headers ?? <String, dynamic>{});
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     dioHeaders.addAll({
       if (token.isNotEmpty && applyToken)
         HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -78,21 +84,25 @@ class DioClient {
   }
 
   Future<Response> put(
-      String url, {
-        Map<String, dynamic>? headers,
-        Map<String, dynamic>? body,
-        CancelToken? cancelToken,
-        Map<String, String>? queryParams,
-        Map<String, dynamic>? extra,
-        Duration? connectionTimeout,
-        String? language,
-        bool applyToken = true,
-      }) async {
+    String url, {
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? body,
+    CancelToken? cancelToken,
+    Map<String, String>? queryParams,
+    Map<String, dynamic>? extra,
+    Duration? connectionTimeout,
+    String? language,
+    bool applyToken = true,
+  }) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
     final dioHeaders = (headers ?? <String, dynamic>{});
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     dioHeaders.addAll({
       if (token.isNotEmpty && applyToken)
         HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -110,21 +120,25 @@ class DioClient {
   }
 
   Future<Response> patch(
-      String url, {
-        Map<String, dynamic>? headers,
-        Map<String, dynamic>? body,
-        CancelToken? cancelToken,
-        Map<String, String>? queryParams,
-        Map<String, dynamic>? extra,
-        Duration? connectionTimeout,
-        String? language,
-        bool applyToken = true,
-      }) async {
+    String url, {
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? body,
+    CancelToken? cancelToken,
+    Map<String, String>? queryParams,
+    Map<String, dynamic>? extra,
+    Duration? connectionTimeout,
+    String? language,
+    bool applyToken = true,
+  }) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
     final dioHeaders = (headers ?? <String, dynamic>{});
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     dioHeaders.addAll({
       if (token.isNotEmpty && applyToken)
         HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -142,21 +156,25 @@ class DioClient {
   }
 
   Future<Response> delete(
-      String url, {
-        Map<String, dynamic>? headers,
-        Map<String, dynamic>? body,
-        CancelToken? cancelToken,
-        Map<String, String>? queryParams,
-        Map<String, dynamic>? extra,
-        Duration? connectionTimeout,
-        String? language,
-        bool applyToken = true,
-      }) async {
+    String url, {
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? body,
+    CancelToken? cancelToken,
+    Map<String, String>? queryParams,
+    Map<String, dynamic>? extra,
+    Duration? connectionTimeout,
+    String? language,
+    bool applyToken = true,
+  }) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
     final dioHeaders = (headers ?? <String, dynamic>{});
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     dioHeaders.addAll({
       if (token.isNotEmpty && applyToken)
         HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -174,22 +192,26 @@ class DioClient {
   }
 
   Future<Response> download(
-      String url,
-      String savePath, {
-        Map<String, dynamic>? headers,
-        Map<String, dynamic>? body,
-        CancelToken? cancelToken,
-        Map<String, String>? queryParams,
-        Map<String, dynamic>? extra,
-        Duration? connectionTimeout,
-        String? language,
-        bool applyToken = true,
-      }) async {
+    String url,
+    String savePath, {
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? body,
+    CancelToken? cancelToken,
+    Map<String, String>? queryParams,
+    Map<String, dynamic>? extra,
+    Duration? connectionTimeout,
+    String? language,
+    bool applyToken = true,
+  }) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
     final dioHeaders = (headers ?? <String, dynamic>{});
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     dioHeaders.addAll({
       if (token.isNotEmpty && applyToken)
         HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -208,22 +230,26 @@ class DioClient {
   }
 
   Future<Response> upload(
-      String url, {
-        required String path,
-        Map<String, dynamic>? data,
-        Map<String, dynamic>? headers,
-        CancelToken? cancelToken,
-        Map<String, String>? queryParams,
-        Map<String, dynamic>? extra,
-        Duration? connectionTimeout,
-        String? language,
-        bool applyToken = true,
-      }) async {
+    String url, {
+    required String path,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? headers,
+    CancelToken? cancelToken,
+    Map<String, String>? queryParams,
+    Map<String, dynamic>? extra,
+    Duration? connectionTimeout,
+    String? language,
+    bool applyToken = true,
+  }) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
     final dioHeaders = (headers ?? <String, dynamic>{});
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     dioHeaders.addAll({
       if (token.isNotEmpty && applyToken)
         HttpHeaders.authorizationHeader: 'Bearer $token',
@@ -234,7 +260,8 @@ class DioClient {
 
     final file = File(path);
     final formData = FormData.fromMap({
-      'file': await MultipartFile.fromFile(file.path, contentType: file.dioMediaType),
+      'file': await MultipartFile.fromFile(file.path,
+          contentType: file.dioMediaType),
       if (data != null) ...data,
     });
 
@@ -248,21 +275,25 @@ class DioClient {
   }
 
   Future<Response> uploadRaw(
-      String url, {
-        Map<String, dynamic>? headers,
-        String path = '',
-        CancelToken? cancelToken,
-        Map<String, String>? queryParams,
-        Map<String, dynamic>? extra,
-        Duration? connectionTimeout,
-        String? language,
-        bool applyToken = true,
-      }) async {
+    String url, {
+    Map<String, dynamic>? headers,
+    String path = '',
+    CancelToken? cancelToken,
+    Map<String, String>? queryParams,
+    Map<String, dynamic>? extra,
+    Duration? connectionTimeout,
+    String? language,
+    bool applyToken = true,
+  }) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
     final dioHeaders = (headers ?? <String, dynamic>{});
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     final file = File(path);
     dioHeaders.addAll({
       if (token.isNotEmpty && applyToken)
@@ -280,14 +311,17 @@ class DioClient {
     );
   }
 
-  Future<Response> fetchRaw({ required RequestOptions requestOptions }) async {
+  Future<Response> fetchRaw({required RequestOptions requestOptions}) async {
     if (!await _checkInternetConnection()) {
-      throw const AppApiException('Internet connection Error');
+      throw const AppApiException(
+        'No internet connection',
+        errorCode: 'NETWORK_001',
+      );
     }
-    final token = _sharedPreferencesService.getString(SharedPreferencesKeys.accessTokenKey);
+    final token = _sharedPreferencesService
+        .getString(SharedPreferencesKeys.accessTokenKey);
     requestOptions.headers.addAll({
-      if (token.isNotEmpty)
-        HttpHeaders.authorizationHeader: 'Bearer $token',
+      if (token.isNotEmpty) HttpHeaders.authorizationHeader: 'Bearer $token',
     });
     return await _client.fetch(requestOptions);
   }
@@ -295,6 +329,8 @@ class DioClient {
   Future<bool> _checkInternetConnection({bool test = false}) async {
     if (test) return true;
     var connectivityResult = await (Connectivity().checkConnectivity());
-    return connectivityResult.contains(ConnectivityResult.wifi) || connectivityResult.contains(ConnectivityResult.ethernet) || connectivityResult.contains(ConnectivityResult.mobile);
+    return connectivityResult.contains(ConnectivityResult.wifi) ||
+        connectivityResult.contains(ConnectivityResult.ethernet) ||
+        connectivityResult.contains(ConnectivityResult.mobile);
   }
 }

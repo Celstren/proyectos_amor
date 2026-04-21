@@ -88,7 +88,7 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile>
             const OnboardingPageRoute(),
             const LoginPageRoute(),
           ]),
-          logoutErrorState: (message) {
+          logoutErrorState: (message, errorCode, statusCode) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(message),

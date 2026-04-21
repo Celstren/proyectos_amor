@@ -1,7 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/storage_service/entities/system_user_entity.dart';
 import 'package:proyectos_amor/services/storage_service/implementations/system_user_box_service.dart';
 import 'package:proyectos_amor/services/user_service/user_service.dart';
@@ -28,6 +28,8 @@ class FetchProfileState with _$FetchProfileState {
   }) = FetchProfileSuccessState;
   const factory FetchProfileState.fetchProfileErrorState({
     @Default('') String message,
+    String? errorCode,
+    int? statusCode,
   }) = FetchProfileErrorState;
   const factory FetchProfileState.fetchProfileUnauthorizedState() =
       FetchProfileUnauthorizedState;
@@ -85,14 +87,19 @@ class FetchProfileBloc extends Bloc<FetchProfileEvent, FetchProfileState> {
           emitter(FetchProfileSuccessState(user: userEntity));
         },
       );
-    } on DioException catch (e) {
-      if (e.response?.statusCode == 401) {
+    } catch (e) {
+      final error = AppApiError.fromException(e);
+      if (error.isUnauthorized) {
         emitter(const FetchProfileUnauthorizedState());
       } else {
-        emitter(FetchProfileErrorState(message: e.toString()));
+        emitter(
+          FetchProfileErrorState(
+            message: error.displayMessage,
+            errorCode: error.errorCode,
+            statusCode: error.statusCode,
+          ),
+        );
       }
-    } catch (e) {
-      emitter(FetchProfileErrorState(message: e.toString()));
     }
   }
 }

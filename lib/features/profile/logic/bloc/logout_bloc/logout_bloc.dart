@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/shared_preferences_service/shared_preferences_service.dart';
 import 'package:proyectos_amor/services/storage_service/implementations/system_user_box_service.dart';
 
@@ -13,10 +14,15 @@ class LogoutEvent with _$LogoutEvent {
 
 @freezed
 class LogoutState with _$LogoutState {
-  const factory LogoutState.logoutUninitializedState() = LogoutUninitializedState;
+  const factory LogoutState.logoutUninitializedState() =
+      LogoutUninitializedState;
   const factory LogoutState.logoutLoadingState() = LogoutLoadingState;
   const factory LogoutState.logoutSuccessState() = LogoutSuccessState;
-  const factory LogoutState.logoutErrorState({@Default('') String message}) = LogoutErrorState;
+  const factory LogoutState.logoutErrorState({
+    @Default('') String message,
+    String? errorCode,
+    int? statusCode,
+  }) = LogoutErrorState;
 }
 
 /// [LogoutBloc] handles the user sign-out process.
@@ -47,7 +53,14 @@ class LogoutBloc extends Bloc<LogoutEvent, LogoutState> {
 
       emitter(const LogoutSuccessState());
     } catch (e) {
-      emitter(LogoutErrorState(message: e.toString()));
+      final error = AppApiError.fromException(e);
+      emitter(
+        LogoutErrorState(
+          message: error.displayMessage,
+          errorCode: error.errorCode,
+          statusCode: error.statusCode,
+        ),
+      );
     }
   }
 }
