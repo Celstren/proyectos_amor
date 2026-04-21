@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/config/app_sentry.dart';
 import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/storage_service/entities/system_user_entity.dart';
 import 'package:proyectos_amor/services/storage_service/implementations/system_user_box_service.dart';
@@ -84,11 +85,19 @@ class FetchProfileBloc extends Bloc<FetchProfileEvent, FetchProfileState> {
           );
 
           _systemUserBoxService.put(userEntity);
+          await AppSentry.setUser(userEntity);
           emitter(FetchProfileSuccessState(user: userEntity));
         },
       );
-    } catch (e) {
+    } catch (e, stackTrace) {
       final error = AppApiError.fromException(e);
+      await AppSentry.captureApiError(
+        error: error,
+        exception: e,
+        stackTrace: stackTrace,
+        feature: 'profile',
+        operation: 'fetchProfile',
+      );
       if (error.isUnauthorized) {
         emitter(const FetchProfileUnauthorizedState());
       } else {

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/config/app_sentry.dart';
 import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/shared_preferences_service/shared_preferences_service.dart';
 import 'package:proyectos_amor/services/storage_service/implementations/system_user_box_service.dart';
@@ -50,10 +51,18 @@ class LogoutBloc extends Bloc<LogoutEvent, LogoutState> {
 
       // 2. Clear ObjectBox (Local user entity)
       _systemUserBoxService.removeAll();
+      await AppSentry.clearUser();
 
       emitter(const LogoutSuccessState());
-    } catch (e) {
+    } catch (e, stackTrace) {
       final error = AppApiError.fromException(e);
+      await AppSentry.captureApiError(
+        error: error,
+        exception: e,
+        stackTrace: stackTrace,
+        feature: 'profile',
+        operation: 'logout',
+      );
       emitter(
         LogoutErrorState(
           message: error.displayMessage,

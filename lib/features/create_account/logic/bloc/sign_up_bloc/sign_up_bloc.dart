@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/config/app_sentry.dart';
 import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/authentication_service/authentication_service.dart';
 import 'package:proyectos_amor/services/authentication_service/models/request/register_request.dart';
@@ -111,7 +112,15 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
                 fileType: 'image',
               );
               profileImageUrl = uploadResponse.publicUrl;
-            } catch (e) {
+            } catch (e, stackTrace) {
+              final error = AppApiError.fromException(e);
+              await AppSentry.captureApiError(
+                error: error,
+                exception: e,
+                stackTrace: stackTrace,
+                feature: 'createAccount',
+                operation: 'uploadProfileImage',
+              );
               // If image fails, we continue but mark it as failed
               imageUploadFailed = true;
             }
@@ -144,12 +153,20 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
             createdAt: profile.createdAt?.toIso8601String() ?? '',
           );
           _systemUserBoxService.put(userEntity);
+          await AppSentry.setUser(userEntity);
 
           emitter(SignUpSuccessState(imageUploadFailed: imageUploadFailed));
         },
       );
-    } catch (e) {
+    } catch (e, stackTrace) {
       final error = AppApiError.fromException(e);
+      await AppSentry.captureApiError(
+        error: error,
+        exception: e,
+        stackTrace: stackTrace,
+        feature: 'createAccount',
+        operation: 'signUp',
+      );
       emitter(
         SignUpErrorState(
           message: error.displayMessage,

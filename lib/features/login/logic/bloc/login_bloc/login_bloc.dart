@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/config/app_sentry.dart';
 import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/authentication_service/authentication_service.dart';
 import 'package:proyectos_amor/services/authentication_service/models/request/login_request.dart';
@@ -96,12 +97,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             createdAt: profile.createdAt?.toIso8601String() ?? '',
           );
           _systemUserBoxService.put(userEntity);
+          await AppSentry.setUser(userEntity);
 
           emitter(const LoginSuccessState());
         },
       );
-    } catch (e) {
+    } catch (e, stackTrace) {
       final error = AppApiError.fromException(e);
+      await AppSentry.captureApiError(
+        error: error,
+        exception: e,
+        stackTrace: stackTrace,
+        feature: 'login',
+        operation: 'login',
+      );
 
       if (error.isConnectionError) {
         emitter(

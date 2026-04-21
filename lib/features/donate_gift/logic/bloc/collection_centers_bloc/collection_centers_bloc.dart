@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:proyectos_amor/config/app_sentry.dart';
 import 'package:proyectos_amor/networking/app_api_error.dart';
 import 'package:proyectos_amor/services/collection_center_service/collection_center_service.dart';
 import 'package:proyectos_amor/services/collection_center_service/models/collection_center_response.dart';
@@ -73,8 +74,15 @@ class CollectionCentersBloc
           );
         },
       );
-    } catch (e) {
+    } catch (e, stackTrace) {
       final error = AppApiError.fromException(e);
+      await AppSentry.captureApiError(
+        error: error,
+        exception: e,
+        stackTrace: stackTrace,
+        feature: 'donateGift',
+        operation: 'fetchCollectionCenters',
+      );
       emitter(
         CollectionCentersErrorState(
           message: error.displayMessage,

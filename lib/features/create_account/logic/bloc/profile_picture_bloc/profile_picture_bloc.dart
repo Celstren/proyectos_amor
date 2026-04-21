@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:proyectos_amor/config/app_sentry.dart';
 import 'package:proyectos_amor/config/helpers/image_helper.dart';
 import 'package:proyectos_amor/networking/app_api_error.dart';
 
@@ -63,8 +64,15 @@ class ProfilePictureBloc
           'The image is too large and could not be optimized. Please select another.',
         ));
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
       final error = AppApiError.fromException(e);
+      await AppSentry.captureApiError(
+        error: error,
+        exception: e,
+        stackTrace: stackTrace,
+        feature: 'createAccount',
+        operation: 'pickProfileImage',
+      );
       emitter(
         ProfilePictureState.error(
           error.displayMessage,

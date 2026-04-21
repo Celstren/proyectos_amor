@@ -3,18 +3,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:proyectos_amor/config/app_config.dart';
+import 'package:proyectos_amor/config/app_sentry.dart';
 import 'package:proyectos_amor/features/create_account/logic/bloc/fetch_profile_bloc/fetch_profile_bloc.dart';
 import 'package:proyectos_amor/injection.dart';
 import 'package:intl/intl.dart';
 import 'package:proyectos_amor/router/app_router.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 Future<void> main() async {
-  configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
-  await getIt<AppConfig>().initialize();
-  getIt.registerSingleton<AppRouter>(AppRouter());
-  Intl.defaultLocale = 'en';
-  runApp(const MyApp());
+  await AppSentry.initialize(
+    appRunner: () async {
+      configureDependencies();
+      await getIt<AppConfig>().initialize();
+      getIt.registerSingleton<AppRouter>(AppRouter());
+      Intl.defaultLocale = 'en';
+      runApp(AppSentry.wrapApp(const MyApp()));
+    },
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -36,7 +42,11 @@ class _MyAppState extends State<MyApp> {
     return BlocProvider<FetchProfileBloc>(
       create: (_) => getIt<FetchProfileBloc>(),
       child: MaterialApp.router(
-        routerConfig: _appRouter.config(),
+        routerConfig: _appRouter.config(
+          navigatorObservers: () => [
+            if (AppSentry.isEnabled) SentryNavigatorObserver(),
+          ],
+        ),
         debugShowCheckedModeBanner: false,
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
