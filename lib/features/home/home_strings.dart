@@ -2,7 +2,7 @@ import 'package:proyectos_amor/config/app_constants.dart';
 
 class HomeStrings {
   static const String homeGreetingTitle = 'Hola, amigo solidario';
-  static const String homeHowHelpTitle = '¿Cómo puedo ayudar?';
+  static const String homeHowHelpTitle = '¿Cómo puedes ayudar?';
 
   static const String homeMoneyHelpTitle = 'Donar dinero';
   static String homeMoneyHelpSubTitle = 'Desde ${AppConstants.appCurrency} ${AppConstants.appMinimumDonation.toStringAsFixed(2)}';

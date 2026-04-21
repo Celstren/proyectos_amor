@@ -8,7 +8,7 @@ import 'package:proyectos_amor/features/create_account/logic/bloc/fetch_profile_
 import 'package:proyectos_amor/features/create_account/logic/bloc/profile_picture_bloc/profile_picture_bloc.dart';
 import 'package:proyectos_amor/features/edit_profile/edit_profile_strings.dart';
 import 'package:proyectos_amor/features/edit_profile/logic/bloc/edit_profile_bloc/edit_profile_bloc.dart';
-import 'package:proyectos_amor/features/profile/profile_images.dart';
+import 'package:proyectos_amor/features/profile/presentation/content/user_initials_avatar.dart';
 
 class EditProfileForms extends StatefulWidget {
   const EditProfileForms({super.key});
@@ -83,6 +83,7 @@ class _EditProfileFormsState extends State<EditProfileForms> {
               fetchProfileSuccessState: (user) {
                 editProfileBloc.firstNameController.text = user.firstName ?? '';
                 editProfileBloc.lastNameController.text = user.lastName ?? '';
+                editProfileBloc.bioController.text = user.bio ?? '';
                 _emailController.text = user.email ?? '';
                 setState(() {
                   _currentImageUrl = user.profileImageUrl;
@@ -139,40 +140,20 @@ class _EditProfileFormsState extends State<EditProfileForms> {
                             ),
                           ),
                         ),
-                        orElse: () => Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorsConstant.neutralWhite,
-                            border: Border.all(
+                        orElse: () => UserInitialsAvatar(
+                          firstName: editProfileBloc.firstName,
+                          lastName: editProfileBloc.lastName,
+                          imageUrl: _currentImageUrl,
+                          size: 120,
+                          bottomRight: Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: const BoxDecoration(
                               color: ColorsConstant.neutralWhite,
+                              shape: BoxShape.circle,
                             ),
-                            image: _currentImageUrl != null &&
-                                    _currentImageUrl!.isNotEmpty
-                                ? DecorationImage(
-                                    image: NetworkImage(
-                                      _currentImageUrl!,
-                                    ),
-                                    fit: BoxFit.cover,
-                                  )
-                                : const DecorationImage(
-                                    image: AssetImage(
-                                      ProfileImages.profileUserPlaceholderIcon,
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                          ),
-                          child: Align(
-                            alignment: Alignment.bottomRight,
-                            child: Container(
-                              padding: const EdgeInsets.all(4),
-                              decoration: const BoxDecoration(
-                                color: ColorsConstant.neutralWhite,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const AppIcon.cameraPlusIcon(
-                                size: 16,
-                                color: ColorsConstant.text400,
-                              ),
+                            child: const AppIcon.cameraPlusIcon(
+                              size: 16,
+                              color: ColorsConstant.text400,
                             ),
                           ),
                         ),
@@ -200,6 +181,16 @@ class _EditProfileFormsState extends State<EditProfileForms> {
               label: EditProfileStrings.editProfileFormsEmailLabel,
               hint: EditProfileStrings.editProfileFormsEmailHint,
               enabled: false,
+            ),
+            const SizedBox(height: 18),
+            AppLabeledTextField(
+              controller: editProfileBloc.bioController,
+              label: EditProfileStrings.editProfileFormsBioLabel,
+              hint: EditProfileStrings.editProfileFormsBioHint,
+              height: 120,
+              minLines: 4,
+              maxLines: 4,
+              textAlignVertical: TextAlignVertical.top,
             ),
           ],
         ),

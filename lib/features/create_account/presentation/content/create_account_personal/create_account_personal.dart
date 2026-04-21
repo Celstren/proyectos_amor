@@ -70,6 +70,16 @@ class CreateAccountPersonal extends StatelessWidget {
             label: CreateAccountStrings.createAccountPersonalEmailLabel,
             hint: CreateAccountStrings.createAccountPersonalEmailHint,
           ),
+          const SizedBox(height: SizeConstants.xl),
+          AppLabeledTextField(
+            controller: signUpBloc.bioController,
+            label: CreateAccountStrings.createAccountPersonalBioLabel,
+            hint: CreateAccountStrings.createAccountPersonalBioHint,
+            height: 112,
+            minLines: 3,
+            maxLines: 3,
+            textAlignVertical: TextAlignVertical.top,
+          ),
           const Spacer(),
           Padding(
             padding: EdgeInsets.only(

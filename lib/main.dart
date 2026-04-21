@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:proyectos_amor/config/app_config.dart';
+import 'package:proyectos_amor/features/create_account/logic/bloc/fetch_profile_bloc/fetch_profile_bloc.dart';
 import 'package:proyectos_amor/injection.dart';
 import 'package:intl/intl.dart';
 import 'package:proyectos_amor/router/app_router.dart';
@@ -31,20 +33,23 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return MaterialApp.router(
-      routerConfig: _appRouter.config(),
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('es', 'MX'),
-      ],
-      builder: (BuildContext context, Widget? child) {
-        return child ?? const SizedBox();
-      },
+    return BlocProvider<FetchProfileBloc>(
+      create: (_) => getIt<FetchProfileBloc>(),
+      child: MaterialApp.router(
+        routerConfig: _appRouter.config(),
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('es', 'MX'),
+        ],
+        builder: (BuildContext context, Widget? child) {
+          return child ?? const SizedBox();
+        },
+      ),
     );
   }
 }

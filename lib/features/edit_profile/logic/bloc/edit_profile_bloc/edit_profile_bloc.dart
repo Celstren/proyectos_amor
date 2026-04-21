@@ -49,14 +49,17 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
 
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
+  final bioController = TextEditingController();
 
   String get firstName => firstNameController.text.trim();
   String get lastName => lastNameController.text.trim();
+  String get bio => bioController.text.trim();
 
   @override
   Future<void> close() {
     firstNameController.dispose();
     lastNameController.dispose();
+    bioController.dispose();
     return super.close();
   }
 
@@ -86,6 +89,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
             UpdateProfileRequest(
               firstName: firstName,
               lastName: lastName,
+              bio: bio,
               profileImageUrl: profileImageUrl,
             ),
           );
@@ -101,6 +105,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
             status: profile.status,
             createdAt: profile.createdAt?.toIso8601String() ?? '',
             profileImageUrl: profile.profile?.profileImageUrl ?? '',
+            bio: profile.profile?.bio ?? '',
           );
 
           _systemUserBoxService.put(userEntity);

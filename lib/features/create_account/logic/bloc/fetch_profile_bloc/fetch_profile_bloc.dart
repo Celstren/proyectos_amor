@@ -77,6 +77,8 @@ class FetchProfileBloc extends Bloc<FetchProfileEvent, FetchProfileState> {
             role: profile.role,
             status: profile.status,
             createdAt: profile.createdAt?.toIso8601String() ?? '',
+            profileImageUrl: profile.profile?.profileImageUrl,
+            bio: profile.profile?.bio ?? '',
           );
 
           _systemUserBoxService.put(userEntity);

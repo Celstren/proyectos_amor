@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'dart:ui';
 
@@ -16,9 +15,9 @@ VoidCallback? onUnauthorized;
 @injectable
 class TokenInterceptor extends Interceptor {
   TokenInterceptor(
-      @Named('rawDio') this._rawDio,
-      this._sharedPreferencesService,
-      );
+    @Named('rawDio') this._rawDio,
+    this._sharedPreferencesService,
+  );
 
   final Dio _rawDio;
   final SharedPreferencesService _sharedPreferencesService;
@@ -30,23 +29,25 @@ class TokenInterceptor extends Interceptor {
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     final is401 = err.response?.statusCode == HttpStatus.unauthorized;
     final isRefresh = (err.requestOptions.extra['is_refresh'] ?? false) == true;
-    final isRetry   = (err.requestOptions.extra['is_retry']   ?? false) == true;
+    final isRetry = (err.requestOptions.extra['is_retry'] ?? false) == true;
     final path = err.requestOptions.path;
 
     if (!is401 ||
         isRefresh ||
         isRetry ||
         path.contains('/auth/login') ||
-        path.contains('/auth/signup')) {
+        path.contains('/auth/register')) {
       return super.onError(err, handler);
     }
 
-    final refreshTokenValue =
-    _sharedPreferencesService.getString(SharedPreferencesKeys.refreshTokenKey);
+    final refreshTokenValue = _sharedPreferencesService.getString(
+      SharedPreferencesKeys.refreshTokenKey,
+    );
 
     if (refreshTokenValue.isEmpty) {
+      await _clearTokens();
       onUnauthorized?.call();
-      return;
+      return handler.reject(err);
     }
 
     try {
@@ -69,11 +70,10 @@ class TokenInterceptor extends Interceptor {
       final response = await _rawDio.fetch(retryOptions);
       return handler.resolve(response);
     } catch (e) {
-      debugger(message: '[TOKEN_INTERCEPTOR] TOKEN REFRESHES FAILED ${e.toString()}');
       _refreshing = null;
-      await _sharedPreferencesService.setString(SharedPreferencesKeys.refreshTokenKey, '');
+      await _clearTokens();
       onUnauthorized?.call();
-      return;
+      return handler.reject(err);
     }
   }
 
@@ -86,15 +86,27 @@ class TokenInterceptor extends Interceptor {
       options: Options(extra: {'is_refresh': true}),
     );
 
-    if (resp.statusCode != HttpStatus.ok && resp.statusCode != HttpStatus.created) {
-      debugger(message: '[TOKEN_INTERCEPTOR] TOKEN REFRESH CALL FAILED');
+    if (resp.statusCode != HttpStatus.ok &&
+        resp.statusCode != HttpStatus.created) {
       throw const AppApiException('Refresh failed');
     }
 
     final data = RefreshTokenResponse.fromJson(resp.data);
     final access = data.accessToken;
-    await _sharedPreferencesService.setString(SharedPreferencesKeys.accessTokenKey, access);
+    await _sharedPreferencesService.setString(
+        SharedPreferencesKeys.accessTokenKey, access);
 
     return access;
+  }
+
+  Future<void> _clearTokens() async {
+    await _sharedPreferencesService.setString(
+      SharedPreferencesKeys.accessTokenKey,
+      '',
+    );
+    await _sharedPreferencesService.setString(
+      SharedPreferencesKeys.refreshTokenKey,
+      '',
+    );
   }
 }

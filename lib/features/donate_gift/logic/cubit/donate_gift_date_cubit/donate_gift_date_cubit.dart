@@ -1,24 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
-enum GiftDate { now, inHours, tomorrow, other }
+extension DonateGiftDateExtension on DateTime {
+  DateTime get pickupAt => this;
 
-extension GiftDateExtension on GiftDate {
-  String get text {
-    switch(this) {
-      case GiftDate.now:
-        return 'Ahora mismo';
-      case GiftDate.inHours:
-        return 'En unas horas';
-      case GiftDate.tomorrow:
-        return 'Mañana';
-      case GiftDate.other:
-        return 'Otro';
-    }
-  }
+  String get confirmText =>
+      DateFormat('dd MMM yyyy, h:mm a', 'es_MX').format(this);
 }
 
-class DonateGiftDateCubit extends Cubit<GiftDate?> {
+class DonateGiftDateCubit extends Cubit<DateTime?> {
   DonateGiftDateCubit() : super(null);
 
-  void change(GiftDate? date) => emit(date);
+  void change(DateTime? date) => emit(date);
 }

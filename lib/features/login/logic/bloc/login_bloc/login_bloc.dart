@@ -82,6 +82,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             role: profile.role,
             status: profile.status,
             profileImageUrl: profile.profile?.profileImageUrl,
+            bio: profile.profile?.bio ?? '',
             createdAt: profile.createdAt?.toIso8601String() ?? '',
           );
           _systemUserBoxService.put(userEntity);

@@ -5,6 +5,8 @@ import 'package:proyectos_amor/features/donate_money/logic/cubit/donate_money_st
 import 'package:proyectos_amor/features/donate_money/logic/cubit/enable_donation_certification_cubit/enable_donation_certification_cubit.dart';
 import 'package:proyectos_amor/features/donate_money/logic/cubit/payment_method_cubit/payment_method_cubit.dart';
 import 'package:proyectos_amor/features/donate_money/presentation/content/donate_money_content.dart';
+import 'package:proyectos_amor/features/donations/logic/bloc/create_donation_bloc/create_donation_bloc.dart';
+import 'package:proyectos_amor/injection.dart';
 
 @RoutePage(name: 'DonateMoneyPageRoute')
 class DonateMoneyPage extends StatelessWidget {
@@ -14,6 +16,7 @@ class DonateMoneyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: <BlocProvider>[
+        BlocProvider<CreateDonationBloc>(create: (_) => getIt<CreateDonationBloc>()),
         BlocProvider<DonateMoneyStepCubit>(create: (_) => DonateMoneyStepCubit()),
         BlocProvider<PaymentMethodCubit>(create: (_) => PaymentMethodCubit()),
         BlocProvider<EnableDonationCertificationCubit>(create: (_) => EnableDonationCertificationCubit()),

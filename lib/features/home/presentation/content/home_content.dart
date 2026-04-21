@@ -1,6 +1,8 @@
 import 'package:app_ui/app_constants/colors_constant.dart';
 import 'package:app_ui/app_constants/size_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:proyectos_amor/features/create_account/logic/bloc/fetch_profile_bloc/fetch_profile_bloc.dart';
 import 'package:proyectos_amor/features/home/presentation/content/home_activity/home_activity.dart';
 import 'package:proyectos_amor/features/home/presentation/content/home_certification/home_certification.dart';
 import 'package:proyectos_amor/features/home/presentation/content/home_donation/home_donation.dart';
@@ -17,6 +19,12 @@ class HomeContent extends StatefulWidget {
 }
 
 class _HomeContentState extends State<HomeContent> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<FetchProfileBloc>().add(const FetchLocalProfile());
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Material(

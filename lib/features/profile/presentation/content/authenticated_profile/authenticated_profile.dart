@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:proyectos_amor/features/create_account/logic/bloc/fetch_profile_bloc/fetch_profile_bloc.dart';
 import 'package:proyectos_amor/features/profile/logic/bloc/logout_bloc/logout_bloc.dart';
 import 'package:proyectos_amor/features/profile/presentation/content/authenticated_profile/authenticated_profile_tabs/authenticated_profile_tabs.dart';
-import 'package:proyectos_amor/features/profile/profile_images.dart';
+import 'package:proyectos_amor/features/profile/presentation/content/user_initials_avatar.dart';
 import 'package:proyectos_amor/router/app_router.gr.dart';
 
 class AuthenticatedProfile extends StatefulWidget {
@@ -64,6 +64,19 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile>
         );
       },
     );
+  }
+
+  String _accountTypeLabel(String? accountType) {
+    switch (accountType?.trim().toLowerCase()) {
+      case 'person':
+        return 'Persona amiga';
+      case 'school':
+        return 'Colegio';
+      case 'company':
+        return 'Empresa solidaria';
+      default:
+        return 'Miembro';
+    }
   }
 
   @override
@@ -148,32 +161,10 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile>
                                       const ProfilePicturePreviewPageRoute(),
                                     ),
                                     behavior: HitTestBehavior.opaque,
-                                    child: Container(
-                                      height: 102,
-                                      width: 102,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: ColorsConstant.neutralWhite,
-                                        border: Border.all(
-                                          color: ColorsConstant.neutralWhite,
-                                        ),
-                                        image: user?.profileImageUrl != null &&
-                                                user!
-                                                    .profileImageUrl!.isNotEmpty
-                                            ? DecorationImage(
-                                                image: NetworkImage(
-                                                  user.profileImageUrl!,
-                                                ),
-                                                fit: BoxFit.cover,
-                                              )
-                                            : const DecorationImage(
-                                                image: AssetImage(
-                                                  ProfileImages
-                                                      .profileUserPlaceholderIcon,
-                                                ),
-                                                fit: BoxFit.cover,
-                                              ),
-                                      ),
+                                    child: UserInitialsAvatar(
+                                      firstName: user?.firstName,
+                                      lastName: user?.lastName,
+                                      imageUrl: user?.profileImageUrl,
                                     ),
                                   ),
                                 ),
@@ -187,7 +178,7 @@ class _AuthenticatedProfileState extends State<AuthenticatedProfile>
                                 ),
                                 const SizedBox(height: SizeConstants.xs),
                                 AppText.normal(
-                                  user?.role ?? 'Miembro',
+                                  _accountTypeLabel(user?.accountType),
                                   fontSize: 14,
                                   fontColor:
                                       ColorsConstant.splashPrimaryFontColor,

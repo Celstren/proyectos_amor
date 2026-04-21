@@ -14,6 +14,7 @@ class SystemUserEntity {
   String? status;
   String? createdAt;
   String? profileImageUrl;
+  String? bio;
 
   SystemUserEntity({
     this.id = 0,
@@ -26,6 +27,7 @@ class SystemUserEntity {
     this.status = '',
     this.createdAt = '',
     this.profileImageUrl = '',
+    this.bio = '',
   });
 
   String get fullName => '$firstName $lastName'.trim();

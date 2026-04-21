@@ -59,12 +59,14 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
   final emailController = TextEditingController();
+  final bioController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
   String get firstName => firstNameController.text.trim();
   String get lastName => lastNameController.text.trim();
   String get email => emailController.text.trim();
+  String get bio => bioController.text.trim();
   String get password => passwordController.text.trim();
   String get confirmPassword => confirmPasswordController.text.trim();
 
@@ -73,6 +75,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     firstNameController.dispose();
     lastNameController.dispose();
     emailController.dispose();
+    bioController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
     return super.close();
@@ -115,6 +118,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
             UpdateProfileRequest(
               firstName: firstName,
               lastName: lastName,
+              bio: bio,
               profileImageUrl: profileImageUrl,
             ),
           );
@@ -132,6 +136,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
             role: profile.role,
             status: profile.status,
             profileImageUrl: profile.profile?.profileImageUrl,
+            bio: profile.profile?.bio ?? '',
             createdAt: profile.createdAt?.toIso8601String() ?? '',
           );
           _systemUserBoxService.put(userEntity);

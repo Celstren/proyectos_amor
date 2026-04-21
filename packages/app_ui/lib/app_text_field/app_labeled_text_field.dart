@@ -15,6 +15,10 @@ class AppLabeledTextField extends StatelessWidget {
   final Function(String)? onSubmitted;
   final Function(String)? onChanged;
   final List<TextInputFormatter>? inputFormatters;
+  final double height;
+  final int? maxLines;
+  final int? minLines;
+  final TextAlignVertical? textAlignVertical;
   const AppLabeledTextField({
     super.key,
     this.label = '',
@@ -27,6 +31,10 @@ class AppLabeledTextField extends StatelessWidget {
     this.onSubmitted,
     this.onChanged,
     this.inputFormatters,
+    this.height = 48,
+    this.maxLines = 1,
+    this.minLines,
+    this.textAlignVertical,
   });
 
   @override
@@ -43,6 +51,7 @@ class AppLabeledTextField extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         AppTextField(
+          height: height,
           controller: controller,
           hint: hint,
           textInputType: textInputType,
@@ -51,19 +60,23 @@ class AppLabeledTextField extends StatelessWidget {
           enabled: enabled,
           readOnly: readOnly,
           inputFormatters: inputFormatters,
+          maxLines: maxLines,
+          minLines: minLines,
+          textAlignVertical: textAlignVertical,
           filled: true,
           fillColor: enabled ? Colors.transparent : ColorsConstant.text100,
         ),
-        if (error.isNotEmpty)
-          ...[
-            const SizedBox(height: 8),
-            AppText.normal(
-              error,
-              textAlign: TextAlign.left,
-              fontSize: 14,
-              fontColor: enabled ? ColorsConstant.feedbackError500 : ColorsConstant.text200,
-            ),
-          ],
+        if (error.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          AppText.normal(
+            error,
+            textAlign: TextAlign.left,
+            fontSize: 14,
+            fontColor: enabled
+                ? ColorsConstant.feedbackError500
+                : ColorsConstant.text200,
+          ),
+        ],
       ],
     );
   }

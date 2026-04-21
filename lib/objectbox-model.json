@@ -53,7 +53,7 @@
     },
     {
       "id": "3:8643999438812417531",
-      "lastPropertyId": "18:8032830263063029097",
+      "lastPropertyId": "19:17895522553023681",
       "name": "SystemUserEntity",
       "properties": [
         {
@@ -105,6 +105,11 @@
         {
           "id": "18:8032830263063029097",
           "name": "profileImageUrl",
+          "type": 9
+        },
+        {
+          "id": "19:17895522553023681",
+          "name": "bio",
           "type": 9
         }
       ],

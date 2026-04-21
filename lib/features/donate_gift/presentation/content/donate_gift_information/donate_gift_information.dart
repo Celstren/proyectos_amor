@@ -5,7 +5,14 @@ import 'package:proyectos_amor/features/donate_gift/donate_gift_strings.dart';
 import 'package:proyectos_amor/features/donate_gift/logic/cubit/donate_gift_step_cubit/donate_gift_step_cubit.dart';
 
 class DonateGiftInformation extends StatelessWidget {
-  const DonateGiftInformation({super.key});
+  final TextEditingController productController;
+  final TextEditingController quantityController;
+
+  const DonateGiftInformation({
+    super.key,
+    required this.productController,
+    required this.quantityController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +21,19 @@ class DonateGiftInformation extends StatelessWidget {
       onPopInvokedWithResult: (didPop, result) {
         context.read<DonateGiftStepCubit>().change(DonateGiftStep.giftType);
       },
-      child: const Column(
+      child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           AppLabeledTextField(
+            controller: productController,
             label: DonateGiftStrings.donateGiftInformationLabel1,
             hint: DonateGiftStrings.donateGiftInformationHint1,
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           AppLabeledTextField(
+            controller: quantityController,
             label: DonateGiftStrings.donateGiftInformationLabel2,
             hint: DonateGiftStrings.donateGiftInformationHint2,
           ),

@@ -1,26 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:proyectos_amor/services/collection_center_service/models/collection_center_response.dart';
 
-enum GiftLocation { location1, location2, location3, location4, location5 }
+extension CollectionCenterDonationExtension on CollectionCenterResponse {
+  String get collectionCenterId => id;
 
-extension GiftLocationExtension on GiftLocation {
-  String get text {
-    switch(this) {
-      case GiftLocation.location1:
-        return 'San Miguel';
-      case GiftLocation.location2:
-        return 'Pueblo Libre';
-      case GiftLocation.location3:
-        return 'San Juan de Lurigancho';
-      case GiftLocation.location4:
-        return 'Ate';
-      case GiftLocation.location5:
-        return 'Cercado de Lima';
-    }
-  }
+  String get confirmText => '$alias\n$address';
 }
 
-class DonateGiftLocationCubit extends Cubit<GiftLocation?> {
+class DonateGiftLocationCubit extends Cubit<CollectionCenterResponse?> {
   DonateGiftLocationCubit() : super(null);
 
-  void change(GiftLocation? location) => emit(location);
+  void change(CollectionCenterResponse? location) => emit(location);
 }
